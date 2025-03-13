@@ -5,16 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fly Buddy - Your AI Copilot</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 </head>
 <body>
 
-    <div class="logo-container">
-        <img src="Fly_Buddy_Logo.png" alt="Fly Buddy Logo" class="logo">
-    </div>
+    <header>
+        <h1 class="logo">FLY BUDDY</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Join Waitlist</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <h1>Welcome to Fly Buddy</h1>
-    <p>Your AI Copilot — Always Ready.</p>
+    <section id="hero">
+        <canvas id="bgCanvas"></canvas>
+        <div class="content">
+            <h1>YOUR AI COPILOT — ALWAYS READY.</h1>
+            <p>Experience the next evolution in aviation technology.</p>
+            <a href="#" class="cta-button">Join the Waitlist</a>
+        </div>
+    </section>
 
-    <script src="script.js"></script>
+    <section id="features">
+        <h2>Key Features</h2>
+        <div class="feature-grid">
+            <div class="feature">
+                <h3>AI Flight Planning</h3>
+                <p>Plan flights with AI-powered insights.</p>
+            </div>
+            <div class="feature">
+                <h3>Live Weather Tracking</h3>
+                <p>Real-time weather updates for safe flights.</p>
+            </div>
+            <div class="feature">
+                <h3>AI Voice Copilot</h3>
+                <p>Interact with your AI copilot through voice.</p>
+            </div>
+        </div>
+    </section>
+
 </body>
 </html>
