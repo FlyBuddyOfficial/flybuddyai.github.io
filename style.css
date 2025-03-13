@@ -1,94 +1,88 @@
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
-    overflow-x: hidden;
-    background-color: #000;
+    margin: 0;
+    padding: 0;
+    background-color: black;
     color: white;
+    text-align: center;
 }
 
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
+nav {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 15px 50px;
-    background: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(10px);
+    padding: 20px;
 }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
+.logo img {
+    width: 120px;
 }
 
-nav ul {
+ul {
     list-style: none;
     display: flex;
     gap: 20px;
 }
 
-nav ul li a {
-    color: white;
+ul li a {
     text-decoration: none;
-    font-size: 18px;
-}
-
-#hero {
-    position: relative;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-#bgCanvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.content {
-    position: relative;
-    z-index: 2;
-}
-
-h1 {
-    font-size: 48px;
+    color: white;
     font-weight: bold;
 }
 
-.cta-button {
-    padding: 12px 24px;
-    background: blue;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(180deg, rgba(0,0,0,0.8), black);
+}
+
+.hero-content {
+    transform: scale(1);
     transition: transform 0.3s ease-in-out;
 }
 
-.cta-button:hover {
-    transform: scale(1.1);
+.hero-content:hover {
+    transform: scale(1.05);
 }
 
-#features {
-    text-align: center;
-    padding: 80px 20px;
+.logo-main {
+    width: 180px;
+    margin-bottom: 20px;
 }
 
-.feature-grid {
+h1 {
+    font-size: 2.5rem;
+}
+
+.cta-button {
+    background-color: blue;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.features {
+    padding: 50px;
+}
+
+.features-grid {
     display: flex;
-    gap: 30px;
+    gap: 20px;
     justify-content: center;
 }
 
-.feature {
-    background: rgba(255, 255, 255, 0.1);
+.feature-card {
+    background-color: #222;
     padding: 20px;
     border-radius: 10px;
     width: 250px;
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: scale(1.1);
 }
