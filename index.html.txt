@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fly Buddy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Fly Buddy</h1>
+        <p>Your AI Copilot — Always Ready.</p>
+        <a href="#" class="waitlist-button">Join the Copilot Waitlist</a>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
