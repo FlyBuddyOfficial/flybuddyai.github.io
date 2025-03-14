@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fly Buddy - Features</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-
     <header>
+        <div class="logo">Fly Buddy</div>
         <nav>
-            <ul class="nav-links">
+            <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="features.html" class="active">Features</a></li>
                 <li><a href="waitlist.html">Join Waitlist</a></li>
@@ -20,15 +20,19 @@
         </nav>
     </header>
 
-    <section class="features">
-        <h2>Key Features</h2>
+    <section class="content">
+        <h1>Key Features</h1>
+        <p>Explore the powerful AI-driven features of Fly Buddy.</p>
         <ul>
             <li>AI Copilot Chat</li>
             <li>Real-time Flight Planning</li>
-            <li>Live Aviation Weather</li>
-            <li>Voice-Activated Flight Plan Generator</li>
+            <li>Voice Recognition for Pilots</li>
+            <li>Live Aviation Weather Updates</li>
         </ul>
     </section>
 
+    <footer>
+        <p>&copy; 2025 Fly Buddy. All rights reserved.</p>
+    </footer>
 </body>
 </html>
