@@ -2,78 +2,52 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: white;
-    color: black;
     text-align: center;
 }
 
 header {
-    background: #004aad;
-    padding: 20px;
+    background-color: #005bbb;
+    padding: 10px 0;
 }
 
-.logo img {
-    width: 150px;
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
 }
 
-.nav-links {
+nav ul {
     list-style: none;
     padding: 0;
-    display: flex;
-    justify-content: center;
 }
 
-.nav-links li {
+nav ul li {
+    display: inline;
     margin: 0 15px;
 }
 
-.nav-links a {
-    text-decoration: none;
+nav ul li a {
     color: white;
-    font-size: 18px;
-}
-
-.nav-links a.active {
-    font-weight: bold;
-    border-bottom: 2px solid white;
+    text-decoration: none;
 }
 
 .hero {
-    padding: 100px 20px;
+    padding: 50px;
+    background-color: #f4f4f4;
 }
 
 .btn {
-    background: #004aad;
-    color: white;
+    display: inline-block;
     padding: 10px 20px;
+    background-color: #005bbb;
+    color: white;
     text-decoration: none;
     border-radius: 5px;
-    display: inline-block;
 }
 
-section {
-    padding: 50px;
-}
-
-.waitlist input {
-    padding: 10px;
-    width: 250px;
-    margin-right: 10px;
-}
-
-.waitlist button {
-    padding: 10px;
-    background: #004aad;
+footer {
+    background-color: #222;
     color: white;
-    border: none;
-    cursor: pointer;
-}
-
-.contact p {
-    font-size: 18px;
-}
-
-/* Smooth Page Transitions */
-html {
-    scroll-behavior: smooth;
+    padding: 10px 0;
+    margin-top: 50px;
 }
