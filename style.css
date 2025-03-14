@@ -1,93 +1,79 @@
-/* Reset Styles */
-body, h1, h2, h3, p, ul, li, a {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    list-style: none;
-}
-
-/* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: black;
-    color: white;
+    margin: 0;
+    padding: 0;
+    background: white;
+    color: black;
     text-align: center;
+}
+
+header {
+    background: #004aad;
     padding: 20px;
 }
 
-/* Header */
-header {
+.logo img {
+    width: 150px;
+}
+
+.nav-links {
+    list-style: none;
+    padding: 0;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-}
-
-.logo {
-    width: 120px;
-}
-
-/* Navigation */
-nav ul {
-    display: flex;
-    gap: 20px;
-}
-
-nav ul li a {
-    color: white;
-    font-weight: bold;
-}
-
-/* Hero Section */
-.hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 70vh;
 }
 
-.hero h1 {
-    font-size: 2.5em;
+.nav-links li {
+    margin: 0 15px;
 }
 
-.hero p {
-    margin-top: 10px;
-    font-size: 1.2em;
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
 }
 
-.button {
-    background-color: blue;
+.nav-links a.active {
+    font-weight: bold;
+    border-bottom: 2px solid white;
+}
+
+.hero {
+    padding: 100px 20px;
+}
+
+.btn {
+    background: #004aad;
     color: white;
     padding: 10px 20px;
-    margin-top: 15px;
+    text-decoration: none;
     border-radius: 5px;
-    font-size: 1.2em;
-    font-weight: bold;
+    display: inline-block;
 }
 
-/* Features Section */
-#features {
-    margin-top: 40px;
+section {
+    padding: 50px;
 }
 
-.features-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
-}
-
-.feature-card {
-    background-color: #222;
-    padding: 15px;
-    border-radius: 10px;
-    width: 200px;
-}
-
-/* Footer */
-footer {
-    margin-top: 40px;
+.waitlist input {
     padding: 10px;
-    background-color: #111;
+    width: 250px;
+    margin-right: 10px;
+}
+
+.waitlist button {
+    padding: 10px;
+    background: #004aad;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.contact p {
+    font-size: 18px;
+}
+
+/* Smooth Page Transitions */
+html {
+    scroll-behavior: smooth;
 }
