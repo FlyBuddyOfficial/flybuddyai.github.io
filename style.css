@@ -1,53 +1,90 @@
+/* Global Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: #f4f4f4;
+    background-color: #f5f5f7;
 }
 
+/* Header */
 header {
-    background: #000;
+    background: black;
     color: white;
-    padding: 15px;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 10%;
+}
+
+header .logo h1 {
+    font-size: 24px;
+    font-weight: bold;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
 }
 
 nav ul li {
-    display: inline;
     margin: 0 15px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
+    font-weight: 500;
+    font-size: 16px;
+}
+
+/* Hero Section */
+.hero {
+    padding: 80px 20px;
+    background: white;
+    color: black;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.hero h2 {
+    font-size: 36px;
     font-weight: bold;
 }
 
-.hero {
-    padding: 50px 20px;
-    background: url('/Fly-buddy-website-/images/hero-bg.jpg') center/cover;
-    color: black;
+.hero p {
+    font-size: 18px;
+    margin-top: 10px;
+    color: #555;
 }
 
 .cta-button {
     display: inline-block;
     margin-top: 20px;
-    padding: 10px 20px;
+    padding: 12px 25px;
     background: blue;
     color: white;
     text-decoration: none;
     font-size: 18px;
+    font-weight: bold;
     border-radius: 5px;
+    transition: 0.3s ease-in-out;
 }
 
+.cta-button:hover {
+    background: darkblue;
+    transform: scale(1.05);
+}
+
+/* Footer */
 footer {
-    margin-top: 30px;
-    background: #000;
+    margin-top: 50px;
+    background: black;
     color: white;
-    padding: 10px;
+    padding: 15px;
 }
