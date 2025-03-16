@@ -5,32 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Join the Fly Buddy Waitlist</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-
-    <nav>
-        <div class="logo"> <img src="FlyBuddy_Logo.png" alt="Fly Buddy Logo"></div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="waitlist.html">Join Waitlist</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="flybuddy-logo.png" alt="Fly Buddy Logo">
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="waitlist.html" class="active">Join Waitlist</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <section class="waitlist-section">
         <h1>Be the First to Experience Fly Buddy</h1>
-        <div class="waitlist-card">
-            <form>
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit">Join Now</button>
-            </form>
+        <p>Sign up now to secure your spot and get early access.</p>
+
+        <div class="counter-container">
+            <p><strong>People who joined:</strong> <span id="joinCounter">0</span></p>
+        </div>
+
+        <div class="waitlist-form">
+            <input type="email" id="emailInput" placeholder="Enter your email">
+            <button onclick="joinWaitlist()">Join Now</button>
         </div>
     </section>
 
     <footer>
         <p>© 2025 Fly Buddy. All rights reserved.</p>
     </footer>
-
 </body>
 </html>
