@@ -1,133 +1,132 @@
+/* General Styling */
 body {
-    background-color: black;
-    color: white;
+    background-color: #000;
+    color: #fff;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
 }
 
+/* Navigation Bar */
+header {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    background-color: #000;
+    width: 90%;
+    margin: 0 auto;
 }
 
-nav .logo img {
-    width: 120px;
-    margin-left: 20px;
+.logo img {
+    width: 50px;
+    height: auto;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    gap: 20px;
+    padding: 0;
+}
+
+nav ul li {
+    margin: 0 15px;
 }
 
 nav ul li a {
+    color: #fff;
     text-decoration: none;
-    color: white;
     font-size: 18px;
 }
 
-.hero-section {
-    padding: 100px 20px;
+nav ul li a:hover,
+nav ul li a.active {
+    color: #3ECC73;
 }
 
-.hero-section h1 {
-    font-size: 50px;
+/* Hero Section */
+.waitlist-section {
+    margin-top: 100px;
+    padding: 50px 20px;
+}
+
+.waitlist-section h1 {
+    font-size: 40px;
     font-weight: bold;
-    text-shadow: 0px 0px 20px cyan;
-    animation: fadeIn 2s ease-in-out;
+    text-shadow: 0px 0px 10px #3ECC73;
 }
 
-.cta-button {
-    background-color: cyan;
-    padding: 14px 28px;
-    border-radius: 30px;
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
-    text-decoration: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.cta-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0px 0px 15px cyan;
-}
-
-.waitlist-section, .contact-section {
-    padding: 60px;
-}
-
-.waitlist-card, .contact-card {
-    background-color: #222;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.5);
-    display: inline-block;
-}
-
-input {
-    padding: 12px;
-    width: 260px;
+.waitlist-section p {
     font-size: 18px;
-    margin-bottom: 10px;
-    border-radius: 10px;
+    margin-bottom: 20px;
 }
 
-button {
-    padding: 12px 24px;
-    background-color: cyan;
-    border: none;
-    border-radius: 10px;
-    font-size: 18px;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-button:hover {
-    background-color: white;
-    color: black;
-}
-
-.features-section {
-    padding: 80px;
-}
-
-.feature-grid {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.feature-box {
-    background-color: #222;
-    padding: 20px;
-    border-radius: 12px;
-    width: 250px;
+/* Counter Styling */
+.counter-container {
     text-align: center;
-    box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.3);
-    transition: transform 0.3s ease;
+    margin: 50px auto;
 }
 
-.feature-box:hover {
-    transform: translateY(-10px);
-    box-shadow: 0px 0px 25px cyan;
+.counter-label {
+    font-size: 20px;
+    color: #bbb;
+    text-transform: uppercase;
 }
 
+#joinCounter {
+    font-size: 80px;
+    font-weight: bold;
+    color: #3ECC73; /* Green like reference image */
+    display: block;
+    text-shadow: 0px 0px 15px rgba(62, 204, 115, 0.8);
+}
+
+/* Waitlist Form */
+.waitlist-form {
+    margin-top: 30px;
+}
+
+.waitlist-form input {
+    width: 300px;
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid #3ECC73;
+    border-radius: 8px;
+    outline: none;
+    background: black;
+    color: white;
+    text-align: center;
+}
+
+.waitlist-form button {
+    background: #3ECC73;
+    color: #000;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: 10px;
+}
+
+.waitlist-form button:hover {
+    background: #2DA65A;
+    transform: scale(1.1);
+}
+
+/* Footer */
 footer {
-    background-color: black;
+    margin-top: 50px;
     padding: 20px;
+    background: rgba(0, 0, 0, 0.8);
     font-size: 14px;
-}
-
-/* Fade-In Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
 }
