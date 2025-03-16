@@ -1,162 +1,94 @@
-/* General Styling */
+/* General Styles */
 body {
-    background-color: #000;
-    color: #fff;
+    background-color: black;
+    color: white;
     font-family: Arial, sans-serif;
+    text-align: center;
     margin: 0;
     padding: 0;
-    text-align: center;
 }
 
-/* Navigation Bar */
-header {
-    background: rgba(0, 0, 0, 0.9);
-    padding: 15px 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    margin: 0 auto;
-}
-
-.logo img {
-    width: 60px;
-    height: auto;
-    filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.8)); /* Glowing logo */
-}
-
-nav ul {
-    list-style: none;
-    display: flex;
-    padding: 0;
-}
-
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    transition: 0.3s;
-}
-
-nav ul li a:hover,
-nav ul li a.active {
-    color: #3ECC73;
-    text-shadow: 0px 0px 10px #3ECC73;
-    transform: scale(1.1);
-}
-
-/* Hero Section */
-.waitlist-section {
-    margin-top: 120px;
-    padding: 50px 20px;
-}
-
-.waitlist-section h1 {
-    font-size: 50px;
+/* 3D Header Effects */
+h1 {
+    font-size: 3rem;
     font-weight: bold;
-    text-shadow: 0px 0px 15px #3ECC73;
-    animation: glow 1.5s infinite alternate;
+    text-shadow: 0px 0px 15px rgba(0, 255, 255, 0.7);
+    transition: 0.3s ease-in-out;
 }
-
-.waitlist-section p {
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-
-/* Glowing Effect */
-@keyframes glow {
-    from {
-        text-shadow: 0px 0px 10px rgba(62, 204, 115, 0.6);
-    }
-    to {
-        text-shadow: 0px 0px 20px rgba(62, 204, 115, 1);
-    }
-}
-
-/* Counter Styling */
-.counter-container {
-    text-align: center;
-    margin: 50px auto;
-}
-
-.counter-label {
-    font-size: 22px;
-    color: #bbb;
-    text-transform: uppercase;
-}
-
-#joinCounter {
-    font-size: 90px;
-    font-weight: bold;
-    color: #3ECC73;
-    display: block;
-    text-shadow: 0px 0px 20px rgba(62, 204, 115, 0.8);
-    animation: glow 1.5s infinite alternate;
-}
-
-/* Waitlist Form */
-.waitlist-form {
-    margin-top: 30px;
-}
-
-.waitlist-form input {
-    width: 320px;
-    padding: 12px;
-    font-size: 20px;
-    border: 2px solid #3ECC73;
-    border-radius: 10px;
-    outline: none;
-    background: black;
-    color: white;
-    text-align: center;
-    transition: 0.3s;
-}
-
-.waitlist-form input:focus {
-    box-shadow: 0px 0px 15px #3ECC73;
+h1:hover {
     transform: scale(1.05);
 }
 
-.waitlist-form button {
-    background: #3ECC73;
-    color: #000;
-    font-size: 20px;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-    margin-left: 10px;
-    box-shadow: 0px 0px 15px rgba(62, 204, 115, 0.8);
+/* Navigation Bar */
+nav {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-.waitlist-form button:hover {
-    background: #2DA65A;
+nav img {
+    height: 50px;
+    margin-left: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: cyan;
+    text-shadow: 0px 0px 10px cyan;
+}
+
+/* Main Sections */
+.container {
+    margin: 50px auto;
+    max-width: 800px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+/* 3D Button Effects */
+button {
+    background-color: cyan;
+    color: black;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.7);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
     transform: scale(1.1);
-    box-shadow: 0px 0px 25px rgba(62, 204, 115, 1);
+    background-color: rgba(0, 255, 255, 0.9);
+}
+
+/* Live Counter Section */
+#counter {
+    font-size: 5rem;
+    font-weight: bold;
+    color: limegreen;
+    text-shadow: 0px 0px 15px limegreen;
+    transition: 0.3s;
 }
 
 /* Footer */
 footer {
     margin-top: 50px;
     padding: 20px;
-    background: rgba(0, 0, 0, 0.8);
-    font-size: 14px;
-    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
-}
-
-/* Smooth Scroll */
-html {
-    scroll-behavior: smooth;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-size: 1rem;
+    text-shadow: 0px 0px 10px white;
 }
