@@ -1,59 +1,95 @@
-/* Global Styles */
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background: black;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #000;
     color: white;
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
-/* Navigation */
+/* Navigation Bar */
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background: black;
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
 }
 
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.nav-links a {
+nav a {
     color: white;
     text-decoration: none;
+    padding: 10px 20px;
+    font-size: 18px;
 }
 
-/* Hero Section */
-.hero {
+nav a:hover {
+    color: #00ffff;
+}
+
+/* Features Page */
+.features-container {
+    margin-top: 100px;
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.features-header {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.stat-item {
     text-align: center;
-    padding: 100px 20px;
-    background: linear-gradient(black, rgba(0, 255, 255, 0.2));
+    padding: 20px;
+    width: 30%;
+    min-width: 250px;
 }
 
-.hero-content {
-    max-width: 800px;
-    margin: auto;
+.stat-number {
+    font-size: 60px;
+    font-weight: bold;
 }
 
-.button {
-    display: inline-block;
-    padding: 15px 30px;
-    color: black;
-    background: cyan;
-    border-radius: 5px;
-    text-decoration: none;
+.stat-description {
+    font-size: 20px;
+    color: #aaa;
+}
+
+.stat-1 .stat-number {
+    color: #00ffff;
+}
+
+.stat-2 .stat-number {
+    color: #00ff00;
+}
+
+.stat-3 .stat-number {
+    color: #ffcc00;
 }
 
 /* Footer */
-footer {
+.footer {
+    background-color: black;
+    padding: 20px;
     text-align: center;
-    padding: 10px;
-    background: black;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    font-size: 14px;
+    margin-top: 50px;
 }
