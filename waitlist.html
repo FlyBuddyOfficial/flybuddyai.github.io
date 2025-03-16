@@ -3,34 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fly Buddy - Join Waitlist</title>
+    <title>Join the Fly Buddy Waitlist</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <nav>
-        <div class="logo"><img src="logo.png" alt="Fly Buddy Logo"></div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="waitlist.html">Join Waitlist</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-    <section class="waitlist">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="waitlist.html">Join Waitlist</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="waitlist-container">
         <h1 class="glow-text">Be the First to Experience Fly Buddy</h1>
         <p>Sign up now to secure your spot and get early access.</p>
+
         <div class="counter-container">
             <h2>Prospects</h2>
-            <span id="counter" class="counter">0</span>
+            <div id="counter">0</div>
         </div>
+
         <form id="waitlist-form">
             <input type="email" id="email" placeholder="Enter your email" required>
-            <button type="submit" class="btn-glow">Join Now</button>
+            <button type="submit" class="join-button">Join Now</button>
         </form>
-    </section>
+    </main>
+
     <footer>
-        <p>&copy; 2025 Fly Buddy. All rights reserved.</p>
+        <p>© 2025 Fly Buddy. All rights reserved.</p>
     </footer>
 </body>
 </html>
