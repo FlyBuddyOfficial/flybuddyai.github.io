@@ -1,33 +1,32 @@
-document.addEventListener("DOMContentLoaded", function () {
-    fetch('join-count.json')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById("joinCounter").innerText = data.count;
-        })
-        .catch(error => console.error("Error loading count:", error));
-});
-
-function joinWaitlist() {
-    let email = document.getElementById("emailInput").value;
-    if (email.trim() === "") {
-        alert("Please enter a valid email.");
-        return;
+document.addEventListener("DOMContentLoaded", function() {
+    // Live Counter Animation
+    let counterElement = document.getElementById("live-counter");
+    let count = 0;
+    let targetCount = 150; // This should dynamically update
+    
+    function updateCounter() {
+        if (count < targetCount) {
+            count++;
+            counterElement.textContent = count;
+            setTimeout(updateCounter, 50);
+        }
     }
-
-    fetch('join-count.json')
-        .then(response => response.json())
-        .then(data => {
-            let newCount = data.count + 1;
-            document.getElementById("joinCounter").innerText = newCount;
-
-            // Update JSON file (if using backend, send an update request)
-            fetch('update-count.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ count: newCount })
-            });
-        })
-        .catch(error => console.error("Error updating count:", error));
-
-    alert("You've successfully joined the Fly Buddy Waitlist!");
-}
+    
+    if (counterElement) {
+        updateCounter();
+    }
+    
+    // Scroll-based Animation
+    const animatedElements = document.querySelectorAll(".stat-number");
+    function revealOnScroll() {
+        animatedElements.forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight) {
+                el.style.transform = "translateY(0)";
+                el.style.opacity = "1";
+            }
+        });
+    }
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll()
+});
