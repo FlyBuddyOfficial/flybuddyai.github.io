@@ -3,39 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join the Fly Buddy Waitlist</title>
+    <title>Fly Buddy - Join Waitlist</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="waitlist.html">Join Waitlist</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <main class="waitlist-container">
-        <h1 class="glow-text">Be the First to Experience Fly Buddy</h1>
-        <p>Sign up now to secure your spot and get early access.</p>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="waitlist.html" class="active">Join Waitlist</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="donate.html">Donate</a></li>
+        </ul>
+    </nav>
 
+    <section class="waitlist-container">
+        <h1 class="glowing-text">Join the Fly Buddy Waitlist</h1>
+        <p>Be the first to experience the future of AI-powered aviation.</p>
+        
         <div class="counter-container">
-            <h2>Prospects</h2>
-            <div id="counter">0</div>
+            <h2>Current Waitlist:</h2>
+            <p id="counter">0</p>
         </div>
-
+        
         <form id="waitlist-form">
             <input type="email" id="email" placeholder="Enter your email" required>
-            <button type="submit" class="join-button">Join Now</button>
+            <button type="submit" class="glow-button">Join Now</button>
         </form>
-    </main>
+    </section>
 
     <footer>
         <p>© 2025 Fly Buddy. All rights reserved.</p>
     </footer>
+
 </body>
 </html>
