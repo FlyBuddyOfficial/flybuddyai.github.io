@@ -27,8 +27,9 @@ nav {
 }
 
 .logo img {
-    width: 50px;
+    width: 60px;
     height: auto;
+    filter: drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.8)); /* Glowing logo */
 }
 
 nav ul {
@@ -45,28 +46,42 @@ nav ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 18px;
+    transition: 0.3s;
 }
 
 nav ul li a:hover,
 nav ul li a.active {
     color: #3ECC73;
+    text-shadow: 0px 0px 10px #3ECC73;
+    transform: scale(1.1);
 }
 
 /* Hero Section */
 .waitlist-section {
-    margin-top: 100px;
+    margin-top: 120px;
     padding: 50px 20px;
 }
 
 .waitlist-section h1 {
-    font-size: 40px;
+    font-size: 50px;
     font-weight: bold;
-    text-shadow: 0px 0px 10px #3ECC73;
+    text-shadow: 0px 0px 15px #3ECC73;
+    animation: glow 1.5s infinite alternate;
 }
 
 .waitlist-section p {
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 20px;
+}
+
+/* Glowing Effect */
+@keyframes glow {
+    from {
+        text-shadow: 0px 0px 10px rgba(62, 204, 115, 0.6);
+    }
+    to {
+        text-shadow: 0px 0px 20px rgba(62, 204, 115, 1);
+    }
 }
 
 /* Counter Styling */
@@ -76,17 +91,18 @@ nav ul li a.active {
 }
 
 .counter-label {
-    font-size: 20px;
+    font-size: 22px;
     color: #bbb;
     text-transform: uppercase;
 }
 
 #joinCounter {
-    font-size: 80px;
+    font-size: 90px;
     font-weight: bold;
-    color: #3ECC73; /* Green like reference image */
+    color: #3ECC73;
     display: block;
-    text-shadow: 0px 0px 15px rgba(62, 204, 115, 0.8);
+    text-shadow: 0px 0px 20px rgba(62, 204, 115, 0.8);
+    animation: glow 1.5s infinite alternate;
 }
 
 /* Waitlist Form */
@@ -95,32 +111,40 @@ nav ul li a.active {
 }
 
 .waitlist-form input {
-    width: 300px;
-    padding: 10px;
-    font-size: 18px;
+    width: 320px;
+    padding: 12px;
+    font-size: 20px;
     border: 2px solid #3ECC73;
-    border-radius: 8px;
+    border-radius: 10px;
     outline: none;
     background: black;
     color: white;
     text-align: center;
+    transition: 0.3s;
+}
+
+.waitlist-form input:focus {
+    box-shadow: 0px 0px 15px #3ECC73;
+    transform: scale(1.05);
 }
 
 .waitlist-form button {
     background: #3ECC73;
     color: #000;
-    font-size: 18px;
-    padding: 10px 20px;
+    font-size: 20px;
+    padding: 12px 24px;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
     transition: 0.3s;
     margin-left: 10px;
+    box-shadow: 0px 0px 15px rgba(62, 204, 115, 0.8);
 }
 
 .waitlist-form button:hover {
     background: #2DA65A;
     transform: scale(1.1);
+    box-shadow: 0px 0px 25px rgba(62, 204, 115, 1);
 }
 
 /* Footer */
@@ -129,4 +153,10 @@ footer {
     padding: 20px;
     background: rgba(0, 0, 0, 0.8);
     font-size: 14px;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Smooth Scroll */
+html {
+    scroll-behavior: smooth;
 }
