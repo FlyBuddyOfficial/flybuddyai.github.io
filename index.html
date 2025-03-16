@@ -1,31 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fly Buddy - Home</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="waitlist.html">Join Waitlist</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <section class="hero">
-        <h1 class="glowing-text">Your AI Copilot - Always Ready.</h1>
-        <p>Revolutionizing aviation with AI-powered flight assistance.</p>
-        <a href="waitlist.html" class="join-now-button">Join the Waitlist</a>
-    </section>
-    
-    <footer>
-        <p>&copy; 2025 Fly Buddy. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: black;
+    color: white;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: black;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+    font-size: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: cyan;
+}
+
+/* Heading Glow Effect */
+.glowing-text {
+    font-size: 40px;
+    font-weight: bold;
+    text-shadow: 0 0 15px cyan, 0 0 30px cyan, 0 0 45px cyan;
+}
+
+/* Button Styling */
+.button {
+    background-color: cyan;
+    color: black;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 30px;
+    box-shadow: 0 0 15px cyan, 0 0 30px cyan, 0 0 45px cyan;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: rgba(0, 255, 255, 0.8);
+    box-shadow: 0 0 20px cyan, 0 0 40px cyan, 0 0 60px cyan;
+}
+
+/* Counter Styling */
+.counter {
+    font-size: 80px;
+    color: limegreen;
+    font-weight: bold;
+}
+
+/* Form Input Styling */
+input[type='text'] {
+    width: 300px;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Footer */
+footer {
+    margin-top: 50px;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    }
