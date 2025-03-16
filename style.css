@@ -1,84 +1,92 @@
-/* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
     background-color: black;
     color: white;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
 }
 
-/* Navigation Bar */
-header {
-    background: black;
-    padding: 15px 0;
-    text-align: center;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #000;
 }
 
-header h1 {
-    font-size: 24px;
-    margin: 0;
+nav .logo img {
+    width: 150px;
+    margin-left: 20px;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 0 20px;
+    display: flex;
+    gap: 20px;
 }
 
 nav ul li a {
-    color: white;
     text-decoration: none;
+    color: white;
     font-size: 18px;
 }
 
-nav ul li a.active {
+.hero-section {
+    padding: 80px 20px;
+}
+
+.hero-section h1 {
+    font-size: 40px;
     font-weight: bold;
 }
 
-/* Feature Section */
-.feature-container {
+.cta-button {
+    background-color: cyan;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+}
+
+.features-section {
+    padding: 60px;
+}
+
+.feature-grid {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    padding: 50px 0;
+    gap: 30px;
 }
 
 .feature-box {
-    background: #111;
-    padding: 30px;
-    border-radius: 10px;
-    width: 250px;
-    text-align: center;
-    box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.5);
-    transition: transform 0.3s ease;
-}
-
-.feature-box:hover {
-    transform: scale(1.05);
-}
-
-.highlight-text {
-    font-size: 40px;
-    font-weight: bold;
-    color: cyan;
-}
-
-.feature-text {
-    font-size: 18px;
-    max-width: 80%;
-    margin: auto;
-}
-
-/* Footer */
-footer {
-    background: black;
+    background-color: #222;
     padding: 20px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    border-radius: 10px;
+    width: 220px;
+    text-align: center;
+}
+
+.waitlist-section input {
+    padding: 10px;
+    width: 250px;
+    font-size: 16px;
+}
+
+.waitlist-section button {
+    padding: 10px 20px;
+    background-color: cyan;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-section {
+    padding: 60px;
+}
+
+footer {
+    background-color: black;
+    padding: 20px;
+    font-size: 14px;
 }
