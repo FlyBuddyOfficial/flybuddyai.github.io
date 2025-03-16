@@ -3,43 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join the Fly Buddy Waitlist</title>
+    <title>Fly Buddy - Join Waitlist</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="flybuddy-logo.png" alt="Fly Buddy Logo">
-            </div>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="waitlist.html" class="active">Join Waitlist</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-
-    <section class="waitlist-section">
-        <h1>Be the First to Experience Fly Buddy</h1>
+    <nav>
+        <div class="logo"><img src="logo.png" alt="Fly Buddy Logo"></div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="waitlist.html">Join Waitlist</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <section class="waitlist">
+        <h1 class="glow-text">Be the First to Experience Fly Buddy</h1>
         <p>Sign up now to secure your spot and get early access.</p>
-
-        <!-- Centered Live Counter -->
         <div class="counter-container">
-            <p class="counter-label">Prospects</p>
-            <span id="joinCounter">0</span>
+            <h2>Prospects</h2>
+            <span id="counter" class="counter">0</span>
         </div>
-
-        <div class="waitlist-form">
-            <input type="email" id="emailInput" placeholder="Enter your email">
-            <button onclick="joinWaitlist()">Join Now</button>
-        </div>
+        <form id="waitlist-form">
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <button type="submit" class="btn-glow">Join Now</button>
+        </form>
     </section>
-
     <footer>
-        <p>© 2025 Fly Buddy. All rights reserved.</p>
+        <p>&copy; 2025 Fly Buddy. All rights reserved.</p>
     </footer>
 </body>
 </html>
