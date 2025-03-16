@@ -1,145 +1,87 @@
 /* General Styles */
 body {
+    font-family: Arial, sans-serif;
     background-color: black;
     color: white;
-    font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
     padding: 0;
 }
 
-/* Navigation Bar */
-nav {
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
     background-color: black;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-}
-
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
+nav a {
     color: white;
     text-decoration: none;
+    margin: 0 15px;
     font-size: 20px;
     font-weight: bold;
-    transition: color 0.3s ease-in-out;
 }
 
-nav ul li a:hover {
+nav a:hover {
     color: cyan;
 }
 
-/* Glow Effect for Text */
-.glow-text {
-    font-size: 48px;
+/* 3D Title Effects */
+h1 {
+    font-size: 3em;
     font-weight: bold;
-    text-shadow: 0px 0px 20px cyan;
-    margin-top: 50px;
+    text-shadow: 0 0 20px cyan, 0 0 40px cyan;
 }
 
-/* Join Waitlist Button */
-.join-button {
-    width: 250px;
-    height: 50px;
-    font-size: 18px;
+/* Waitlist Counter */
+#counter {
+    font-size: 5em;
     font-weight: bold;
-    background-color: cyan;
-    color: black;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    box-shadow: 0px 0px 20px cyan;
+    color: limegreen;
+    text-shadow: 0 0 20px limegreen, 0 0 40px limegreen;
 }
 
-.join-button:hover {
-    background-color: #00aaff;
-    box-shadow: 0px 0px 30px cyan;
-}
-
-/* Email Input Field */
-#waitlist-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+/* 3D Join Now Button */
+.join-now-button {
+    display: inline-block;
+    font-size: 1.5em;
+    padding: 15px 30px;
     margin-top: 20px;
+    color: black;
+    background: linear-gradient(to right, cyan, deepskyblue);
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0, 255, 255, 0.5);
+    transition: transform 0.2s, box-shadow 0.3s;
 }
 
-#email {
-    width: 250px;
+.join-now-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 12px 30px rgba(0, 255, 255, 0.8);
+    cursor: pointer;
+}
+
+/* Email Input Styling */
+input[type="email"] {
+    width: 300px;
     height: 50px;
     font-size: 18px;
     padding: 10px;
-    border: none;
     border-radius: 10px;
-    outline: none;
-}
-
-/* Live Counter Styling */
-.counter-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
-#counter {
-    font-size: 80px;
-    font-weight: bold;
-    color: #4CAF50;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-}
-
-/* Feature Page Layout */
-.feature-container {
-    max-width: 800px;
-    margin: 50px auto;
-    text-align: left;
-    padding: 20px;
-}
-
-.feature-container h1 {
-    text-align: center;
-    text-shadow: 0px 0px 20px cyan;
-}
-
-.feature-container p {
-    font-size: 18px;
-    line-height: 1.6;
-}
-
-/* 3D Button Effect */
-.button-3d {
-    background-color: cyan;
-    color: black;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 15px 30px;
     border: none;
-    border-radius: 10px;
-    box-shadow: 0px 5px 15px cyan;
-    transition: all 0.3s ease-in-out;
-}
-
-.button-3d:hover {
-    box-shadow: 0px 10px 25px cyan;
-    transform: translateY(-3px);
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.2);
 }
 
 /* Footer */
 footer {
-    margin-top: 50px;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    font-size: 14px;
     text-align: center;
+    color: white;
     padding: 10px;
 }
