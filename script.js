@@ -20,7 +20,7 @@ function joinWaitlist() {
             let newCount = data.count + 1;
             document.getElementById("joinCounter").innerText = newCount;
 
-            // Update JSON file (if using a backend, send an update request)
+            // Update JSON file (if using backend, send an update request)
             fetch('update-count.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
