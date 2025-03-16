@@ -8,34 +8,44 @@
 </head>
 <body>
 
-    <nav>
-        <div class="logo"> <img src="FlyBuddy_Logo.png" alt="Fly Buddy Logo"></div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="waitlist.html">Join Waitlist</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+    <header>
+        <nav>
+            <img src="logo.png" alt="Fly Buddy Logo" class="logo">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html" class="active">Features</a></li>
+                <li><a href="join-waitlist.html">Join Waitlist</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <section class="features-section">
-        <h1>Why Choose Fly Buddy?</h1>
-        <div class="feature-grid">
-            <div class="feature-box">
+        <h1 class="fade-in">Why Choose Fly Buddy?</h1>
+        
+        <div class="stats-container">
+            <div class="stat-box">
                 <h2>88%</h2>
                 <p>of all chartered plane crashes are due to pilot error (NTSB).</p>
             </div>
-            <div class="feature-box">
+            <div class="stat-box">
                 <h2>69.1%</h2>
                 <p>of general aviation accidents in 2020 were caused by pilot error.</p>
             </div>
+        </div>
+
+        <div class="feature-grid">
             <div class="feature-box">
-                <h2>AI Flight Assistance</h2>
+                <h3>AI Flight Assistance</h3>
                 <p>Fly Buddy automates flight planning, reducing human errors.</p>
             </div>
             <div class="feature-box">
-                <h2>Real-Time Data</h2>
+                <h3>Real-Time Data</h3>
                 <p>Enhancing flight safety with real-time updates and risk mitigation.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Seamless Airline Integration</h3>
+                <p>Helping pilots comply with regulations effortlessly.</p>
             </div>
         </div>
     </section>
