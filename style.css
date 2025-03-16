@@ -1,17 +1,14 @@
-* {
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: black;
+    color: white;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
 }
 
-body {
-    background-color: black;
-    color: white;
-    text-align: center;
-}
-
-header {
+/* Navigation */
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -19,58 +16,44 @@ header {
     background: black;
 }
 
-.logo img {
-    width: 150px; /* Adjusted size */
-    margin-left: 20px; /* Fixed alignment */
-}
-
-nav ul {
+.nav-links {
     list-style: none;
     display: flex;
+    gap: 20px;
 }
 
-nav ul li {
-    margin: 0 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
+.nav-links a {
     color: white;
-    font-size: 18px;
+    text-decoration: none;
 }
 
+/* Hero Section */
 .hero {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 80vh;
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(black, rgba(0, 255, 255, 0.2));
 }
 
 .hero-content {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0px 0px 20px cyan;
+    max-width: 800px;
+    margin: auto;
 }
 
-.cta-button {
+.button {
     display: inline-block;
     padding: 15px 30px;
-    background-color: cyan;
     color: black;
-    font-size: 20px;
-    border-radius: 10px;
+    background: cyan;
+    border-radius: 5px;
     text-decoration: none;
-    margin-top: 20px;
 }
 
+/* Footer */
 footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    padding: 15px 0;
-    background-color: black;
-    color: white;
     text-align: center;
+    padding: 10px;
+    background: black;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
 }
