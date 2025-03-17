@@ -17,6 +17,14 @@ gsap.from(".glowing-text", {
     ease: "power3.out",
 });
 
+// Button 3D Effect
+gsap.from(".button", {
+    opacity: 0,
+    scale: 0.8,
+    duration: 1.2,
+    ease: "power2.out",
+});
+
 // Features Page Scroll Animations
 gsap.utils.toArray(".feature-item").forEach((item) => {
     gsap.from(item, {
@@ -27,19 +35,7 @@ gsap.utils.toArray(".feature-item").forEach((item) => {
             trigger: item,
             start: "top 80%",
             end: "top 50%",
-            scrub: true
+            scrub: true,
         }
     });
-});
-
-// Motion Path Example (For a Flying Plane Animation)
-gsap.to(".plane-icon", {
-    motionPath: {
-        path: [{ x: 100, y: -50 }, { x: 200, y: 50 }, { x: 300, y: -30 }],
-        curviness: 1.25,
-        autoRotate: true
-    },
-    duration: 5,
-    repeat: -1,
-    ease: "power1.inOut"
 });
