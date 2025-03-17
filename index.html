@@ -1,46 +1,36 @@
-<script>
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, MotionPathPlugin, TextPlugin, ExpoScaleEase, CustomEase);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fly Buddy - Your AI Copilot</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
 
-    // Smooth Scrolling Effect
-    document.querySelectorAll("a[href^='#']").forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            gsap.to(window, { duration: 1.5, scrollTo: this.getAttribute("href"), ease: "power2.out" });
-        });
-    });
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="waitlist.html">Join Waitlist</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="donate.html">Donate</a></li>
+        </ul>
+    </nav>
 
-    // Text Animation on Home Page
-    gsap.from(".glowing-text", {
-        opacity: 0,
-        y: -50,
-        duration: 1.5,
-        ease: "power3.out",
-    });
+    <!-- Hero Section -->
+    <header class="hero">
+        <h1 class="glowing-text">Your AI Copilot — Always Ready.</h1>
+        <p>Revolutionizing aviation with AI-powered flight assistance.</p>
+        <a href="waitlist.html" class="button">Join the Waitlist</a>
+    </header>
 
-    // Features Page Scroll Animations
-    gsap.utils.toArray(".feature-item").forEach((item) => {
-        gsap.from(item, {
-            opacity: 0,
-            y: 50,
-            duration: 1.2,
-            scrollTrigger: {
-                trigger: item,
-                start: "top 80%",
-                end: "top 50%",
-                scrub: true
-            }
-        });
-    });
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Fly Buddy. All rights reserved.</p>
+    </footer>
 
-    // Motion Path Example (For a Flying Plane Animation)
-    gsap.to(".plane-icon", {
-        motionPath: {
-            path: [{ x: 100, y: -50 }, { x: 200, y: 50 }, { x: 300, y: -30 }],
-            curviness: 1.25,
-            autoRotate: true
-        },
-        duration: 5,
-        repeat: -1,
-        ease: "power1.inOut"
-    });
-</script>
+</body>
+</html>
