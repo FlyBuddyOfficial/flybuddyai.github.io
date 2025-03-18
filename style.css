@@ -1,72 +1,69 @@
-/* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: black;
-    color: white;
+    font-family: 'Inter', sans-serif;
+    background-color: white;
+    color: black;
     text-align: center;
     margin: 0;
     padding: 0;
 }
 
-/* Navigation Bar */
-nav {
-    display: flex;
-    justify-content: center;
-    padding: 15px;
-    background-color: black;
-}
-
 nav ul {
     list-style: none;
+    padding: 0;
     display: flex;
+    justify-content: center;
     gap: 20px;
+    background-color: #007bff;
+    padding: 15px;
 }
 
-nav a {
-    color: white;
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
     text-decoration: none;
+    color: white;
+    font-weight: bold;
     font-size: 18px;
-    transition: 0.3s;
 }
 
-nav a:hover {
-    color: cyan;
-}
-
-/* Hero Section */
-.hero {
-    margin-top: 100px;
+header {
+    margin-top: 50px;
 }
 
 .glowing-text {
-    font-size: 40px;
+    font-size: 36px;
     font-weight: bold;
-    text-shadow: 0 0 10px cyan, 0 0 20px cyan;
+    text-shadow: 0 0 10px #007bff, 0 0 20px #007bff, 0 0 30px #007bff;
 }
 
-/* 3D Button */
-.button {
+.btn {
     display: inline-block;
-    padding: 15px 30px;
-    font-size: 18px;
+    background-color: #007bff;
+    color: white;
+    padding: 15px 25px;
+    text-decoration: none;
     font-weight: bold;
-    color: cyan;
-    background: black;
-    border: 2px solid cyan;
     border-radius: 10px;
-    box-shadow: 0 0 10px cyan;
-    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
 }
 
-.button:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 0 20px cyan;
+.btn:hover {
+    background-color: #0056b3;
+    box-shadow: 0 5px 25px rgba(0, 123, 255, 0.6);
 }
 
-/* Footer */
-footer {
-    margin-top: 50px;
+/* Features Page */
+.feature-box {
+    background-color: #f0f8ff;
     padding: 20px;
-    background: black;
-    font-size: 14px;
+    margin: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4);
 }
