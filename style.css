@@ -1,47 +1,92 @@
+/* General Styling */
 body {
     font-family: 'Inter', sans-serif;
     text-align: center;
     background-color: #ffffff;
     color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #007bff;
+    padding: 15px 0;
 }
 
 nav ul {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
 }
 
 nav ul li {
-    display: inline;
     margin: 0 15px;
 }
 
-.glowing-text {
-    font-size: 2rem;
+nav ul li a {
+    color: white;
+    text-decoration: none;
     font-weight: bold;
-    text-shadow: 0px 0px 10px #0000ff;
+    font-size: 18px;
+    transition: 0.3s;
 }
 
-.cta-button {
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Glowing Text Effect */
+.glowing-text {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 0 0 10px blue, 0 0 20px blue, 0 0 30px blue;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px blue, 0 0 20px blue, 0 0 30px blue; }
+    to { text-shadow: 0 0 20px blue, 0 0 40px blue, 0 0 60px blue; }
+}
+
+/* Buttons */
+.btn {
     display: inline-block;
+    padding: 15px 30px;
     background-color: #007bff;
     color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px #007bff;
-}
-
-.cta-button:hover {
-    background-color: #0056b3;
-}
-
-.counter-box {
-    font-size: 2rem;
+    font-size: 20px;
     font-weight: bold;
-    text-shadow: 0px 0px 10px #000;
-    margin: 20px 0;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    text-decoration: none;
 }
 
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px blue;
+}
+
+/* Features Page - Hover Effect */
+.feature-box {
+    background: rgba(0, 0, 255, 0.1);
+    padding: 15px;
+    margin: 20px auto;
+    width: 50%;
+    border-radius: 10px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.feature-box:hover {
+    background: rgba(0, 0, 255, 0.3);
+    transform: scale(1.05);
+}
+
+/* Footer */
 footer {
     position: fixed;
     width: 100%;
@@ -49,4 +94,5 @@ footer {
     background: #007bff;
     color: white;
     padding: 10px 0;
+    text-align: center;
 }
