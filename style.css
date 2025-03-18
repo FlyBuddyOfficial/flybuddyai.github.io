@@ -1,69 +1,107 @@
+/* General Styles */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: white;
-    color: black;
+    background-color: #ffffff;
+    color: #000000;
     text-align: center;
     margin: 0;
     padding: 0;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
+/* Navigation Bar */
+nav {
     display: flex;
     justify-content: center;
-    gap: 20px;
     background-color: #007bff;
     padding: 15px;
+    font-size: 20px;
 }
 
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    text-decoration: none;
+nav a {
     color: white;
-    font-weight: bold;
-    font-size: 18px;
+    text-decoration: none;
+    margin: 0 20px;
+    transition: 0.3s;
 }
 
-header {
-    margin-top: 50px;
+nav a:hover {
+    color: #FFD700;
 }
 
-.glowing-text {
-    font-size: 36px;
-    font-weight: bold;
-    text-shadow: 0 0 10px #007bff, 0 0 20px #007bff, 0 0 30px #007bff;
+/* Centering Content */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
 }
 
-.btn {
-    display: inline-block;
+/* Footer */
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     background-color: #007bff;
     color: white;
-    padding: 15px 25px;
-    text-decoration: none;
+    padding: 10px;
+}
+
+/* Glowing Header */
+h1 {
+    font-size: 48px;
     font-weight: bold;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.4);
+    text-shadow: 0 0 15px blue;
 }
 
-.btn:hover {
+/* Counter Styling */
+.counter {
+    font-size: 100px;
+    font-weight: bold;
+    color: black;
+    text-shadow: 0 0 20px black;
+    margin-top: 20px;
+}
+
+/* Join Now Button */
+.join-now {
+    font-size: 24px;
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    animation: pulse 1.5s infinite;
+}
+
+.join-now:hover {
     background-color: #0056b3;
-    box-shadow: 0 5px 25px rgba(0, 123, 255, 0.6);
 }
 
-/* Features Page */
-.feature-box {
-    background-color: #f0f8ff;
-    padding: 20px;
-    margin: 15px;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* Input Box */
+input[type="text"] {
+    width: 350px;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
 }
 
-.feature-box:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(0, 123, 255, 0.4);
+/* Animation */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 10px blue;
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 25px blue;
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px blue;
+    }
 }
