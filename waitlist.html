@@ -3,38 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join the Fly Buddy Waitlist</title>
+    <title>Join Waitlist - Fly Buddy</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="waitlist.html">Join Waitlist</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="donate.html">Donate</a></li>
-        </ul>
-    </nav>
-
-    <header>
+    <div class="container">
         <h1 class="glowing-text">Join the Fly Buddy Waitlist</h1>
         <p>Be the first to experience the future of AI-powered aviation.</p>
-    </header>
 
-    <main>
-        <div class="waitlist-container">
+        <div class="counter-section">
             <h2>Current Waitlist:</h2>
-            <div id="waitlist-count" class="animated-counter">0</div>
-            <form id="waitlist-form">
-                <input type="email" placeholder="Enter your email" required>
-                <button type="submit" class="animated-button">Join Now</button>
-            </form>
+            <h1 class="waitlist-counter">0</h1>
         </div>
-    </main>
+
+        <form id="waitlist-form">
+            <input type="email" id="email" placeholder="Enter your email" required>
+            <button type="submit" class="animated-button">Join Now</button>
+        </form>
+    </div>
 
     <footer>
-        <p>&copy; 2025 Fly Buddy. All rights reserved.</p>
+        <p>© 2025 Fly Buddy. All rights reserved.</p>
     </footer>
 
     <script src="script.js"></script>
