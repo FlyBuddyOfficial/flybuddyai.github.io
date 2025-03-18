@@ -1,20 +1,12 @@
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll("a[href^='#']").forEach(anchor => {
-        anchor.addEventListener("click", function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute("href")).scrollIntoView({
-                behavior: "smooth"
-            });
-        });
-    });
+document.addEventListener("DOMContentLoaded", function () {
+    let counter = localStorage.getItem("waitlistCounter") || 0;
+    document.getElementById("waitlist-counter").innerText = counter;
 
-    // Button animation
-    document.querySelectorAll(".btn").forEach(button => {
-        button.addEventListener("mouseenter", () => {
-            button.style.transform = "scale(1.1)";
-        });
-        button.addEventListener("mouseleave", () => {
-            button.style.transform = "scale(1)";
-        });
+    document.getElementById("waitlist-form").addEventListener("submit", function (event) {
+        event.preventDefault();
+        counter++;
+        localStorage.setItem("waitlistCounter", counter);
+        document.getElementById("waitlist-counter").innerText = counter;
+        alert("You have successfully joined the waitlist!");
     });
 });
