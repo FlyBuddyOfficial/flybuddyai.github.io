@@ -96,3 +96,16 @@ footer {
     padding: 10px 0;
     text-align: center;
 }
+
+/* Style for Bigger and Centered Counter */
+.counter-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.waitlist-counter {
+    font-size: 50px; /* Adjust size as needed */
+    font-weight: bold;
+    color: black;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+}
