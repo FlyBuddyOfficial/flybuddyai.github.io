@@ -1,90 +1,52 @@
-/* General Styles */
 body {
     font-family: 'Inter', sans-serif;
-    background-color: white;
-    color: black;
     text-align: center;
-    margin: 0;
-    padding: 0;
+    background-color: #ffffff;
+    color: #000000;
 }
 
-/* Navigation Bar */
-nav {
-    background-color: #007BFF;
-    padding: 15px 0;
-}
 nav ul {
     list-style: none;
-    display: flex;
-    justify-content: center;
     padding: 0;
-    margin: 0;
 }
+
 nav ul li {
+    display: inline;
     margin: 0 15px;
 }
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.3s;
-}
-nav ul li a:hover {
-    text-decoration: underline;
-}
 
-/* Glowing Text */
 .glowing-text {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
-    text-shadow: 0 0 10px blue, 0 0 20px blue, 0 0 30px blue;
-    animation: glow 1.5s infinite alternate;
+    text-shadow: 0px 0px 10px #0000ff;
 }
 
-@keyframes glow {
-    from { text-shadow: 0 0 10px blue, 0 0 20px blue, 0 0 30px blue; }
-    to { text-shadow: 0 0 20px blue, 0 0 40px blue, 0 0 60px blue; }
-}
-
-/* Animated Join Button */
-.animated-button {
+.cta-button {
     display: inline-block;
-    padding: 15px 30px;
-    background-color: #007BFF;
+    background-color: #007bff;
     color: white;
-    font-size: 20px;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    padding: 10px 20px;
     text-decoration: none;
-}
-.animated-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px blue;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px #007bff;
 }
 
-/* Features Page Hover Effect */
-.feature-item {
-    background: rgba(0, 0, 255, 0.1);
-    padding: 15px;
-    margin: 10px auto;
-    width: 50%;
-    border-radius: 10px;
-    transition: background 0.3s, transform 0.3s;
-}
-.feature-item:hover {
-    background: rgba(0, 0, 255, 0.3);
-    transform: scale(1.05);
+.cta-button:hover {
+    background-color: #0056b3;
 }
 
-/* Footer */
+.counter-box {
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 0px 0px 10px #000;
+    margin: 20px 0;
+}
+
 footer {
-    margin-top: 50px;
-    padding: 20px;
-    background-color: #007BFF;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    background: #007bff;
     color: white;
-    text-align: center;
+    padding: 10px 0;
 }
