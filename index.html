@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fly Buddy - Home</title>
+    <title>Fly Buddy - AI Chat Demo</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <nav>
@@ -16,13 +17,29 @@
             <li><a href="donate.html">Donate</a></li>
         </ul>
     </nav>
-
+    
     <header>
         <h1 class="glowing-text">Your AI Copilot — Always Ready.</h1>
         <p>Revolutionizing aviation with AI-powered flight assistance.</p>
         <a href="waitlist.html" class="btn">Join the Waitlist</a>
     </header>
-
+    
+    <section id="chat-demo">
+        <h2>Ask Fly Buddy</h2>
+        <div id="chat-container">
+            <div id="chat-box">
+                <p class="bot">Hi! I’m Fly Buddy, your AI Copilot. How can I assist you today?</p>
+            </div>
+            <input type="text" id="user-input" placeholder="Type your question...">
+            <button id="send-btn">Send</button>
+        </div>
+        <div id="preset-questions">
+            <button class="preset-btn" onclick="askFlyBuddy('How do I handle an engine failure?')">How do I handle an engine failure?</button>
+            <button class="preset-btn" onclick="askFlyBuddy('What’s the best way to land in strong winds?')">What’s the best way to land in strong winds?</button>
+            <button class="preset-btn" onclick="askFlyBuddy('How does Fly Buddy assist in emergencies?')">How does Fly Buddy assist in emergencies?</button>
+        </div>
+    </section>
+    
     <footer>
         <p>&copy; 2025 Fly Buddy. All rights reserved.</p>
     </footer>
