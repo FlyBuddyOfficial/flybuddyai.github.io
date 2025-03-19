@@ -3,81 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fly Buddy - Your AI Copilot</title>
+    <title>Fly Buddy - Home</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-
-    <style>
-        /* Chat Box Styling */
-        .chat-demo-container {
-            width: 50%;
-            margin: 30px auto;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #f4f4f4;
-            box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
-            text-align: center;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-            display: none; /* Initially hidden */
-        }
-
-        .chat-box {
-            width: 100%;
-            height: 200px;
-            overflow-y: auto;
-            background: white;
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: left;
-        }
-
-        input[type="text"] {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-
-        button {
-            padding: 10px 15px;
-            border: none;
-            background: #007bff;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        button:hover {
-            background: #0056b3;
-        }
-
-        /* Scroll Button Styling */
-        .scroll-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: #007bff;
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s;
-            text-decoration: none;
-        }
-
-        .scroll-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px blue;
-        }
-    </style>
 </head>
 <body>
-
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -91,14 +20,10 @@
     <header>
         <h1 class="glowing-text">Your AI Copilot — Always Ready.</h1>
         <p>Revolutionizing aviation with AI-powered flight assistance.</p>
-        <a href="waitlist.html" class="btn">Join the Waitlist</a>
+        <button class="btn" onclick="scrollToChat()">Test Fly Buddy</button>
     </header>
 
-    <div style="text-align: center; margin-top: 30px;">
-        <button class="scroll-button" onclick="showAndScrollToChat()">Test Fly Buddy</button>
-    </div>
-
-    <div id="chatDemo" class="chat-demo-container">
+    <div class="chat-demo-container" id="chatSection">
         <h2>Try Fly Buddy AI!</h2>
         <div class="chat-box" id="chatBox">
             <p><strong>Fly Buddy AI:</strong> Hello, Captain! How can I assist you today?</p>
@@ -112,22 +37,14 @@
     </footer>
 
     <script>
-        function showAndScrollToChat() {
-            let chatDemo = document.getElementById("chatDemo");
-            chatDemo.style.display = "block"; // Show chat box
-
-            setTimeout(() => {
-                chatDemo.style.opacity = "1";
-                chatDemo.style.transform = "translateY(0)";
-            }, 100); // Smooth fade-in effect
-
-            chatDemo.scrollIntoView({ behavior: "smooth" }); // Smoothly scroll down
+        function scrollToChat() {
+            document.getElementById("chatSection").scrollIntoView({ behavior: "smooth" });
         }
 
         function sendMessage() {
             let userInput = document.getElementById("userInput").value;
             let chatBox = document.getElementById("chatBox");
-
+            
             if (userInput.trim() !== "") {
                 chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
                 document.getElementById("userInput").value = "";
@@ -138,25 +55,26 @@
                 }, 1000);
             }
         }
-
+        
         function handleKeyPress(event) {
             if (event.key === "Enter") {
                 sendMessage();
             }
         }
-
+        
         function getAIResponse(input) {
             const responses = {
                 "hello": "Hi there! How can I assist you today?",
                 "flight plan": "I can help you generate a flight plan. What is your departure and destination?",
                 "weather": "Fetching the latest weather updates... Please wait!",
-                "emergency": "Stay calm. What is your emergency situation? I’ll guide you step-by-step."
+                "emergency": "Stay calm. What is your emergency situation? I’ll guide you step-by-step.",
+                "best route": "The best route depends on current weather and air traffic. Would you like a recommendation?",
+                "metar": "Retrieving the latest METAR data for your requested airport..."
             };
-
+            
             input = input.toLowerCase();
             return responses[input] || "I'm still learning! Try asking something else.";
         }
     </script>
-
 </body>
 </html>
