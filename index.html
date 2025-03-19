@@ -6,7 +6,9 @@
     <title>Fly Buddy - Your AI Copilot</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
+
     <style>
+        /* Chat Box Styling */
         .chat-demo-container {
             width: 50%;
             margin: 30px auto;
@@ -15,7 +17,10 @@
             background-color: #f4f4f4;
             box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
             text-align: center;
-            display: none; /* Hide initially */
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+            display: none; /* Initially hidden */
         }
 
         .chat-box {
@@ -50,6 +55,7 @@
             background: #0056b3;
         }
 
+        /* Scroll Button Styling */
         .scroll-button {
             display: inline-block;
             padding: 15px 30px;
@@ -108,8 +114,14 @@
     <script>
         function showAndScrollToChat() {
             let chatDemo = document.getElementById("chatDemo");
-            chatDemo.style.display = "block"; // Make chat visible
-            chatDemo.scrollIntoView({ behavior: "smooth" });
+            chatDemo.style.display = "block"; // Show chat box
+
+            setTimeout(() => {
+                chatDemo.style.opacity = "1";
+                chatDemo.style.transform = "translateY(0)";
+            }, 100); // Smooth fade-in effect
+
+            chatDemo.scrollIntoView({ behavior: "smooth" }); // Smoothly scroll down
         }
 
         function sendMessage() {
