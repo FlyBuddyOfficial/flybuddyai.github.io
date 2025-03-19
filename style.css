@@ -74,16 +74,18 @@ nav ul li a:hover {
 /* Features Page - Hover Box */
 .feature-box {
     background: rgba(0, 0, 255, 0.1);
-    padding: 15px;
+    padding: 20px;
     margin: 20px auto;
-    width: 50%;
-    border-radius: 10px;
+    width: 60%;
+    border-radius: 12px;
     transition: background 0.3s, transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 255, 0.2);
 }
 
 .feature-box:hover {
     background: rgba(0, 0, 255, 0.3);
     transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 255, 0.4);
 }
 
 /* Footer - Fixed for All Pages Except Features Page */
