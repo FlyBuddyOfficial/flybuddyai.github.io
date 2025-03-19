@@ -15,6 +15,7 @@
             background-color: #f4f4f4;
             box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
             text-align: center;
+            display: none; /* Hide initially */
         }
 
         .chat-box {
@@ -88,7 +89,7 @@
     </header>
 
     <div style="text-align: center; margin-top: 30px;">
-        <button class="scroll-button" onclick="scrollToChat()">Test Fly Buddy</button>
+        <button class="scroll-button" onclick="showAndScrollToChat()">Test Fly Buddy</button>
     </div>
 
     <div id="chatDemo" class="chat-demo-container">
@@ -105,8 +106,10 @@
     </footer>
 
     <script>
-        function scrollToChat() {
-            document.getElementById("chatDemo").scrollIntoView({ behavior: "smooth" });
+        function showAndScrollToChat() {
+            let chatDemo = document.getElementById("chatDemo");
+            chatDemo.style.display = "block"; // Make chat visible
+            chatDemo.scrollIntoView({ behavior: "smooth" });
         }
 
         function sendMessage() {
