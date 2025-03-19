@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support Fly Buddy</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <nav>
@@ -22,8 +23,16 @@
     
     <a href="https://buy.stripe.com/9AQdRz88wb8m05a8ww" class="btn">Donate Now</a>
     
+    <div class="donation-container">
+        <h2>Live Donation Progress</h2>
+        <div class="progress-bar">
+            <div class="progress" id="progress"></div>
+        </div>
+        <p id="donation-text">Raised: £<span id="donation-amount">0</span> of £1000</p>
+    </div>
+    
     <footer>
-        &copy; 2025 Fly Buddy. All rights reserved.
+        <p>&copy; 2025 Fly Buddy. All rights reserved.</p>
     </footer>
 </body>
 </html>
