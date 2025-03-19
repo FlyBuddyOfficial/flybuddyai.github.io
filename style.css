@@ -61,4 +61,43 @@ nav ul li a:hover {
     font-weight: bold;
     border: none;
     border-radius: 8px;
-    cursor
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+    text-decoration: none;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px blue;
+}
+
+/* Features Page - Hover Box */
+.feature-box {
+    background: rgba(0, 0, 255, 0.1);
+    padding: 15px;
+    margin: 20px auto;
+    width: 50%;
+    border-radius: 10px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.feature-box:hover {
+    background: rgba(0, 0, 255, 0.3);
+    transform: scale(1.05);
+}
+
+/* Footer - Fixed for All Pages Except Features Page */
+footer {
+    width: 100%;
+    background: #007bff;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+}
+
+/* Override for Features Page */
+.features-page footer {
+    position: relative;
+}
