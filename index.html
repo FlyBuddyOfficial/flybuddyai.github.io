@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fly Buddy - Home</title>
+    <title>Fly Buddy - Your AI Copilot</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
+
+    <!-- Navigation Bar -->
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -17,13 +20,16 @@
         </ul>
     </nav>
 
+    <!-- Main Section -->
     <header>
         <h1 class="glowing-text">Your AI Copilot — Always Ready.</h1>
         <p>Revolutionizing aviation with AI-powered flight assistance.</p>
+        <a href="waitlist.html" class="btn">Join the Waitlist</a>
         <button class="btn" onclick="scrollToChat()">Test Fly Buddy</button>
     </header>
 
-    <div class="chat-demo-container" id="chatSection">
+    <!-- Chat Section (Initially Hidden) -->
+    <div id="chat-section" class="chat-demo-container" style="display: none;">
         <h2>Try Fly Buddy AI!</h2>
         <div class="chat-box" id="chatBox">
             <p><strong>Fly Buddy AI:</strong> Hello, Captain! How can I assist you today?</p>
@@ -32,49 +38,26 @@
         <button onclick="sendMessage()">Send</button>
     </div>
 
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Fly Buddy. All rights reserved.</p>
+        <p>© 2025 Fly Buddy. All rights reserved.</p>
     </footer>
 
+    <!-- JavaScript -->
     <script>
         function scrollToChat() {
-            document.getElementById("chatSection").scrollIntoView({ behavior: "smooth" });
+            document.getElementById("chat-section").style.display = "block";
+            document.getElementById("chat-section").scrollIntoView({ behavior: "smooth" });
         }
 
         function sendMessage() {
             let userInput = document.getElementById("userInput").value;
             let chatBox = document.getElementById("chatBox");
-            
+
             if (userInput.trim() !== "") {
                 chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
                 document.getElementById("userInput").value = "";
+
                 setTimeout(() => {
                     let response = getAIResponse(userInput);
-                    chatBox.innerHTML += `<p><strong>Fly Buddy AI:</strong> ${response}</p>`;
-                    chatBox.scrollTop = chatBox.scrollHeight;
-                }, 1000);
-            }
-        }
-        
-        function handleKeyPress(event) {
-            if (event.key === "Enter") {
-                sendMessage();
-            }
-        }
-        
-        function getAIResponse(input) {
-            const responses = {
-                "hello": "Hi there! How can I assist you today?",
-                "flight plan": "I can help you generate a flight plan. What is your departure and destination?",
-                "weather": "Fetching the latest weather updates... Please wait!",
-                "emergency": "Stay calm. What is your emergency situation? I’ll guide you step-by-step.",
-                "best route": "The best route depends on current weather and air traffic. Would you like a recommendation?",
-                "metar": "Retrieving the latest METAR data for your requested airport..."
-            };
-            
-            input = input.toLowerCase();
-            return responses[input] || "I'm still learning! Try asking something else.";
-        }
-    </script>
-</body>
-</html>
+                    chatBox
