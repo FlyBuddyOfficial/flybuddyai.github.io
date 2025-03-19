@@ -3,10 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fly Buddy - Home</title>
+    <title>Fly Buddy - Your AI Copilot</title>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <style>
+        .chat-demo-container {
+            width: 50%;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f4f4f4;
+            box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
+            text-align: center;
+        }
+
+        .chat-box {
+            width: 100%;
+            height: 200px;
+            overflow-y: auto;
+            background: white;
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            background: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        .scroll-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #007bff;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+            text-decoration: none;
+        }
+
+        .scroll-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px blue;
+        }
+    </style>
 </head>
 <body>
+
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -23,8 +87,11 @@
         <a href="waitlist.html" class="btn">Join the Waitlist</a>
     </header>
 
-    <!-- AI Chat Demo -->
-    <div class="chat-demo-container">
+    <div style="text-align: center; margin-top: 30px;">
+        <button class="scroll-button" onclick="scrollToChat()">Test Fly Buddy</button>
+    </div>
+
+    <div id="chatDemo" class="chat-demo-container">
         <h2>Try Fly Buddy AI!</h2>
         <div class="chat-box" id="chatBox">
             <p><strong>Fly Buddy AI:</strong> Hello, Captain! How can I assist you today?</p>
@@ -38,10 +105,14 @@
     </footer>
 
     <script>
+        function scrollToChat() {
+            document.getElementById("chatDemo").scrollIntoView({ behavior: "smooth" });
+        }
+
         function sendMessage() {
             let userInput = document.getElementById("userInput").value;
             let chatBox = document.getElementById("chatBox");
-            
+
             if (userInput.trim() !== "") {
                 chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
                 document.getElementById("userInput").value = "";
@@ -52,13 +123,13 @@
                 }, 1000);
             }
         }
-        
+
         function handleKeyPress(event) {
             if (event.key === "Enter") {
                 sendMessage();
             }
         }
-        
+
         function getAIResponse(input) {
             const responses = {
                 "hello": "Hi there! How can I assist you today?",
@@ -66,10 +137,11 @@
                 "weather": "Fetching the latest weather updates... Please wait!",
                 "emergency": "Stay calm. What is your emergency situation? I’ll guide you step-by-step."
             };
-            
+
             input = input.toLowerCase();
             return responses[input] || "I'm still learning! Try asking something else.";
         }
     </script>
+
 </body>
 </html>
