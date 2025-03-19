@@ -88,13 +88,20 @@ nav ul li a:hover {
 
 /* Footer */
 footer {
-    position: fixed;
+    position: relative;
     width: 100%;
-    bottom: 0;
     background: #007bff;
     color: white;
     padding: 10px 0;
     text-align: center;
+    margin-top: 20px;
+}
+
+/* Adjust Footer Position for Features Page */
+.features-page footer {
+    position: relative;
+    bottom: auto;
+    margin-top: 40px;
 }
 
 /* Style for Bigger and Centered Counter */
