@@ -3,68 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fly Buddy AI</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background-color: #ffffff;
-            margin: 0;
-            padding: 0;
-        }
-        .button-container {
-            margin-top: 20px;
-        }
-        .chat-container {
-            display: none;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            width: 50%;
-            margin: 30px auto;
-            padding: 20px;
-            border-radius: 10px;
-            background-color: #f4f4f4;
-            box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
-            text-align: center;
-        }
-        .chat-box {
-            width: 100%;
-            height: 200px;
-            overflow-y: auto;
-            background: white;
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: left;
-        }
-        input[type="text"] {
-            width: 80%;
-            padding: 10px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        button {
-            padding: 10px 15px;
-            border: none;
-            background: #007bff;
-            color: white;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        button:hover {
-            background: #0056b3;
-        }
-    </style>
+    <title>Fly Buddy - Home</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Your AI Copilot – Always Ready.</h1>
+    <!-- Navigation Bar -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="waitlist.html">Join Waitlist</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="donate.html">Donate</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Header -->
+    <h1 class="glowing-text">Your AI Copilot — Always Ready.</h1>
     <p>Revolutionizing aviation with AI-powered flight assistance.</p>
-    <div class="button-container">
-        <button onclick="showChat()">Test Fly Buddy</button>
-        <button onclick="window.location.href='join.html'">Join Fly Buddy</button>
-    </div>
-    <div class="chat-container" id="chatContainer">
+    
+    <!-- Buttons -->
+    <button id="testFlyBuddy" class="btn">Test Fly Buddy</button>
+    <button id="joinFlyBuddy" class="btn" onclick="location.href='waitlist.html'">Join Fly Buddy</button>
+    
+    <!-- Chat Box (Hidden Initially) -->
+    <div id="chatDemo" class="chat-demo-container hidden">
         <h2>Try Fly Buddy AI!</h2>
         <div class="chat-box" id="chatBox">
             <p><strong>Fly Buddy AI:</strong> Hello, Captain! How can I assist you today?</p>
@@ -72,43 +35,12 @@
         <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
         <button onclick="sendMessage()">Send</button>
     </div>
-    <script>
-        function showChat() {
-            let chatContainer = document.getElementById("chatContainer");
-            chatContainer.style.display = "block";
-            setTimeout(() => {
-                chatContainer.style.opacity = "1";
-            }, 100);
-        }
-        function sendMessage() {
-            let userInput = document.getElementById("userInput").value;
-            let chatBox = document.getElementById("chatBox");
-            
-            if (userInput.trim() !== "") {
-                chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
-                document.getElementById("userInput").value = "";
-                setTimeout(() => {
-                    let response = getAIResponse(userInput);
-                    chatBox.innerHTML += `<p><strong>Fly Buddy AI:</strong> ${response}</p>`;
-                    chatBox.scrollTop = chatBox.scrollHeight;
-                }, 1000);
-            }
-        }
-        function handleKeyPress(event) {
-            if (event.key === "Enter") {
-                sendMessage();
-            }
-        }
-        function getAIResponse(input) {
-            const responses = {
-                "hello": "Hi there! How can I assist you today?",
-                "flight plan": "I can help you generate a flight plan. What is your departure and destination?",
-                "weather": "Fetching the latest weather updates... Please wait!",
-                "emergency": "Stay calm. What is your emergency situation? I’ll guide you step-by-step."
-            };
-            input = input.toLowerCase();
-            return responses[input] || "I'm still learning! Try asking something else.";
-        }
-    </script>
+    
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Fly Buddy. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
