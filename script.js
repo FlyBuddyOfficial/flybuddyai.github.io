@@ -1,20 +1,27 @@
-document.getElementById("testFlyBuddyBtn").addEventListener("click", function() {
+document.addEventListener("DOMContentLoaded", function() {
     let chatContainer = document.getElementById("chat-container");
-    chatContainer.style.display = "block";
-    chatContainer.style.opacity = "0";
-    
-    setTimeout(() => {
-        chatContainer.style.opacity = "1";
-    }, 200);
+    chatContainer.style.display = "none"; // Ensuring it is hidden on page load
+
+    document.getElementById("testFlyBuddyBtn").addEventListener("click", function() {
+        if (chatContainer.style.display === "none") {
+            chatContainer.style.display = "block";
+            chatContainer.style.opacity = "0";
+
+            setTimeout(() => {
+                chatContainer.style.opacity = "1";
+            }, 200);
+        }
+    });
 });
 
 function sendMessage() {
-    let userInput = document.getElementById("userInput").value;
+    let userInput = document.getElementById("userInput").value.trim();
     let chatBox = document.getElementById("chatBox");
-    
-    if (userInput.trim() !== "") {
+
+    if (userInput !== "") {
         chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
         document.getElementById("userInput").value = "";
+
         setTimeout(() => {
             let response = getAIResponse(userInput);
             chatBox.innerHTML += `<p><strong>Fly Buddy AI:</strong> ${response}</p>`;
