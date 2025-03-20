@@ -3,13 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fly Buddy AI</title>
+    <title>Fly Buddy - Your AI Copilot</title>
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"></script>
 </head>
 <body>
 
-    <!-- Navigation Bar -->
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -20,35 +19,31 @@
         </ul>
     </nav>
 
-    <!-- Main Content -->
-    <h1 class="glowing-text">Your AI Copilot — Always Ready.</h1>
-    <p>Revolutionizing aviation with AI-powered flight assistance.</p>
+    <header>
+        <h1 class="glowing-text">Your AI Copilot — Always Ready.</h1>
+        <p>Revolutionizing aviation with AI-powered flight assistance.</p>
+        <button onclick="scrollToChat()">Test Fly Buddy</button>
+        <button onclick="location.href='waitlist.html'">Join Fly Buddy</button>
+    </header>
 
-    <div class="button-container">
-        <button onclick="location.href='waitlist.html'" class="btn">Join Fly Buddy</button>
-        <button onclick="showChat()" class="btn">Test Fly Buddy</button>
-    </div>
-
-    <!-- Chat Section (Initially Hidden) -->
-    <div id="chat-container" class="chat-hidden">
-        <h2>Try Fly Buddy AI!</h2>
-        <div class="chat-box" id="chatBox">
-            <p><strong>Fly Buddy AI:</strong> Hello, Captain! How can I assist you today?</p>
+    <section id="chat-container" class="hidden">
+        <div class="chat-demo-container">
+            <h2>Try Fly Buddy AI!</h2>
+            <div class="chat-box" id="chatBox">
+                <p><strong>Fly Buddy AI:</strong> Hello, Captain! How can I assist you today?</p>
+            </div>
+            <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+            <button onclick="sendMessage()">Send</button>
+            <div class="suggested-questions">
+                <button onclick="sendPresetMessage('Plan my flight from JFK to LAX')">Plan my flight from JFK to LAX</button>
+                <button onclick="sendPresetMessage('What’s the latest METAR for KATL?')">What’s the latest METAR for KATL?</button>
+                <button onclick="sendPresetMessage('Mayday! Engine failure at 10,000 ft')">Mayday! Engine failure at 10,000 ft</button>
+                <button onclick="sendPresetMessage('How do I avoid turbulence?')">How do I avoid turbulence?</button>
+                <button onclick="sendPresetMessage('Explain how a jet engine works')">Explain how a jet engine works</button>
+            </div>
         </div>
-        <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
-        <button onclick="sendMessage()">Send</button>
+    </section>
 
-        <!-- Predefined Questions -->
-        <div class="question-buttons">
-            <button onclick="sendPresetMessage('Plan my flight from JFK to LAX')">Plan my flight from JFK to LAX</button>
-            <button onclick="sendPresetMessage('What’s the latest METAR for KATL?')">What’s the latest METAR for KATL?</button>
-            <button onclick="sendPresetMessage('Mayday! Engine failure at 10,000 ft')">Mayday! Engine failure at 10,000 ft</button>
-            <button onclick="sendPresetMessage('How do I avoid turbulence?')">How do I avoid turbulence?</button>
-            <button onclick="sendPresetMessage('Explain how a jet engine works')">Explain how a jet engine works</button>
-        </div>
-    </div>
-
-    <!-- Footer -->
     <footer>
         <p>© 2025 Fly Buddy. All rights reserved.</p>
     </footer>
