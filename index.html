@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fly Buddy - Your AI Copilot</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
 </head>
 <body>
 
@@ -21,21 +20,30 @@
     </nav>
 
     <!-- Main Section -->
-    <header>
+    <section class="home-section">
         <h1 class="glowing-text">Your AI Copilot — Always Ready.</h1>
         <p>Revolutionizing aviation with AI-powered flight assistance.</p>
-        <a href="waitlist.html" class="btn">Join the Waitlist</a>
+        
         <button class="btn" onclick="scrollToChat()">Test Fly Buddy</button>
-    </header>
+    </section>
 
-    <!-- Chat Section (Initially Hidden) -->
-    <div id="chat-section" class="chat-demo-container" style="display: none;">
+    <!-- Chat Demo (Initially Hidden) -->
+    <div id="chat-demo-container" class="chat-demo-container">
         <h2>Try Fly Buddy AI!</h2>
         <div class="chat-box" id="chatBox">
             <p><strong>Fly Buddy AI:</strong> Hello, Captain! How can I assist you today?</p>
         </div>
         <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
         <button onclick="sendMessage()">Send</button>
+
+        <!-- Preset Questions -->
+        <div class="preset-questions">
+            <button onclick="fillQuestion('Plan my flight from JFK to LAX')">Plan my flight from JFK to LAX</button>
+            <button onclick="fillQuestion('What’s the latest METAR for KATL?')">What’s the latest METAR for KATL?</button>
+            <button onclick="fillQuestion('Mayday! Engine failure at 10,000 ft!')">Mayday! Engine failure at 10,000 ft!</button>
+            <button onclick="fillQuestion('How do I avoid turbulence?')">How do I avoid turbulence?</button>
+            <button onclick="fillQuestion('Explain how a jet engine works')">Explain how a jet engine works</button>
+        </div>
     </div>
 
     <!-- Footer -->
@@ -43,11 +51,10 @@
         <p>© 2025 Fly Buddy. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript -->
+    <!-- Scripts -->
     <script>
         function scrollToChat() {
-            document.getElementById("chat-section").style.display = "block";
-            document.getElementById("chat-section").scrollIntoView({ behavior: "smooth" });
+            document.getElementById("chat-demo-container").scrollIntoView({ behavior: "smooth" });
         }
 
         function sendMessage() {
@@ -57,7 +64,37 @@
             if (userInput.trim() !== "") {
                 chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
                 document.getElementById("userInput").value = "";
-
                 setTimeout(() => {
                     let response = getAIResponse(userInput);
-                    chatBox
+                    chatBox.innerHTML += `<p><strong>Fly Buddy AI:</strong> ${response}</p>`;
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                }, 1000);
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === "Enter") {
+                sendMessage();
+            }
+        }
+
+        function fillQuestion(question) {
+            document.getElementById("userInput").value = question;
+            sendMessage();
+        }
+
+        function getAIResponse(input) {
+            const responses = {
+                "Plan my flight from JFK to LAX": "Your best route from JFK to LAX is via J80 to SPI then J110 to LAX. Expect turbulence over the Midwest.",
+                "What’s the latest METAR for KATL?": "Fetching latest METAR for KATL... [Insert real-time METAR API here]",
+                "Mayday! Engine failure at 10,000 ft!": "Stay calm. Maintain best glide speed and look for a safe landing site. Declare an emergency on 121.5 MHz.",
+                "How do I avoid turbulence?": "Avoid flying near storm clouds. Use PIREPs and SIGMETs to detect turbulence-prone areas.",
+                "Explain how a jet engine works": "A jet engine sucks in air, compresses it, mixes it with fuel, and ignites it to produce thrust."
+            };
+
+            return responses[input] || "I'm still learning! Try asking something else.";
+        }
+    </script>
+
+</body>
+</html>
