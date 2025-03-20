@@ -5,6 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fly Buddy - Your AI Copilot</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Chatbox hidden by default */
+        .chat-demo-container {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+        /* Fade in when activated */
+        .chat-demo-container.active {
+            display: block;
+            opacity: 1;
+        }
+    </style>
 </head>
 <body>
 
@@ -23,8 +36,9 @@
     <section class="home-section">
         <h1 class="glowing-text">Your AI Copilot — Always Ready.</h1>
         <p>Revolutionizing aviation with AI-powered flight assistance.</p>
-        
-        <button class="btn" onclick="scrollToChat()">Test Fly Buddy</button>
+
+        <button class="btn" onclick="showChat()">Test Fly Buddy</button>
+        <button class="btn" onclick="location.href='waitlist.html'">Join Fly Buddy</button>
     </section>
 
     <!-- Chat Demo (Initially Hidden) -->
@@ -53,8 +67,10 @@
 
     <!-- Scripts -->
     <script>
-        function scrollToChat() {
-            document.getElementById("chat-demo-container").scrollIntoView({ behavior: "smooth" });
+        function showChat() {
+            let chatBox = document.getElementById("chat-demo-container");
+            chatBox.classList.add("active");
+            chatBox.scrollIntoView({ behavior: "smooth" });
         }
 
         function sendMessage() {
