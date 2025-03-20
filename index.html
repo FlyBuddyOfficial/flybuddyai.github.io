@@ -8,19 +8,24 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        .button-container {
+            margin-top: 20px;
         }
         .chat-container {
             display: none;
             opacity: 0;
             transition: opacity 1s ease-in-out;
-            margin-top: 20px;
+            width: 50%;
+            margin: 30px auto;
             padding: 20px;
             border-radius: 10px;
             background-color: #f4f4f4;
             box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
-            width: 50%;
-            margin-left: auto;
-            margin-right: auto;
+            text-align: center;
         }
         .chat-box {
             width: 100%;
@@ -32,8 +37,9 @@
             text-align: left;
         }
         input[type="text"] {
-            width: 75%;
+            width: 80%;
             padding: 10px;
+            margin: 10px 0;
             border-radius: 5px;
             border: 1px solid #ccc;
         }
@@ -52,10 +58,12 @@
     </style>
 </head>
 <body>
-    <h1>Your AI Copilot - Always Ready.</h1>
-    <button onclick="showChat()">Test Fly Buddy</button>
-    <button>Join Fly Buddy</button>
-    
+    <h1>Your AI Copilot – Always Ready.</h1>
+    <p>Revolutionizing aviation with AI-powered flight assistance.</p>
+    <div class="button-container">
+        <button onclick="showChat()">Test Fly Buddy</button>
+        <button onclick="window.location.href='join.html'">Join Fly Buddy</button>
+    </div>
     <div class="chat-container" id="chatContainer">
         <h2>Try Fly Buddy AI!</h2>
         <div class="chat-box" id="chatBox">
@@ -64,16 +72,14 @@
         <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
         <button onclick="sendMessage()">Send</button>
     </div>
-
     <script>
         function showChat() {
             let chatContainer = document.getElementById("chatContainer");
             chatContainer.style.display = "block";
             setTimeout(() => {
                 chatContainer.style.opacity = "1";
-            }, 10);
+            }, 100);
         }
-        
         function sendMessage() {
             let userInput = document.getElementById("userInput").value;
             let chatBox = document.getElementById("chatBox");
@@ -88,13 +94,11 @@
                 }, 1000);
             }
         }
-        
         function handleKeyPress(event) {
             if (event.key === "Enter") {
                 sendMessage();
             }
         }
-        
         function getAIResponse(input) {
             const responses = {
                 "hello": "Hi there! How can I assist you today?",
