@@ -1,25 +1,20 @@
-// Show Chat with Animation
-function scrollToChat() {
-    let chatBox = document.getElementById("chat-container");
-    chatBox.style.display = "block";
-    chatBox.style.opacity = 0;
-    chatBox.style.transition = "opacity 0.5s ease-in-out";
+document.getElementById("testFlyBuddyBtn").addEventListener("click", function() {
+    let chatContainer = document.getElementById("chat-container");
+    chatContainer.style.display = "block";
+    chatContainer.style.opacity = "0";
     
     setTimeout(() => {
-        chatBox.style.opacity = 1;
-        chatBox.scrollIntoView({ behavior: "smooth" });
-    }, 100);
-}
+        chatContainer.style.opacity = "1";
+    }, 200);
+});
 
-// Handle Sending Messages
 function sendMessage() {
     let userInput = document.getElementById("userInput").value;
     let chatBox = document.getElementById("chatBox");
-
+    
     if (userInput.trim() !== "") {
         chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
         document.getElementById("userInput").value = "";
-        
         setTimeout(() => {
             let response = getAIResponse(userInput);
             chatBox.innerHTML += `<p><strong>Fly Buddy AI:</strong> ${response}</p>`;
@@ -28,28 +23,26 @@ function sendMessage() {
     }
 }
 
-// Handle Enter Key Press
 function handleKeyPress(event) {
     if (event.key === "Enter") {
         sendMessage();
     }
 }
 
-// AI Responses
+function quickQuestion(question) {
+    document.getElementById("userInput").value = question;
+    sendMessage();
+}
+
 function getAIResponse(input) {
     const responses = {
-        "hello": "Hi there! How can I assist you today?",
-        "flight plan": "I can help you generate a flight plan. What is your departure and destination?",
-        "weather": "Fetching the latest weather updates... Please wait!",
-        "emergency": "Stay calm. What is your emergency situation? I’ll guide you step-by-step."
+        "plan my flight from jfk to lax": "Your best route from JFK to LAX is via J80 SPI then J110 to LAX. Expect turbulence over the Midwest.",
+        "what’s the latest metar for katl?": "Fetching latest METAR for KATL... [Insert real-time METAR API here]",
+        "mayday! engine failure at 10,000 ft": "Stay calm. Maintain best glide speed and look for a safe landing site. Declare an emergency on 121.5 MHz.",
+        "how do i avoid turbulence?": "Avoid flying near storm clouds. Use PIREPs and SIGMETs to detect turbulence-prone areas.",
+        "explain how a jet engine works": "A jet engine sucks in air, compresses it, mixes it with fuel, and ignites it to produce thrust."
     };
 
     input = input.toLowerCase();
     return responses[input] || "I'm still learning! Try asking something else.";
-}
-
-// Quick Question Buttons
-function quickAsk(question) {
-    document.getElementById("userInput").value = question;
-    sendMessage();
 }
