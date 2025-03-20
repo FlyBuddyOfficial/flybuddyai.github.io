@@ -1,66 +1,71 @@
-/* General Styling */
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #ffffff;
-    color: #000000;
     margin: 0;
     padding: 0;
+    background-color: #f4f4f4;
 }
 
-/* Navigation Bar */
-nav {
+.navbar {
     background-color: #007bff;
-    padding: 15px 0;
+    padding: 15px;
 }
 
-nav ul {
+.navbar ul {
     list-style: none;
-    padding: 0;
     margin: 0;
-    display: flex;
-    justify-content: center;
+    padding: 0;
 }
 
-nav ul li {
+.navbar ul li {
+    display: inline;
     margin: 0 15px;
 }
 
-nav ul li a {
+.navbar ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    font-size: 18px;
-    transition: 0.3s;
 }
 
-nav ul li a:hover {
-    text-decoration: underline;
+.hero {
+    margin-top: 50px;
 }
 
-/* Glowing Text Effect */
 .glowing-text {
-    font-size: 2.5rem;
+    font-size: 2em;
     font-weight: bold;
-    text-shadow: 0 0 5px blue, 0 0 10px blue, 0 0 15px blue;
-    animation: glow 1.5s infinite alternate;
+    color: black;
+    text-shadow: 0 0 8px rgba(0, 0, 255, 0.8);
 }
 
-@keyframes glow {
-    from { text-shadow: 0 0 5px blue, 0 0 10px blue, 0 0 15px blue; }
-    to { text-shadow: 0 0 8px blue, 0 0 16px blue, 0 0 24px blue; }
+.btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-/* Chat Box */
-#chat-container {
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.hidden {
+    display: none;
+}
+
+.chat-container {
     width: 50%;
     margin: 30px auto;
     padding: 20px;
     border-radius: 10px;
-    background-color: #f4f4f4;
+    background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
     text-align: center;
-    display: none;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .chat-box {
@@ -73,28 +78,27 @@ nav ul li a:hover {
     text-align: left;
 }
 
-/* Hover Boxes */
-.feature-box {
-    background: rgba(0, 0, 255, 0.1);
-    padding: 15px;
-    margin: 20px auto;
-    width: 50%;
-    border-radius: 10px;
-    transition: background 0.3s, transform 0.3s;
-}
-
-.feature-box:hover {
-    background: rgba(0, 0, 255, 0.3);
-    transform: scale(1.05);
-}
-
-/* Footer */
-footer {
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    background: #007bff;
+.quick-questions button {
+    background-color: #007bff;
     color: white;
-    padding: 10px 0;
-    text-align: center;
+    border: none;
+    padding: 8px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.quick-questions button:hover {
+    background-color: #0056b3;
+}
+
+footer {
+    background-color: #007bff;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    font-size: 0.9em;
 }
