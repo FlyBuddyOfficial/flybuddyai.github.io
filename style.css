@@ -48,58 +48,11 @@ nav ul li a:hover {
 
 @keyframes glow {
     from { text-shadow: 0 0 5px blue, 0 0 10px blue, 0 0 15px blue; }
-    to { text-shadow: 0 0 10px blue, 0 0 20px blue, 0 0 30px blue; }
-}
-
-/* Buttons */
-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: #007bff;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
-    text-decoration: none;
-}
-
-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px blue;
-}
-
-/* Features Page - Hover Box */
-.feature-box {
-    background: rgba(0, 0, 255, 0.1);
-    padding: 15px;
-    margin: 20px auto;
-    width: 50%;
-    border-radius: 10px;
-    transition: background 0.3s, transform 0.3s;
-}
-
-.feature-box:hover {
-    background: rgba(0, 0, 255, 0.3);
-    transform: scale(1.05);
-}
-
-/* Chat Container */
-.hidden {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.show {
-    display: block;
-    opacity: 1;
+    to { text-shadow: 0 0 8px blue, 0 0 16px blue, 0 0 24px blue; }
 }
 
 /* Chat Box */
-.chat-demo-container {
+#chat-container {
     width: 50%;
     margin: 30px auto;
     padding: 20px;
@@ -107,6 +60,7 @@ button:hover {
     background-color: #f4f4f4;
     box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
     text-align: center;
+    display: none;
 }
 
 .chat-box {
@@ -119,31 +73,19 @@ button:hover {
     text-align: left;
 }
 
-input[type="text"] {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+/* Hover Boxes */
+.feature-box {
+    background: rgba(0, 0, 255, 0.1);
+    padding: 15px;
+    margin: 20px auto;
+    width: 50%;
+    border-radius: 10px;
+    transition: background 0.3s, transform 0.3s;
 }
 
-.suggested-questions {
-    margin-top: 10px;
-}
-
-.suggested-questions button {
-    margin: 5px;
-    padding: 10px 15px;
-    border-radius: 5px;
-    border: none;
-    background: #007bff;
-    color: white;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.suggested-questions button:hover {
-    background: #0056b3;
+.feature-box:hover {
+    background: rgba(0, 0, 255, 0.3);
+    transform: scale(1.05);
 }
 
 /* Footer */
