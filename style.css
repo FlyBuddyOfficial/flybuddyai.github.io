@@ -38,68 +38,93 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* Glowing Text Effect */
-.glowing-text {
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-shadow: 0 0 10px blue, 0 0 20px blue, 0 0 30px blue;
-    animation: glow 1.5s infinite alternate;
+/* Hero Section */
+.hero {
+    margin-top: 40px;
 }
 
-@keyframes glow {
-    from { text-shadow: 0 0 10px blue, 0 0 20px blue, 0 0 30px blue; }
-    to { text-shadow: 0 0 20px blue, 0 0 40px blue, 0 0 60px blue; }
-}
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: #007bff;
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
+button {
+    padding: 12px 20px;
     border: none;
+    background: #007bff;
+    color: white;
+    font-size: 18px;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
-    text-decoration: none;
+    margin: 10px;
+    transition: background 0.3s;
 }
 
-.btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px blue;
+button:hover {
+    background: #0056b3;
 }
 
-/* Features Page - Hover Box */
-.feature-box {
-    background: rgba(0, 0, 255, 0.1);
+/* Chat Section */
+.chat-demo-container {
+    width: 50%;
+    margin: 30px auto;
     padding: 20px;
-    margin: 20px auto;
-    width: 60%;
-    border-radius: 12px;
-    transition: background 0.3s, transform 0.3s;
-    box-shadow: 0 4px 10px rgba(0, 0, 255, 0.2);
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
+    text-align: center;
+    display: none;
 }
 
-.feature-box:hover {
-    background: rgba(0, 0, 255, 0.3);
-    transform: scale(1.05);
-    box-shadow: 0 6px 15px rgba(0, 0, 255, 0.4);
+.chat-box {
+    width: 100%;
+    height: 250px;
+    overflow-y: auto;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 15px;
+    text-align: left;
+    box-shadow: inset 0 0 10px rgba(0, 0, 255, 0.1);
 }
 
-/* Footer - Fixed for All Pages Except Features Page */
+.chat-input {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.chat-input input {
+    width: 70%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.preset-questions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.preset-questions button {
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 5px;
+    background: #e0e0e0;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.preset-questions button:hover {
+    background: #d0d0d0;
+}
+
+/* Footer */
 footer {
     width: 100%;
     background: #007bff;
     color: white;
     padding: 10px 0;
     text-align: center;
-    position: fixed;
-    bottom: 0;
-}
-
-/* Override for Features Page */
-.features-page footer {
-    position: relative;
 }
