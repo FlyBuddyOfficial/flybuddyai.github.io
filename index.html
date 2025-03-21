@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fly Buddy AI</title>
-    <link rel="stylesheet" href="styles.css?v=2">  <!-- Forces fresh CSS load -->
-    <script defer src="script.js"></script>
+    <title>Fly Buddy - Your AI Copilot</title>
+    <link rel="stylesheet" href="styles.css?v=2">
 </head>
 <body>
 
-    <!-- Navigation Bar -->
     <nav class="navbar">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -20,24 +18,20 @@
         </ul>
     </nav>
 
-    <!-- Main Heading -->
     <header>
-        <h1 class="glowing-text">Your AI Copilot – Always Ready.</h1>
+        <h1 class="glow">Your AI Copilot – Always Ready.</h1>
         <p>Revolutionizing aviation with AI-powered flight assistance.</p>
-        <button onclick="window.location.href='waitlist.html'">Join Fly Buddy</button>
+        <button id="joinFlyBuddyBtn">Join Fly Buddy</button>
         <button id="testFlyBuddyBtn">Test Fly Buddy</button>
     </header>
 
-    <!-- Chat Box (Initially Hidden) -->
-    <div id="chat-container" class="hidden">
+    <div id="chat-container" class="chat-hidden">
         <h2>Try Fly Buddy AI!</h2>
         <div class="chat-box" id="chatBox">
             <p><strong>Fly Buddy AI:</strong> Hello, Captain! How can I assist you today?</p>
         </div>
         <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
         <button onclick="sendMessage()">Send</button>
-        
-        <!-- Quick Questions -->
         <div class="quick-questions">
             <button onclick="quickQuestion('Plan my flight from JFK to LAX')">Plan my flight from JFK to LAX</button>
             <button onclick="quickQuestion('What’s the latest METAR for KATL?')">What’s the latest METAR for KATL?</button>
@@ -47,10 +41,10 @@
         </div>
     </div>
 
-    <!-- Footer -->
     <footer>
         <p>© 2025 Fly Buddy. All rights reserved.</p>
     </footer>
 
+    <script src="script.js?v=2"></script>
 </body>
 </html>
