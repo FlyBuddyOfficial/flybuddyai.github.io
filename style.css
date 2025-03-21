@@ -1,94 +1,92 @@
-/* styles.css */
-
+/* General Styles */
 body {
     font-family: Arial, sans-serif;
+    background-color: white;
     text-align: center;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
 }
 
-header {
-    background: #007bff;
-    padding: 15px;
+/* Navigation Bar */
+.navbar {
+    background-color: #007bff;
+    padding: 15px 0;
+    text-align: center;
 }
-
-nav ul {
+.navbar ul {
     list-style: none;
     padding: 0;
 }
-
-nav ul li {
+.navbar ul li {
     display: inline;
     margin: 0 15px;
 }
-
-nav ul li a {
+.navbar ul li a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
+    font-weight: bold;
 }
 
-.hero {
-    margin: 50px 0;
+/* Header Section */
+header {
+    margin-top: 30px;
 }
-
 .glow {
-    text-shadow: 0px 0px 15px rgba(0, 0, 255, 0.6);
+    font-size: 2em;
+    font-weight: bold;
+    color: black;
+    text-shadow: 0 0 10px rgba(0, 0, 255, 0.5);
 }
 
-button {
-    padding: 10px 20px;
-    margin: 10px;
-    border: none;
-    background: #007bff;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-}
-
-button:hover {
-    background: #0056b3;
-}
-
-.hidden {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.5s;
-}
-
+/* Chatbox Styling */
 #chat-container {
+    display: none;
     width: 50%;
     margin: 30px auto;
     padding: 20px;
     border-radius: 10px;
-    background-color: white;
+    background-color: #f4f4f4;
     box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .chat-box {
     width: 100%;
     height: 200px;
     overflow-y: auto;
+    background: white;
     border: 1px solid #ccc;
     padding: 10px;
     text-align: left;
 }
 
-.quick-questions button {
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+button {
+    padding: 10px 15px;
+    border: none;
     background: #007bff;
     color: white;
-    padding: 5px 10px;
-    border: none;
-    margin: 5px;
     border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+button:hover {
+    background: #0056b3;
 }
 
-footer {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    background: #007bff;
-    color: white;
-    padding: 10px;
+/* Hover Boxes for Features */
+.feature-box {
+    padding: 15px;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.feature-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 0, 255, 0.5);
 }
