@@ -40,7 +40,7 @@ function getAIResponse(input) {
         "how do i avoid turbulence?": "Avoid flying near storm clouds. Use PIREPs and SIGMETs to detect turbulence-prone areas.",
         "explain how a jet engine works": "A jet engine sucks in air, compresses it, mixes it with fuel, and ignites it to produce thrust."
     };
-    
+
     input = input.toLowerCase();
     return responses[input] || "I'm still learning! Try asking something else.";
 }
