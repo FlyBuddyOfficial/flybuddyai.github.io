@@ -1,27 +1,18 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.getElementById("testFlyBuddyBtn").addEventListener("click", function() {
     let chatContainer = document.getElementById("chat-container");
-    chatContainer.style.display = "none"; // Ensuring it is hidden on page load
-
-    document.getElementById("testFlyBuddyBtn").addEventListener("click", function() {
-        if (chatContainer.style.display === "none") {
-            chatContainer.style.display = "block";
-            chatContainer.style.opacity = "0";
-
-            setTimeout(() => {
-                chatContainer.style.opacity = "1";
-            }, 200);
-        }
-    });
+    chatContainer.style.display = "block";
+    setTimeout(() => {
+        chatContainer.style.opacity = "1";
+    }, 200);
 });
 
 function sendMessage() {
-    let userInput = document.getElementById("userInput").value.trim();
+    let userInput = document.getElementById("userInput").value;
     let chatBox = document.getElementById("chatBox");
-
-    if (userInput !== "") {
+    
+    if (userInput.trim() !== "") {
         chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
         document.getElementById("userInput").value = "";
-
         setTimeout(() => {
             let response = getAIResponse(userInput);
             chatBox.innerHTML += `<p><strong>Fly Buddy AI:</strong> ${response}</p>`;
@@ -49,7 +40,7 @@ function getAIResponse(input) {
         "how do i avoid turbulence?": "Avoid flying near storm clouds. Use PIREPs and SIGMETs to detect turbulence-prone areas.",
         "explain how a jet engine works": "A jet engine sucks in air, compresses it, mixes it with fuel, and ignites it to produce thrust."
     };
-
+    
     input = input.toLowerCase();
     return responses[input] || "I'm still learning! Try asking something else.";
 }
