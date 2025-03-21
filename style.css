@@ -1,88 +1,74 @@
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-    background-color: #ffffff;
+    background-color: #f4f4f4;
     margin: 0;
-    padding: 0;
 }
 
-header {
+/* Navigation Bar */
+.navbar {
     background-color: #007bff;
     padding: 15px;
 }
-
-nav ul {
+.navbar ul {
     list-style: none;
     padding: 0;
 }
-
-nav ul li {
+.navbar ul li {
     display: inline;
     margin: 0 15px;
 }
-
-nav ul li a {
+.navbar ul li a {
     color: white;
     text-decoration: none;
-    font-size: 18px;
 }
 
-.container {
-    padding: 50px 20px;
-}
-
-h1.glow {
-    font-size: 36px;
+/* Glowing Text */
+.glowing-text {
+    font-size: 2.5em;
     color: black;
-    text-shadow: 0 0 10px blue;
+    text-shadow: 0px 0px 10px rgba(0, 0, 255, 0.5);
 }
 
-.blue-button {
-    padding: 12px 20px;
-    border: none;
-    background: #007bff;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    margin: 10px;
-    transition: background 0.3s;
-}
-
-.blue-button:hover {
-    background: #0056b3;
-}
-
-.chat-hidden {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.chat-box {
-    width: 60%;
-    height: 200px;
+/* Chat Box */
+#chat-container {
+    width: 50%;
     margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.chat-box {
+    height: 200px;
     overflow-y: auto;
     background: white;
     border: 1px solid #ccc;
     padding: 10px;
     text-align: left;
 }
-
-.quick-questions button {
-    padding: 10px;
-    margin: 5px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.hidden {
+    display: none;
+}
+.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.quick-questions button:hover {
-    background: #0056b3;
+/* Hover Effect for Features */
+.feature-box:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+    box-shadow: 0 0 15px rgba(0, 0, 255, 0.5);
 }
 
+/* Footer */
 footer {
     background-color: #007bff;
     color: white;
