@@ -1,11 +1,13 @@
+// Show chat box when clicking "Test Fly Buddy"
 document.getElementById("testFlyBuddyBtn").addEventListener("click", function() {
     let chatContainer = document.getElementById("chat-container");
-    chatContainer.style.display = "block";
+    chatContainer.classList.remove("hidden");
     setTimeout(() => {
-        chatContainer.style.opacity = "1";
+        chatContainer.classList.add("show");
     }, 200);
 });
 
+// Handle message sending
 function sendMessage() {
     let userInput = document.getElementById("userInput").value;
     let chatBox = document.getElementById("chatBox");
@@ -21,17 +23,20 @@ function sendMessage() {
     }
 }
 
+// Handle "Enter" key to send message
 function handleKeyPress(event) {
     if (event.key === "Enter") {
         sendMessage();
     }
 }
 
+// Handle Quick Question Buttons
 function quickQuestion(question) {
     document.getElementById("userInput").value = question;
     sendMessage();
 }
 
+// AI Response System
 function getAIResponse(input) {
     const responses = {
         "plan my flight from jfk to lax": "Your best route from JFK to LAX is via J80 SPI then J110 to LAX. Expect turbulence over the Midwest.",
