@@ -9,7 +9,7 @@ document.getElementById("testFlyBuddyBtn").addEventListener("click", function() 
 function sendMessage() {
     let userInput = document.getElementById("userInput").value;
     let chatBox = document.getElementById("chatBox");
-    
+
     if (userInput.trim() !== "") {
         chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
         document.getElementById("userInput").value = "";
