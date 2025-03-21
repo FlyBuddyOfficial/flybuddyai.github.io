@@ -3,47 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fly Buddy</title>
+    <title>Fly Buddy AI</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="waitlist.html">Join Waitlist</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="donate.html">Donate</a></li>
-        </ul>
-    </nav>
-    
     <header>
-        <h1 class="glowing-text">Your AI Copilot — Always Ready.</h1>
-        <p>Revolutionizing aviation with AI-powered flight assistance.</p>
-        <button id="testFlyBuddyBtn">Test Fly Buddy</button>
-        <button id="joinFlyBuddyBtn">Join Fly Buddy</button>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="waitlist.html">Join Waitlist</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="donate.html">Donate</a></li>
+            </ul>
+        </nav>
     </header>
-    
-    <section id="chat-container" class="chat-hidden">
-        <h2>Try Fly Buddy AI!</h2>
-        <div class="chat-box" id="chatBox">
-            <p><strong>Fly Buddy AI:</strong> Hello, Captain! How can I assist you today?</p>
+
+    <div class="container">
+        <h1 class="glow">Your AI Copilot – Always Ready.</h1>
+        <p>Revolutionizing aviation with AI-powered flight assistance.</p>
+
+        <button class="blue-button" onclick="window.location.href='join.html'">Join Fly Buddy</button>
+        <button class="blue-button" id="testFlyBuddyBtn">Test Fly Buddy</button>
+
+        <div id="chat-container" class="chat-hidden">
+            <h2>Try Fly Buddy AI!</h2>
+            <div class="chat-box" id="chatBox">
+                <p><strong>Fly Buddy AI:</strong> Hello, Captain! How can I assist you today?</p>
+            </div>
+            <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+            <button class="blue-button" onclick="sendMessage()">Send</button>
+
+            <div class="quick-questions">
+                <button onclick="quickQuestion('Plan my flight from JFK to LAX')">Plan my flight from JFK to LAX</button>
+                <button onclick="quickQuestion('What’s the latest METAR for KATL?')">What’s the latest METAR for KATL?</button>
+                <button onclick="quickQuestion('Mayday! Engine failure at 10,000 ft')">Mayday! Engine failure at 10,000 ft</button>
+                <button onclick="quickQuestion('How do I avoid turbulence?')">How do I avoid turbulence?</button>
+                <button onclick="quickQuestion('Explain how a jet engine works')">Explain how a jet engine works</button>
+            </div>
         </div>
-        <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
-        <button onclick="sendMessage()">Send</button>
-        <div class="quick-questions">
-            <button onclick="quickQuestion('Plan my flight from JFK to LAX')">Plan my flight from JFK to LAX</button>
-            <button onclick="quickQuestion('What’s the latest METAR for KATL?')">What’s the latest METAR for KATL?</button>
-            <button onclick="quickQuestion('Mayday! Engine failure at 10,000 ft')">Mayday! Engine failure at 10,000 ft</button>
-            <button onclick="quickQuestion('How do I avoid turbulence?')">How do I avoid turbulence?</button>
-            <button onclick="quickQuestion('Explain how a jet engine works')">Explain how a jet engine works</button>
-        </div>
-    </section>
+    </div>
 
     <footer>
-        <p>&copy; 2025 Fly Buddy. All rights reserved.</p>
+        <p>© 2025 Fly Buddy. All rights reserved.</p>
     </footer>
-    
-    <script src="scripts.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
