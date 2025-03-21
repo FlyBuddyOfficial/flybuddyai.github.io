@@ -1,104 +1,94 @@
+/* styles.css */
+
 body {
     font-family: Arial, sans-serif;
     text-align: center;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
 }
 
-.navbar {
-    background-color: #007bff;
+header {
+    background: #007bff;
     padding: 15px;
 }
 
-.navbar ul {
+nav ul {
     list-style: none;
-    margin: 0;
     padding: 0;
 }
 
-.navbar ul li {
+nav ul li {
     display: inline;
     margin: 0 15px;
 }
 
-.navbar ul li a {
+nav ul li a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    font-size: 18px;
 }
 
 .hero {
-    margin-top: 50px;
+    margin: 50px 0;
 }
 
-.glowing-text {
-    font-size: 2em;
-    font-weight: bold;
-    color: black;
-    text-shadow: 0 0 8px rgba(0, 0, 255, 0.8);
+.glow {
+    text-shadow: 0px 0px 15px rgba(0, 0, 255, 0.6);
 }
 
-.btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
+button {
+    padding: 10px 20px;
     margin: 10px;
-    border-radius: 5px;
+    border: none;
+    background: #007bff;
+    color: white;
     cursor: pointer;
+    border-radius: 5px;
 }
 
-.btn:hover {
-    background-color: #0056b3;
+button:hover {
+    background: #0056b3;
 }
 
 .hidden {
     display: none;
+    opacity: 0;
+    transition: opacity 0.5s;
 }
 
-.chat-container {
+#chat-container {
     width: 50%;
     margin: 30px auto;
     padding: 20px;
     border-radius: 10px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
-    text-align: center;
-    transition: opacity 0.5s ease-in-out;
 }
 
 .chat-box {
     width: 100%;
     height: 200px;
     overflow-y: auto;
-    background: white;
     border: 1px solid #ccc;
     padding: 10px;
     text-align: left;
 }
 
 .quick-questions button {
-    background-color: #007bff;
+    background: #007bff;
     color: white;
+    padding: 5px 10px;
     border: none;
-    padding: 8px;
     margin: 5px;
     border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9em;
-}
-
-.quick-questions button:hover {
-    background-color: #0056b3;
 }
 
 footer {
-    background-color: #007bff;
-    padding: 10px;
-    position: absolute;
+    position: fixed;
     bottom: 0;
     width: 100%;
+    background: #007bff;
     color: white;
-    font-size: 0.9em;
+    padding: 10px;
 }
