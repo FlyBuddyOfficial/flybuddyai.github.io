@@ -4,50 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fly Buddy AI</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">  <!-- Forces fresh CSS load -->
+    <script defer src="script.js"></script>
 </head>
 <body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="waitlist.html">Join Waitlist</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="donate.html">Donate</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Heading -->
     <header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="features.html">Features</a></li>
-                <li><a href="waitlist.html">Join Waitlist</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="donate.html">Donate</a></li>
-            </ul>
-        </nav>
+        <h1 class="glowing-text">Your AI Copilot – Always Ready.</h1>
+        <p>Revolutionizing aviation with AI-powered flight assistance.</p>
+        <button onclick="window.location.href='waitlist.html'">Join Fly Buddy</button>
+        <button id="testFlyBuddyBtn">Test Fly Buddy</button>
     </header>
 
-    <div class="container">
-        <h1 class="glow">Your AI Copilot – Always Ready.</h1>
-        <p>Revolutionizing aviation with AI-powered flight assistance.</p>
-
-        <button class="blue-button" onclick="window.location.href='join.html'">Join Fly Buddy</button>
-        <button class="blue-button" id="testFlyBuddyBtn">Test Fly Buddy</button>
-
-        <div id="chat-container" class="chat-hidden">
-            <h2>Try Fly Buddy AI!</h2>
-            <div class="chat-box" id="chatBox">
-                <p><strong>Fly Buddy AI:</strong> Hello, Captain! How can I assist you today?</p>
-            </div>
-            <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
-            <button class="blue-button" onclick="sendMessage()">Send</button>
-
-            <div class="quick-questions">
-                <button onclick="quickQuestion('Plan my flight from JFK to LAX')">Plan my flight from JFK to LAX</button>
-                <button onclick="quickQuestion('What’s the latest METAR for KATL?')">What’s the latest METAR for KATL?</button>
-                <button onclick="quickQuestion('Mayday! Engine failure at 10,000 ft')">Mayday! Engine failure at 10,000 ft</button>
-                <button onclick="quickQuestion('How do I avoid turbulence?')">How do I avoid turbulence?</button>
-                <button onclick="quickQuestion('Explain how a jet engine works')">Explain how a jet engine works</button>
-            </div>
+    <!-- Chat Box (Initially Hidden) -->
+    <div id="chat-container" class="hidden">
+        <h2>Try Fly Buddy AI!</h2>
+        <div class="chat-box" id="chatBox">
+            <p><strong>Fly Buddy AI:</strong> Hello, Captain! How can I assist you today?</p>
+        </div>
+        <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
+        <button onclick="sendMessage()">Send</button>
+        
+        <!-- Quick Questions -->
+        <div class="quick-questions">
+            <button onclick="quickQuestion('Plan my flight from JFK to LAX')">Plan my flight from JFK to LAX</button>
+            <button onclick="quickQuestion('What’s the latest METAR for KATL?')">What’s the latest METAR for KATL?</button>
+            <button onclick="quickQuestion('Mayday! Engine failure at 10,000 ft')">Mayday! Engine failure at 10,000 ft</button>
+            <button onclick="quickQuestion('How do I avoid turbulence?')">How do I avoid turbulence?</button>
+            <button onclick="quickQuestion('Explain how a jet engine works')">Explain how a jet engine works</button>
         </div>
     </div>
 
+    <!-- Footer -->
     <footer>
         <p>© 2025 Fly Buddy. All rights reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
 </body>
 </html>
