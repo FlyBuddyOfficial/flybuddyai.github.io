@@ -1,32 +1,33 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fly Buddy</title>
+    <title>Fly Buddy - Your AI Copilot</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="scripts.js" defer></script>
 </head>
 <body>
-
-    <nav class="navbar">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="waitlist.html">Join Waitlist</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="donate.html">Donate</a></li>
-        </ul>
-    </nav>
-
-    <div class="hero">
-        <h1 class="glowing-text">Your AI Copilot – Always Ready.</h1>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="features.html">Features</a></li>
+                <li><a href="waitlist.html">Join Waitlist</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="donate.html">Donate</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h1>Your AI Copilot — <span class="glow">Always Ready.</span></h1>
         <p>Revolutionizing aviation with AI-powered flight assistance.</p>
-        <button onclick="window.location.href='waitlist.html'" class="btn">Join Fly Buddy</button>
-        <button id="testFlyBuddyBtn" class="btn">Test Fly Buddy</button>
-    </div>
-
-    <div id="chat-container" class="chat-container hidden">
+        <button id="joinFlyBuddy">Join Fly Buddy</button>
+        <button id="testFlyBuddyBtn">Test Fly Buddy</button>
+    </section>
+    
+    <section id="chat-container" class="hidden">
         <h2>Try Fly Buddy AI!</h2>
         <div class="chat-box" id="chatBox">
             <p><strong>Fly Buddy AI:</strong> Hello, Captain! How can I assist you today?</p>
@@ -40,12 +41,10 @@
             <button onclick="quickQuestion('How do I avoid turbulence?')">How do I avoid turbulence?</button>
             <button onclick="quickQuestion('Explain how a jet engine works')">Explain how a jet engine works</button>
         </div>
-    </div>
-
+    </section>
+    
     <footer>
-        <p>© 2025 Fly Buddy. All rights reserved.</p>
+        <p>&copy; 2025 Fly Buddy. All rights reserved.</p>
     </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
