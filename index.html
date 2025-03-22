@@ -1,47 +1,45 @@
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fly Buddy AI</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <nav class="navbar">
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="features.html">Features</a></li>
-      <li><a href="waitlist.html">Join Waitlist</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="donate.html">Donate</a></li>
-    </ul>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="features.html">Features</a>
+    <a href="waitlist.html">Join Waitlist</a>
+    <a href="contact.html">Contact</a>
+    <a href="donate.html">Donate</a>
   </nav>
 
-  <header class="hero">
-    <h1 class="glow">Your AI Copilot — Always Ready.</h1>
-    <p>Revolutionizing aviation with AI-powered flight assistance.</p>
-    <button id="joinBtn">Join Fly Buddy</button>
-    <button id="testFlyBuddyBtn">Test Fly Buddy</button>
-  </header>
+  <h1 class="glow">Your AI Copilot — Always Ready.</h1>
+  <p class="tagline">Revolutionizing aviation with AI-powered flight assistance.</p>
 
-  <section id="chat-container" class="chat-box hidden">
-    <h2>Try Fly Buddy AI!</h2>
-    <div id="chatBox" class="chat-log">
+  <div class="buttons">
+    <button class="btn" onclick="location.href='waitlist.html'">Join Fly Buddy</button>
+    <button class="btn" id="testFlyBuddyBtn">Test Fly Buddy</button>
+  </div>
+
+  <div id="chat-container">
+    <h2><strong>Try Fly Buddy AI!</strong></h2>
+    <div id="chatBox">
       <p><strong>Fly Buddy AI:</strong> Hello, Captain! How can I assist you today?</p>
     </div>
-    <div class="input-row">
-      <input id="userInput" type="text" placeholder="Type your message..." onkeypress="handleKeyPress(event)" />
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
       <button onclick="sendMessage()">Send</button>
     </div>
-    <div class="quick-questions">
+    <div id="quick-questions">
       <button onclick="quickQuestion('Plan my flight from JFK to LAX')">Plan my flight from JFK to LAX</button>
       <button onclick="quickQuestion('What’s the latest METAR for KATL?')">What’s the latest METAR for KATL?</button>
       <button onclick="quickQuestion('Mayday! Engine failure at 10,000 ft')">Mayday! Engine failure at 10,000 ft</button>
       <button onclick="quickQuestion('How do I avoid turbulence?')">How do I avoid turbulence?</button>
       <button onclick="quickQuestion('Explain how a jet engine works')">Explain how a jet engine works</button>
     </div>
-  </section>
+  </div>
 
   <footer>
     <p>© 2025 Fly Buddy. All rights reserved.</p>
@@ -49,5 +47,4 @@
 
   <script src="script.js"></script>
 </body>
-
 </html>
