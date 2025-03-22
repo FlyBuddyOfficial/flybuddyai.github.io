@@ -1,89 +1,174 @@
+/* Base Reset & Layout */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #ffffff;
+  color: #000000;
 }
 
+/* Navigation Bar */
 nav {
-    background-color: #007bff;
-    padding: 15px;
-    text-align: center;
+  background-color: #007BFF;
+  padding: 10px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s ease;
 }
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
+nav a:hover {
+  color: #ffd700;
 }
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
+/* Title Glow */
+.glow {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 30px 0 10px;
+  color: #000;
+  text-shadow: 0 0 5px #005eff, 0 0 10px #005eff, 0 0 15px #005eff;
 }
 
-.glowing-text {
-    font-size: 2em;
-    font-weight: bold;
-    text-shadow: 0 0 8px rgba(0, 0, 255, 0.7);
+/* Tagline & Paragraph */
+.tagline {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
 }
 
-button {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    margin: 10px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
+/* Centered Buttons */
+.buttons {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-button:hover {
-    background-color: #0056b3;
+button, .btn {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  margin: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
+button:hover, .btn:hover {
+  background-color: #0056b3;
+}
+
+/* Chat Box Container */
 #chat-container {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    width: 60%;
-    margin: 20px auto;
-    padding: 20px;
-    border-radius: 10px;
-    background-color: #f4f4f4;
-    box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 25px;
+  background-color: #f1f5f9;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
 }
 
-.chat-box {
-    height: 200px;
-    overflow-y: auto;
-    background: white;
-    border: 1px solid #ccc;
-    padding: 10px;
-    text-align: left;
+#chat-container.show {
+  display: block;
+  opacity: 1;
 }
 
-.quick-questions button {
-    display: inline-block;
-    margin: 5px;
-    padding: 8px 12px;
-    border-radius: 5px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
+/* Chat Box */
+#chatBox {
+  height: 180px;
+  overflow-y: auto;
+  padding: 10px;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
 }
 
+/* Chat Input Row */
+.chat-input {
+  display: flex;
+  gap: 10px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  font-size: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+#quick-questions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+#quick-questions button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Hover Feature Boxes (Features Page) */
+.feature-box {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+/* Footer */
 footer {
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+  text-align: center;
+  padding: 12px;
+  background-color: #007BFF;
+  color: white;
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+  .buttons {
+    flex-direction: column;
+  }
+
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  #quick-questions {
+    justify-content: center;
+  }
 }
