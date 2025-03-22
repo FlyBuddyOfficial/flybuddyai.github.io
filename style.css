@@ -1,4 +1,4 @@
-/* Base Reset & Layout */
+/* Reset & Base */
 * {
   margin: 0;
   padding: 0;
@@ -7,52 +7,50 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
   background-color: #ffffff;
   color: #000000;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Navigation Bar */
 nav {
   background-color: #007BFF;
-  padding: 10px 0;
   text-align: center;
-  position: sticky;
-  top: 0;
-  z-index: 999;
+  padding: 10px 0;
 }
 
 nav a {
   color: white;
-  text-decoration: none;
   margin: 0 15px;
-  font-weight: 500;
+  text-decoration: none;
   font-size: 16px;
-  transition: color 0.3s ease;
+  font-weight: 500;
 }
 
 nav a:hover {
   color: #ffd700;
 }
 
-/* Title Glow */
+/* Title */
 .glow {
   text-align: center;
   font-size: 32px;
-  font-weight: bold;
-  margin: 30px 0 10px;
+  margin-top: 30px;
+  margin-bottom: 10px;
   color: #000;
   text-shadow: 0 0 5px #005eff, 0 0 10px #005eff, 0 0 15px #005eff;
 }
 
-/* Tagline & Paragraph */
+/* Tagline */
 .tagline {
   text-align: center;
   font-size: 18px;
   margin-bottom: 20px;
 }
 
-/* Centered Buttons */
+/* Buttons */
 .buttons {
   text-align: center;
   margin-bottom: 30px;
@@ -75,7 +73,7 @@ button:hover, .btn:hover {
   background-color: #0056b3;
 }
 
-/* Chat Box Container */
+/* Chat Box */
 #chat-container {
   max-width: 700px;
   margin: 0 auto;
@@ -93,7 +91,6 @@ button:hover, .btn:hover {
   opacity: 1;
 }
 
-/* Chat Box */
 #chatBox {
   height: 180px;
   overflow-y: auto;
@@ -104,10 +101,11 @@ button:hover, .btn:hover {
   margin-bottom: 15px;
 }
 
-/* Chat Input Row */
+/* Chat Input */
 .chat-input {
   display: flex;
   gap: 10px;
+  margin-top: 10px;
 }
 
 input[type="text"] {
@@ -118,6 +116,7 @@ input[type="text"] {
   border: 1px solid #ccc;
 }
 
+/* Quick Questions */
 #quick-questions {
   display: flex;
   flex-wrap: wrap;
@@ -133,39 +132,24 @@ input[type="text"] {
   font-size: 14px;
 }
 
-/* Hover Feature Boxes (Features Page) */
-.feature-box {
-  background-color: white;
-  padding: 20px;
-  border-radius: 12px;
-  margin: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.feature-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
-}
-
 /* Footer */
 footer {
   text-align: center;
   padding: 12px;
   background-color: #007BFF;
   color: white;
-  margin-top: 40px;
+  margin-top: auto;
 }
 
 /* Responsive */
 @media screen and (max-width: 768px) {
-  .buttons {
-    flex-direction: column;
-  }
-
   nav a {
     display: block;
     margin: 10px 0;
+  }
+
+  .buttons {
+    flex-direction: column;
   }
 
   #quick-questions {
