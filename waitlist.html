@@ -3,47 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fly Buddy Waitlist</title>
+  <title>Join the Waitlist | Fly Buddy</title>
   <link rel="stylesheet" href="style.css" />
-  <style>
-    .waitlist-container {
-      text-align: center;
-      margin: 40px auto;
-      max-width: 800px;
-    }
-
-    #waitlistForm {
-      margin-top: 20px;
-    }
-
-    #waitlistForm input[type="email"] {
-      width: 280px;
-      padding: 10px;
-      font-size: 16px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      margin-right: 10px;
-    }
-
-    #waitlistForm button {
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    #responseMessage {
-      color: green;
-      margin-top: 15px;
-    }
-  </style>
 </head>
 <body>
-  <nav>
+  <nav class="navbar">
     <a href="index.html">Home</a>
     <a href="features.html">Features</a>
     <a href="waitlist.html">Join Waitlist</a>
@@ -51,48 +15,61 @@
     <a href="donate.html">Donate</a>
   </nav>
 
-  <main class="waitlist-container">
-    <h1 class="glow">Be Part of Aviation History</h1>
-    <p>Secure your spot among the first to experience AI-powered flight assistance.<br>
-    Only a limited number of early access slots available.</p>
+  <h1 class="glow">Be Part of Aviation History</h1>
+  <p class="center-text">Secure your spot among the first to experience AI-powered flight assistance.<br>Only a limited number of early access slots available.</p>
 
-    <form id="waitlistForm">
-      <label for="email"><strong>Enter your email to join:</strong></label><br><br>
-      <input 
-        type="email" 
-        id="email" 
-        name="email" 
-        placeholder="you@example.com" 
-        required
-      />
-      <button type="submit">Join Now</button>
-    </form>
+  <div class="waitlist-container">
+    <label for="email"><strong>Enter your email to join:</strong></label><br/>
+    <input type="email" id="email" placeholder="you@example.com" required>
+    <button onclick="submitEmail()">Join Now</button>
+    <p id="confirmation" style="color: green; margin-top: 10px;"></p>
+  </div>
 
-    <p id="responseMessage"></p>
-  </main>
+  <div class="live-counter">
+    <p><strong id="counter">Loading live signup count...</strong></p>
+  </div>
 
   <footer>
     <p>© 2025 Fly Buddy. All rights reserved.</p>
   </footer>
 
   <script>
-    const form = document.getElementById('waitlistForm');
-    const responseMessage = document.getElementById('responseMessage');
+    const scriptURL = "https://script.google.com/macros/s/AKfycbzw-tp0zDAf0WV2kCkIVADvMfX0Uz7mzPd_Zls9bO2ZXohX_yBeiuG7yr-LYcIbz1vF/exec";
 
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-      const email = document.getElementById('email').value;
+    async function submitEmail() {
+      const emailInput = document.getElementById("email");
+      const confirmation = document.getElementById("confirmation");
+      const email = emailInput.value;
 
-      fetch("https://script.google.com/macros/s/AKfycbzw-tp0zDAf0WV2kCkIVADvMfX0Uz7mzPd_Zls9bO2ZXohX_yBeiuG7yr-LYcIbz1vF/exec", {
-        method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `email=${encodeURIComponent(email)}`
-      });
+      if (!email) {
+        confirmation.innerText = "Please enter a valid email.";
+        return;
+      }
 
-      responseMessage.textContent = "Welcome to the future of aviation!";
-      form.reset();
-    });
+      try {
+        await fetch(scriptURL, {
+          method: "POST",
+          body: new URLSearchParams({ email }),
+        });
+        confirmation.innerText = "Welcome to the future of aviation!";
+        emailInput.value = "";
+        loadSignupCount();
+      } catch (error) {
+        confirmation.innerText = "Something went wrong. Please try again.";
+      }
+    }
+
+    async function loadSignupCount() {
+      try {
+        const res = await fetch("https://opensheet.vercel.app/11_JwMlY2YVNyVrzA64ljnCEn_qyuIKfHgXUGSvuVBqI/WaitlistSignups");
+        const data = await res.json();
+        document.getElementById("counter").innerText = `Pilots Signed Up: ${data.length}`;
+      } catch {
+        document.getElementById("counter").innerText = "Couldn't load signup count.";
+      }
+    }
+
+    loadSignupCount();
   </script>
 </body>
 </html>
