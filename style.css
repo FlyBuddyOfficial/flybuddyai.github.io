@@ -1,4 +1,4 @@
-/* Reset & Base */
+/* Base Reset & Layout */
 * {
   margin: 0;
   padding: 0;
@@ -7,50 +7,52 @@
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
   background-color: #ffffff;
   color: #000000;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 /* Navigation Bar */
 nav {
   background-color: #007BFF;
-  text-align: center;
   padding: 10px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 nav a {
   color: white;
-  margin: 0 15px;
   text-decoration: none;
-  font-size: 16px;
+  margin: 0 15px;
   font-weight: 500;
+  font-size: 16px;
+  transition: color 0.3s ease;
 }
 
 nav a:hover {
   color: #ffd700;
 }
 
-/* Title */
+/* Title Glow */
 .glow {
   text-align: center;
   font-size: 32px;
-  margin-top: 30px;
-  margin-bottom: 10px;
+  font-weight: bold;
+  margin: 30px 0 10px;
   color: #000;
   text-shadow: 0 0 5px #005eff, 0 0 10px #005eff, 0 0 15px #005eff;
 }
 
-/* Tagline */
+/* Tagline & Paragraph */
 .tagline {
   text-align: center;
   font-size: 18px;
   margin-bottom: 20px;
 }
 
-/* Buttons */
+/* Centered Buttons */
 .buttons {
   text-align: center;
   margin-bottom: 30px;
@@ -73,7 +75,7 @@ button:hover, .btn:hover {
   background-color: #0056b3;
 }
 
-/* Chat Box */
+/* Chat Box Container */
 #chat-container {
   max-width: 700px;
   margin: 0 auto;
@@ -91,6 +93,7 @@ button:hover, .btn:hover {
   opacity: 1;
 }
 
+/* Chat Box */
 #chatBox {
   height: 180px;
   overflow-y: auto;
@@ -101,11 +104,10 @@ button:hover, .btn:hover {
   margin-bottom: 15px;
 }
 
-/* Chat Input */
+/* Chat Input Row */
 .chat-input {
   display: flex;
   gap: 10px;
-  margin-top: 10px;
 }
 
 input[type="text"] {
@@ -116,7 +118,6 @@ input[type="text"] {
   border: 1px solid #ccc;
 }
 
-/* Quick Questions */
 #quick-questions {
   display: flex;
   flex-wrap: wrap;
@@ -132,24 +133,80 @@ input[type="text"] {
   font-size: 14px;
 }
 
+/* Hover Feature Boxes (Features Page) */
+.feature-box {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
 /* Footer */
 footer {
   text-align: center;
   padding: 12px;
   background-color: #007BFF;
   color: white;
-  margin-top: auto;
+  margin-top: 40px;
+}
+
+/* Waitlist Section Styling */
+.waitlist-container {
+  text-align: center;
+  margin-top: 40px;
+  padding: 20px;
+}
+
+.waitlist-card {
+  max-width: 400px;
+  margin: 30px auto;
+  background-color: white;
+  padding: 30px 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.waitlist-card input[type="email"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.waitlist-card button {
+  width: 100%;
+  background-color: #007BFF;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.waitlist-card button:hover {
+  background-color: #0056b3;
 }
 
 /* Responsive */
 @media screen and (max-width: 768px) {
+  .buttons {
+    flex-direction: column;
+  }
+
   nav a {
     display: block;
     margin: 10px 0;
-  }
-
-  .buttons {
-    flex-direction: column;
   }
 
   #quick-questions {
