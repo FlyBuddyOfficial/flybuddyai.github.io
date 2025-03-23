@@ -157,45 +157,52 @@ footer {
   margin-top: 40px;
 }
 
-/* Waitlist Section Styling */
+/* Waitlist Page Improvements */
 .waitlist-container {
   text-align: center;
-  margin-top: 40px;
-  padding: 20px;
+  padding: 40px 20px;
 }
 
 .waitlist-card {
-  max-width: 400px;
+  background-color: #f9f9f9;
   margin: 30px auto;
-  background-color: white;
-  padding: 30px 25px;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  max-width: 400px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
 .waitlist-card input[type="email"] {
-  width: 100%;
   padding: 12px;
-  font-size: 15px;
-  margin-bottom: 20px;
-  border-radius: 8px;
+  width: 75%;
+  margin-bottom: 10px;
   border: 1px solid #ccc;
+  border-radius: 6px;
 }
 
 .waitlist-card button {
-  width: 100%;
   background-color: #007BFF;
   color: white;
-  padding: 12px;
+  padding: 10px 20px;
   font-size: 16px;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
 }
 
-.waitlist-card button:hover {
-  background-color: #0056b3;
+.waitlist-highlight {
+  margin-top: 50px;
+  padding: 20px;
+  background: #e0f0ff;
+  border-radius: 12px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.waitlist-highlight h2 {
+  margin-bottom: 10px;
+  color: #005eff;
 }
 
 /* Responsive */
@@ -211,5 +218,9 @@ footer {
 
   #quick-questions {
     justify-content: center;
+  }
+
+  .waitlist-card input[type="email"] {
+    width: 100%;
   }
 }
