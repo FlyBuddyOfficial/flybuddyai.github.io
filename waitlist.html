@@ -1,66 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Join Waitlist - Fly Buddy</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Join Waitlist - Fly Buddy</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <nav>
+    <ul class="nav-bar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="features.html">Features</a></li>
+      <li><a href="waitlist.html">Join Waitlist</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="donate.html">Donate</a></li>
+    </ul>
+  </nav>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="features.html">Features</a></li>
-            <li><a href="waitlist.html">Join Waitlist</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="donate.html">Donate</a></li>
-        </ul>
-    </nav>
+  <main class="center-content">
+    <h1>Join the Fly Buddy Waitlist</h1>
+    <p>Be the first to experience the future of AI-powered aviation.</p>
+    <form>
+      <input type="email" placeholder="Enter your email" required />
+      <button type="submit">Join Now</button>
+    </form>
+  </main>
 
-    <div class="container">
-        <h1 class="glowing-text">Join the Fly Buddy Waitlist</h1>
-        <p>Be the first to experience the future of AI-powered aviation.</p>
-
-        <!-- Bigger and Centered Counter -->
-        <div class="counter-container">
-            <h2 class="waitlist-counter" id="counter">0</h2>
-        </div>
-
-        <!-- Email Input and Button -->
-        <div class="waitlist-form">
-            <input type="email" id="emailInput" placeholder="Enter your email">
-            <button id="joinButton">Join Now</button>
-        </div>
-    </div>
-
-    <footer>
-        <p>© 2025 Fly Buddy. All rights reserved.</p>
-    </footer>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch("join-count.json")
-                .then(response => response.json())
-                .then(data => {
-                    document.getElementById("counter").textContent = data.count;
-                })
-                .catch(error => console.error("Error fetching count:", error));
-
-            document.getElementById("joinButton").addEventListener("click", function() {
-                let email = document.getElementById("emailInput").value;
-                if (email) {
-                    fetch("update-count.php")
-                        .then(response => response.json())
-                        .then(data => {
-                            document.getElementById("counter").textContent = data.count;
-                        })
-                        .catch(error => console.error("Error updating count:", error));
-                }
-            });
-        });
-    </script>
-
+  <footer>
+    <p>© 2025 Fly Buddy. All rights reserved.</p>
+  </footer>
 </body>
 </html>
