@@ -35,7 +35,7 @@ nav a:hover {
   color: #ffd700;
 }
 
-/* Title Glow */
+/* Glow Title */
 .glow {
   text-align: center;
   font-size: 32px;
@@ -123,6 +123,7 @@ input[type="text"] {
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 15px;
+  justify-content: center;
 }
 
 #quick-questions button {
@@ -133,19 +134,63 @@ input[type="text"] {
   font-size: 14px;
 }
 
-/* Hover Feature Boxes (Features Page) */
+/* Feature Boxes */
 .feature-box {
   background-color: white;
   padding: 20px;
   border-radius: 12px;
-  margin: 20px;
+  margin: 20px auto;
   box-shadow: 0 4px 15px rgba(0,0,0,0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 700px;
 }
 
 .feature-box:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+/* Waitlist Page */
+.waitlist-section {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.waitlist-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.waitlist-form input[type="email"] {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 250px;
+}
+
+.waitlist-form button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.waitlist-form button:hover {
+  background-color: #0056b3;
+}
+
+.success-message {
+  color: green;
+  margin-top: 20px;
+  font-weight: bold;
 }
 
 /* Footer */
@@ -155,54 +200,6 @@ footer {
   background-color: #007BFF;
   color: white;
   margin-top: 40px;
-}
-
-/* Waitlist Page Improvements */
-.waitlist-container {
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.waitlist-card {
-  background-color: #f9f9f9;
-  margin: 30px auto;
-  padding: 25px;
-  max-width: 400px;
-  border-radius: 10px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-}
-
-.waitlist-card input[type="email"] {
-  padding: 12px;
-  width: 75%;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-}
-
-.waitlist-card button {
-  background-color: #007BFF;
-  color: white;
-  padding: 10px 20px;
-  font-size: 16px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.waitlist-highlight {
-  margin-top: 50px;
-  padding: 20px;
-  background: #e0f0ff;
-  border-radius: 12px;
-  max-width: 600px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.waitlist-highlight h2 {
-  margin-bottom: 10px;
-  color: #005eff;
 }
 
 /* Responsive */
@@ -220,7 +217,11 @@ footer {
     justify-content: center;
   }
 
-  .waitlist-card input[type="email"] {
-    width: 100%;
+  .waitlist-form {
+    flex-direction: column;
+  }
+
+  .waitlist-form input[type="email"] {
+    width: 90%;
   }
 }
