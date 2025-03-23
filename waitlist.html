@@ -1,3 +1,4 @@
+<!-- waitlist.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,15 +17,14 @@
   </nav>
 
   <div class="waitlist-container">
-    <h1 class="glow">Join the Fly Buddy Waitlist</h1>
-    <p>Be the first to experience the future of AI-powered aviation.</p>
+    <h1 class="glow">Be Part of Aviation History</h1>
+    <p class="tagline">Secure your spot among the first to experience AI-powered flight assistance. Limited early access slots available.</p>
 
     <div class="waitlist-card">
-      <form id="waitlist-form" action="YOUR_GOOGLE_SCRIPT_URL" method="post" target="hidden_iframe" onsubmit="submitted=true;">
-        <input type="email" name="Email" placeholder="Enter your email" required />
-        <button type="submit">Join Now</button>
-      </form>
-      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { alert('Welcome to the future of aviation!'); }"></iframe>
+      <p><strong>Join 500+ Captains already on board</strong></p>
+      <input type="email" id="email" placeholder="Enter your email..." required />
+      <button onclick="submitWaitlist()">Join Now</button>
+      <p id="confirmation" style="color: green; margin-top: 10px;"></p>
     </div>
   </div>
 
@@ -33,7 +33,19 @@
   </footer>
 
   <script>
-    var submitted = false;
+    function submitWaitlist() {
+      const email = document.getElementById("email").value;
+      const confirmation = document.getElementById("confirmation");
+
+      if (email) {
+        confirmation.textContent = "Welcome to the future of aviation!";
+        document.getElementById("email").value = "";
+        // Google Sheets integration goes here next
+      } else {
+        confirmation.textContent = "Please enter a valid email.";
+        confirmation.style.color = "red";
+      }
+    }
   </script>
 </body>
 </html>
