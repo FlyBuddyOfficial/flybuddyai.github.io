@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Join the Fly Buddy Waitlist</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
   <nav>
@@ -16,16 +15,25 @@
     <a href="donate.html">Donate</a>
   </nav>
 
-  <main style="text-align: center; padding: 50px 20px;">
+  <div class="waitlist-container">
     <h1 class="glow">Join the Fly Buddy Waitlist</h1>
     <p>Be the first to experience the future of AI-powered aviation.</p>
-    <br>
-    <input type="email" placeholder="Enter your email" style="padding: 10px; border-radius: 6px; border: 1px solid #ccc;">
-    <button class="btn">Join Now</button>
-  </main>
+
+    <div class="waitlist-card">
+      <form id="waitlist-form" action="YOUR_GOOGLE_SCRIPT_URL" method="post" target="hidden_iframe" onsubmit="submitted=true;">
+        <input type="email" name="Email" placeholder="Enter your email" required />
+        <button type="submit">Join Now</button>
+      </form>
+      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) { alert('Welcome to the future of aviation!'); }"></iframe>
+    </div>
+  </div>
 
   <footer>
     <p>© 2025 Fly Buddy. All rights reserved.</p>
   </footer>
+
+  <script>
+    var submitted = false;
+  </script>
 </body>
 </html>
