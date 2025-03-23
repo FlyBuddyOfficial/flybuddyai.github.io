@@ -15,39 +15,46 @@
     <a href="donate.html">Donate</a>
   </nav>
 
-  <div class="waitlist-container">
+  <section class="waitlist-section">
     <h1 class="glow">Be Part of Aviation History</h1>
-    <p class="tagline">Be the first to experience the future of AI-powered aviation.</p>
+    <p>Secure your spot among the first to experience AI-powered flight assistance.<br>Only a limited number of early access slots available.</p>
 
-    <div class="waitlist-card">
-      <input type="email" id="email" placeholder="Enter your email..." required />
-      <button onclick="submitWaitlist()">Join Now</button>
-      <p id="confirmation" style="color: green; margin-top: 10px;"></p>
+    <div class="waitlist-form">
+      <label for="email"><strong>Enter your email to join:</strong></label>
+      <input type="email" id="email" placeholder="you@example.com" required />
+      <button onclick="submitToGoogleSheet()">Join Now</button>
     </div>
 
-    <div class="waitlist-highlight">
-      <h2>Why Join?</h2>
-      <p>Fly Buddy is changing how pilots navigate and respond in the sky. Early members get exclusive access, updates, and pilot tools before launch.</p>
-    </div>
-  </div>
+    <p id="confirmation" style="color: green; margin-top: 20px;"></p>
+  </section>
 
   <footer>
     <p>© 2025 Fly Buddy. All rights reserved.</p>
   </footer>
 
   <script>
-    function submitWaitlist() {
-      const email = document.getElementById("email").value;
+    function submitToGoogleSheet() {
+      const email = document.getElementById("email").value.trim();
       const confirmation = document.getElementById("confirmation");
 
-      if (email) {
-        confirmation.textContent = "Welcome to the future of aviation!";
-        document.getElementById("email").value = "";
-        confirmation.style.color = "green";
-      } else {
-        confirmation.textContent = "Please enter a valid email.";
+      if (email === "") {
         confirmation.style.color = "red";
+        confirmation.innerText = "Please enter a valid email.";
+        return;
       }
+
+      fetch("https://script.google.com/macros/s/AKfycbzuGYFhjbbPmy7qPBv27lkFl3Z_VV0_2tBST8Dk5OKKBv5JR-QMIQB1NHmPaFNj-bEw/exec", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: `email=${encodeURIComponent(email)}`
+      });
+
+      confirmation.innerText = "Welcome to the future of aviation!";
+      confirmation.style.color = "green";
+      document.getElementById("email").value = "";
     }
   </script>
 </body>
