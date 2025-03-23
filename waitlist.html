@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Join the Fly Buddy Waitlist</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <nav>
     <a href="index.html">Home</a>
     <a href="features.html">Features</a>
@@ -15,47 +16,50 @@
     <a href="donate.html">Donate</a>
   </nav>
 
-  <section class="waitlist-section">
+  <main style="text-align: center; margin-top: 60px;">
     <h1 class="glow">Be Part of Aviation History</h1>
-    <p>Secure your spot among the first to experience AI-powered flight assistance.<br>Only a limited number of early access slots available.</p>
+    <p style="font-size: 18px;">Secure your spot among the first to experience AI-powered flight assistance.<br>Only a limited number of early access slots available.</p>
 
-    <div class="waitlist-form">
-      <label for="email"><strong>Enter your email to join:</strong></label>
-      <input type="email" id="email" placeholder="you@example.com" required />
-      <button onclick="submitToGoogleSheet()">Join Now</button>
-    </div>
+    <form id="waitlistForm" style="margin-top: 30px;">
+      <label for="email" style="font-weight: bold;">Enter your email to join:</label><br><br>
+      <input type="email" id="email" name="email" placeholder="you@example.com" required style="padding: 10px; width: 250px;" />
+      <button type="submit" class="btn">Join Now</button>
+    </form>
 
-    <p id="confirmation" style="color: green; margin-top: 20px;"></p>
-  </section>
+    <p id="responseMsg" style="margin-top: 20px; color: green;"></p>
+  </main>
 
   <footer>
     <p>© 2025 Fly Buddy. All rights reserved.</p>
   </footer>
 
   <script>
-    function submitToGoogleSheet() {
-      const email = document.getElementById("email").value.trim();
-      const confirmation = document.getElementById("confirmation");
+    const form = document.getElementById('waitlistForm');
+    const responseMsg = document.getElementById('responseMsg');
 
-      if (email === "") {
-        confirmation.style.color = "red";
-        confirmation.innerText = "Please enter a valid email.";
-        return;
-      }
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
 
-      fetch("https://script.google.com/macros/s/AKfycbzuGYFhjbbPmy7qPBv27lkFl3Z_VV0_2tBST8Dk5OKKBv5JR-QMIQB1NHmPaFNj-bEw/exec", {
+      const email = document.getElementById('email').value;
+
+      fetch("https://script.google.com/macros/s/AKfycbzw-tp0zDAf0WV2kCkIVADvMfX0Uz7mzPd_Zls9bO2ZXohX_yBeiuG7yr-LYcIbz1vF/exec", {
         method: "POST",
         mode: "no-cors",
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
+          "Content-Type": "application/x-www-form-urlencoded",
         },
         body: `email=${encodeURIComponent(email)}`
+      })
+      .then(() => {
+        responseMsg.textContent = "Welcome to the future of aviation!";
+        form.reset();
+      })
+      .catch(() => {
+        responseMsg.textContent = "Something went wrong. Please try again.";
+        responseMsg.style.color = "red";
       });
-
-      confirmation.innerText = "Welcome to the future of aviation!";
-      confirmation.style.color = "green";
-      document.getElementById("email").value = "";
-    }
+    });
   </script>
+
 </body>
 </html>
