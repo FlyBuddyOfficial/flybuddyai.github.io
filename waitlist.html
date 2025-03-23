@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Join the Fly Buddy Waitlist</title>
+  <title>Fly Buddy Waitlist</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -15,17 +15,18 @@
     <a href="donate.html">Donate</a>
   </nav>
 
-  <main style="text-align: center; padding: 40px;">
+  <main style="text-align: center; margin: 40px auto; max-width: 600px;">
     <h1 class="glow">Be Part of Aviation History</h1>
-    <p>Secure your spot among the first to experience AI-powered flight assistance.<br>Only a limited number of early access slots available.</p>
+    <p>Secure your spot among the first to experience AI-powered flight assistance.<br>
+    Only a limited number of early access slots available.</p>
 
-    <form id="waitlist-form" style="margin-top: 20px;">
-      <label for="email" style="font-weight: bold;">Enter your email to join:</label><br><br>
-      <input type="email" id="email" name="email" required placeholder="you@example.com" style="padding: 10px; width: 250px; border-radius: 6px; border: 1px solid #ccc;" />
-      <button type="submit" style="margin-left: 10px;">Join Now</button>
+    <form id="waitlistForm" action="https://script.google.com/macros/s/AKfycbzw-tp0zDAf0WV2kCkIVADvMfX0Uz7mzPd_Zls9bO2ZXohX_yBeiuG7yr-LYcIbz1vF/exec" method="POST" style="margin-top: 20px;">
+      <label for="email"><strong>Enter your email to join:</strong></label><br><br>
+      <input type="email" id="email" name="email" required placeholder="you@example.com" />
+      <button type="submit">Join Now</button>
     </form>
 
-    <p id="confirmation" style="color: green; margin-top: 20px;"></p>
+    <p id="confirmationMessage" style="color: green; margin-top: 20px;"></p>
   </main>
 
   <footer>
@@ -33,20 +34,30 @@
   </footer>
 
   <script>
-    document.getElementById("waitlist-form").addEventListener("submit", function (e) {
+    document.getElementById("waitlistForm").addEventListener("submit", function (e) {
       e.preventDefault();
-      const email = document.getElementById("email").value;
-      const confirmation = document.getElementById("confirmation");
+
+      const emailInput = document.getElementById("email");
+      const email = emailInput.value;
 
       fetch("https://script.google.com/macros/s/AKfycbzw-tp0zDAf0WV2kCkIVADvMfX0Uz7mzPd_Zls9bO2ZXohX_yBeiuG7yr-LYcIbz1vF/exec", {
         method: "POST",
-        mode: "no-cors",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `email=${encodeURIComponent(email)}`
-      });
-
-      confirmation.textContent = "Welcome to the future of aviation!";
-      document.getElementById("waitlist-form").reset();
+        body: new URLSearchParams({ email }),
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      })
+        .then((res) => {
+          if (res.ok) {
+            document.getElementById("confirmationMessage").innerText = "Welcome to the future of aviation!";
+            emailInput.value = "";
+          } else {
+            document.getElementById("confirmationMessage").innerText = "Error joining waitlist. Please try again.";
+          }
+        })
+        .catch(() => {
+          document.getElementById("confirmationMessage").innerText = "Error connecting to server.";
+        });
     });
   </script>
 </body>
