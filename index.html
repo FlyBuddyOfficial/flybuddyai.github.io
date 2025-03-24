@@ -3,88 +3,97 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fly Buddy</title>
+  <title>Fly Buddy AI</title>
   <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#waitlist">Join Waitlist</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#donate">Donate</a></li>
-    </ul>
-  </nav>
-
-  <section id="home" class="section">
-    <h1>Your AI Copilot — Always Ready.</h1>
-    <p>Welcome to the future of AI-powered aviation assistance. Fly Buddy helps pilots with intelligent decision support, emergency handling, and flight planning.</p>
-    <button id="tryFlyBuddyBtn" class="primary-btn">Try FlyBuddy</button>
-  </section>
-
-  <section id="features" class="section">
-    <h2>Fly Buddy Features</h2>
-    <div class="feature-box">
-      <h3>Voice-Activated Emergency Assistance</h3>
-      <ul>
-        <li>Recognize the emergency immediately</li>
-        <li>Give step-by-step voice instructions</li>
-        <li>Suggest the nearest landing site</li>
-        <li>Guide through recovery procedures</li>
+  <header>
+    <nav>
+      <ul class="nav-bar">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#waitlist">Join Waitlist</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#donate">Donate</a></li>
       </ul>
-    </div>
-    <div class="feature-box">
-      <h3>AI-Powered Situational Awareness</h3>
-      <ul>
-        <li>Monitor real-time flight risks</li>
-        <li>Detect turbulence and restricted airspace</li>
-        <li>Recommend diversions if needed</li>
-      </ul>
-    </div>
-    <div class="feature-box">
-      <h3>Flight Planning & Decision Support</h3>
-      <ul>
-        <li>Live weather & NOTAM integration</li>
-        <li>Suggest alternate airports and fuel plans</li>
-        <li>Smart route optimization</li>
-      </ul>
-    </div>
-  </section>
+    </nav>
+  </header>
 
-  <section id="waitlist" class="section">
-    <h2>Be Part of Aviation History</h2>
-    <p>Secure your spot among the first to experience AI-powered flight assistance. Only a limited number of early access slots available.</p>
-    <form id="waitlistForm">
-      <label for="email">Enter your email to join:</label>
-      <input type="email" id="email" name="email" placeholder="you@example.com" required />
-      <button type="submit" class="primary-btn">Join Now</button>
-    </form>
-    <div id="confirmationMessage"></div>
-    <div id="signupCount"></div>
-  </section>
+  <main>
+    <section id="home" class="hero-section">
+      <h1>Your AI Copilot — Always Ready.</h1>
+      <p>
+        Welcome to the future of AI-powered aviation assistance. Fly Buddy helps pilots with
+        intelligent decision support, emergency handling, and flight planning.
+      </p>
+      <button id="testFlyBuddyBtn">Try FlyBuddy</button>
+    </section>
 
-  <section id="donate" class="section">
-    <h2>Support the Mission</h2>
-    <p>Your donations help us bring Fly Buddy to every cockpit worldwide.</p>
-    <a href="https://buy.stripe.com/test_aEU7uD2Dw5gg3Qc9AA" class="primary-btn" target="_blank">Donate Now</a>
-  </section>
+    <section id="features">
+      <h2>Fly Buddy Features</h2>
+      <div class="feature-box">
+        <h3>Voice-Activated Emergency Assistance</h3>
+        <ul>
+          <li>Recognize the emergency immediately</li>
+          <li>Give step-by-step voice instructions</li>
+          <li>Suggest the nearest landing site</li>
+          <li>Guide through recovery procedures</li>
+        </ul>
+      </div>
+      <div class="feature-box">
+        <h3>AI-Powered Situational Awareness</h3>
+        <ul>
+          <li>Monitor real-time flight risks</li>
+          <li>Detect turbulence and restricted airspace</li>
+          <li>Recommend diversions if needed</li>
+        </ul>
+      </div>
+      <div class="feature-box">
+        <h3>Flight Planning & Decision Support</h3>
+        <ul>
+          <li>Live weather & NOTAM integration</li>
+          <li>Suggest alternate airports and fuel plans</li>
+          <li>Smart route optimization</li>
+        </ul>
+      </div>
+    </section>
 
-  <section id="contact" class="section">
-    <h2>Contact Us</h2>
-    <p>Email: flybuddyai@gmail.com</p>
-    <p>Instagram: <a href="https://instagram.com/flybuddyai" target="_blank">@flybuddyai</a></p>
-  </section>
+    <section id="waitlist">
+      <h2>Be Part of Aviation History</h2>
+      <p>
+        Secure your spot among the first to experience AI-powered flight assistance. Only a limited number
+        of early access slots available.
+      </p>
+      <form id="waitlist-form">
+        <label for="email">Enter your email to join:</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+        <button type="submit">Join Now</button>
+      </form>
+      <p id="confirmation-message"></p>
+    </section>
+
+    <section id="donate">
+      <h2>Support the Mission</h2>
+      <p>Your donations help us bring Fly Buddy to every cockpit worldwide.</p>
+      <a class="donate-button" href="https://buy.stripe.com/test_eVa6pVbKo58CeUUeV0">Donate Now</a>
+    </section>
+
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <p>Email: flybuddyai@gmail.com</p>
+      <p>Instagram: @flybuddyai</p>
+    </section>
+  </main>
 
   <div id="chat-container" class="chat-box">
-    <div id="chatBox">
-      <p><strong>Fly Buddy AI:</strong> How can I help you today?</p>
-      <button class="prompt-btn" onclick="quickQuestion('How do I plan a flight route?')">How do I plan a flight route?</button>
-      <button class="prompt-btn" onclick="quickQuestion('What if I lose radio contact?')">What if I lose radio contact?</button>
+    <p><strong>Fly Buddy AI:</strong> How can I help you today?</p>
+    <div class="chat-prompts">
+      <button onclick="quickQuestion('How do I plan a flight route?')">How do I plan a flight route?</button>
+      <button onclick="quickQuestion('What if I lose radio contact?')">What if I lose radio contact?</button>
     </div>
-    <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)" />
+    <div id="chatBox"></div>
+    <input id="userInput" type="text" placeholder="Type your message..." onkeypress="handleKeyPress(event)" />
   </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
