@@ -1,0 +1,155 @@
+/* General Reset */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  color: #000;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+/* Navigation Bar */
+nav {
+  background-color: #0080ff;
+  padding: 14px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 20px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #d0eaff;
+}
+
+/* Section Headings */
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+h1, h2 {
+  color: #000;
+  margin-bottom: 20px;
+}
+
+h1 span {
+  color: #0080ff;
+  text-shadow: 0 0 8px #0080ff;
+}
+
+/* Hero Section */
+#hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+#hero p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* Features Section */
+.features-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.feature-box {
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.feature-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+}
+
+.feature-box h3 {
+  color: #0080ff;
+  margin-bottom: 10px;
+}
+
+/* Waitlist Section */
+#waitlist {
+  background-color: #f4faff;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#waitlist input[type="email"] {
+  padding: 10px 15px;
+  font-size: 1rem;
+  width: 300px;
+  max-width: 90%;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-right: 10px;
+}
+
+#waitlist button {
+  background-color: #0080ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#waitlist button:hover {
+  background-color: #005ec4;
+}
+
+.success-message {
+  color: green;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.counter {
+  margin-top: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+/* Contact Section */
+#contact {
+  background-color: #f9f9f9;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+#contact p {
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+/* Footer */
+footer {
+  background-color: #0080ff;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 0.9rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
