@@ -1,195 +1,128 @@
-/* Reset & Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
+/* style.css */
 
 body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
   background-color: #ffffff;
   color: #000000;
-  line-height: 1.6;
   scroll-behavior: smooth;
 }
 
-section {
-  padding: 60px 20px;
+nav {
+  background-color: #007bff;
+  padding: 1rem 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.3s;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
+
+header {
+  text-align: center;
+  padding: 3rem 2rem;
+  background-color: #ffffff;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.features {
+  padding: 2rem;
   text-align: center;
 }
 
-h1, h2 {
-  margin-bottom: 20px;
+.features h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Navbar */
-nav {
-  background-color: #007bff;
-  padding: 15px 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-}
-
-nav ul li a {
-  color: white;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-nav ul li a:hover {
-  color: #ffe600;
-}
-
-/* Hero Section */
-#home h1 {
-  font-size: 2rem;
-  font-weight: 600;
-}
-
-#home p {
-  font-size: 1rem;
+.card {
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  margin: 1rem auto;
   max-width: 600px;
-  margin: 10px auto;
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#tryBtn {
-  background-color: #007bff;
-  color: white;
-  padding: 14px 28px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  margin-top: 20px;
-  font-size: 18px;
-  transition: all 0.3s ease;
-}
-
-#tryBtn:hover {
-  background-color: #0056b3;
-}
-
-/* Features */
-.feature {
-  background-color: #f7f9fb;
-  border-radius: 20px;
-  padding: 30px;
-  margin: 20px auto;
-  max-width: 800px;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease;
-}
-
-.feature:hover {
+.card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
 }
 
-.feature h3 {
+.card h3 {
   color: #007bff;
-  margin-bottom: 10px;
+  font-size: 1.2rem;
 }
 
-.feature ul {
-  list-style: disc;
-  text-align: left;
-  margin-left: 20px;
+.waitlist {
+  text-align: center;
+  padding: 2rem;
 }
 
-/* Waitlist */
-#waitlist input[type="email"] {
-  padding: 10px;
-  font-size: 16px;
-  width: 280px;
-  max-width: 90%;
+input[type="email"] {
+  padding: 0.5rem;
+  border-radius: 5px;
   border: 1px solid #ccc;
-  border-radius: 10px;
-  margin-right: 10px;
+  margin-right: 0.5rem;
+  width: 250px;
 }
 
-#waitlist button {
-  padding: 10px 20px;
+button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
   background-color: #007bff;
   color: white;
-  font-size: 16px;
-  border: none;
-  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
-#waitlist button:hover {
+button:hover {
   background-color: #0056b3;
 }
 
-#confirmation {
-  margin-top: 15px;
-  font-weight: 500;
-  color: green;
-}
-
-/* Chat */
-#chatbox {
-  background: #f2f2f2;
-  border-radius: 20px;
-  padding: 20px;
-  max-width: 800px;
-  margin: 40px auto;
+#chat-container {
   display: none;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-}
-
-#chatBox {
-  height: 200px;
-  overflow-y: auto;
-  background: white;
+  margin-top: 2rem;
+  text-align: left;
+  background: #f1f1f1;
+  padding: 1rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
 }
 
-#userInput {
-  width: 80%;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
+.prompt-buttons button {
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  background-color: #e6f0ff;
+  color: #007bff;
+  border: 1px solid #007bff;
 }
 
-#sendBtn {
-  padding: 10px 15px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  margin-left: 5px;
-  cursor: pointer;
-}
-
-/* Footer */
 footer {
+  text-align: center;
+  padding: 1rem;
   background-color: #007bff;
   color: white;
-  padding: 20px 0;
-  margin-top: 60px;
-}
-
-footer a {
-  color: #ffffff;
-  text-decoration: underline;
-  display: inline-block;
-  margin-top: 5px;
-}
+  margin-top: 3rem;
+)
