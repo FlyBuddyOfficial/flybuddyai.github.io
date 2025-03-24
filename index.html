@@ -3,30 +3,30 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fly Buddy | Your AI Copilot</title>
+  <title>Fly Buddy</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#waitlist">Join Waitlist</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#donation">Donate</a></li>
-    </ul>
-  </nav>
+  <header>
+    <nav class="navbar">
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#waitlist">Join Waitlist</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#donate">Donate</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <section id="home">
-    <h2>Your AI Copilot — Always Ready.</h2>
-    <p style="text-align: center; max-width: 700px; margin: auto;">
-      Welcome to the future of AI-powered aviation assistance. Fly Buddy helps pilots with intelligent decision support, emergency handling, and flight planning.
-    </p>
+  <section id="home" class="section center">
+    <h1>Your AI Copilot — Always Ready.</h1>
+    <p>Welcome to the future of AI-powered aviation assistance. Fly Buddy helps pilots with intelligent decision support, emergency handling, and flight planning.</p>
+    <button id="tryBuddyBtn" class="try-btn">Try Fly Buddy</button>
   </section>
 
-  <section id="features">
-    <h2>Fly Buddy Features</h2>
-
+  <section id="features" class="section">
+    <h2 class="center">Fly Buddy Features</h2>
     <div class="feature-box">
       <h3>Voice-Activated Emergency Assistance</h3>
       <ul>
@@ -36,7 +36,6 @@
         <li>Guide through recovery procedures</li>
       </ul>
     </div>
-
     <div class="feature-box">
       <h3>AI-Powered Situational Awareness</h3>
       <ul>
@@ -45,7 +44,6 @@
         <li>Recommend diversions if needed</li>
       </ul>
     </div>
-
     <div class="feature-box">
       <h3>Flight Planning & Decision Support</h3>
       <ul>
@@ -56,33 +54,37 @@
     </div>
   </section>
 
-  <section id="waitlist">
+  <section id="chat" class="section center">
+    <div id="chat-container" class="chat-container">
+      <h3>Chat with Fly Buddy AI</h3>
+      <div id="chatBox" class="chat-box"></div>
+      <input type="text" id="userInput" placeholder="Ask me anything..." onkeypress="handleKeyPress(event)" />
+      <button onclick="sendMessage()">Send</button>
+      <div id="prompts" class="prompt-box">
+        <button onclick="quickQuestion('Mayday engine failure')">Mayday engine failure</button>
+        <button onclick="quickQuestion('What’s the safest landing site nearby?')">Safest landing site</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="waitlist" class="section center">
     <h2>Be Part of Aviation History</h2>
     <p>Secure your spot among the first to experience AI-powered flight assistance. Only a limited number of early access slots available.</p>
-
-    <form id="waitlist-form">
+    <form id="waitlistForm" action="https://script.google.com/macros/s/AKfycbzw-tp0zDAf0WV2kCkIVADvMfX0Uz7mzPd_Zls9bO2ZXohX_yBeiuG7yr-LYcIbz1vF/exec" method="POST" target="_blank">
+      <label for="email">Enter your email to join:</label>
       <input type="email" name="email" placeholder="you@example.com" required />
       <button type="submit">Join Now</button>
     </form>
-
-    <div id="confirmation"></div>
-    <div id="signup-count">Pilots Signed Up: Loading...</div>
+    <p class="success-msg" id="successMsg"></p>
   </section>
 
-  <section id="contact">
+  <section id="contact" class="section center">
     <h2>Contact Us</h2>
-    <p style="text-align: center;">Email: flybuddyai@gmail.com</p>
+    <p>Email: flybuddyai@gmail.com</p>
   </section>
 
-  <section id="donation">
-    <h2>Support Fly Buddy</h2>
-    <p>Help us grow this AI revolution for aviation safety.</p>
-    <button onclick="window.location.href='https://buy.stripe.com/8wM6ri9yW9W6c5KaEE'">Donate Now</button>
-    <div id="donation-progress">Live Donation Progress: Coming Soon</div>
-  </section>
-
-  <footer>
-    &copy; 2025 Fly Buddy. All rights reserved.
+  <footer class="center">
+    <p>&copy; 2025 Fly Buddy. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
