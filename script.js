@@ -1,73 +1,46 @@
 // script.js
 
-// Show chatbox on Try Fly Buddy button click
-const tryBtn = document.getElementById("tryFlyBuddyBtn");
-const chatContainer = document.getElementById("chat-container");
-const chatBox = document.getElementById("chatBox");
-const userInput = document.getElementById("userInput");
-const promptSuggestions = document.getElementById("promptSuggestions");
+// Fade in the chatbox when Try FlyBuddy is clicked
+document.addEventListener("DOMContentLoaded", function () {
+  const tryButton = document.getElementById("try-flybuddy-btn");
+  const chatBox = document.getElementById("chat-box");
+  const prompts = [
+    "How do I handle an engine failure at 10,000ft?",
+    "What's the best route from JFK to LAX today?",
+    "What are the NOTAMs for Heathrow?"
+  ];
 
-const prompts = [
-  "Plan a flight from JFK to LAX",
-  "What are the emergency procedures for engine failure?",
-  "Show me the weather for Heathrow Airport",
-  "Calculate fuel needed for a 3-hour flight",
-  "Suggest an alternate airport near Paris"
-];
+  let usedPrompts = 0;
 
-let usedPrompts = [];
-
-tryBtn.addEventListener("click", () => {
-  chatContainer.style.display = "block";
-  chatContainer.style.opacity = 0;
-  setTimeout(() => (chatContainer.style.opacity = 1), 200);
-  showPromptSuggestion();
-});
-
-function sendMessage() {
-  const input = userInput.value.trim();
-  if (!input) return;
-
-  chatBox.innerHTML += `<p><strong>You:</strong> ${input}</p>`;
-  userInput.value = "";
-
-  // Simulated AI reply
-  setTimeout(() => {
-    const response = getResponse(input);
-    chatBox.innerHTML += `<p><strong>Fly Buddy AI:</strong> ${response}</p>`;
-    chatBox.scrollTop = chatBox.scrollHeight;
-    showPromptSuggestion();
-  }, 800);
-}
-
-function getResponse(input) {
-  // Dummy responses
-  return "This is a smart Fly Buddy AI response based on your question.";
-}
-
-function handleKeyPress(event) {
-  if (event.key === "Enter") {
-    sendMessage();
+  if (tryButton && chatBox) {
+    tryButton.addEventListener("click", () => {
+      chatBox.style.display = "block";
+      chatBox.style.opacity = 0;
+      setTimeout(() => {
+        chatBox.style.opacity = 1;
+      }, 100);
+      showPrompt();
+    });
   }
-}
 
-function quickQuestion(question) {
-  userInput.value = question;
-  sendMessage();
-}
+  function showPrompt() {
+    if (usedPrompts < prompts.length) {
+      const prompt = document.createElement("div");
+      prompt.className = "prompt-message";
+      prompt.textContent = prompts[usedPrompts];
+      document.getElementById("chat-content").appendChild(prompt);
+      usedPrompts++;
+    }
+  }
 
-function showPromptSuggestion() {
-  // Remove used prompts from available pool
-  const remaining = prompts.filter(p => !usedPrompts.includes(p));
-
-  if (remaining.length === 0) return; // No more suggestions
-
-  const prompt = remaining[Math.floor(Math.random() * remaining.length)];
-  usedPrompts.push(prompt);
-
-  promptSuggestions.innerHTML = `
-    <div class="suggestion" onclick="quickQuestion('${prompt}')">
-      ${prompt}
-    </div>
-  `;
-}
+  // Simulate chat when prompt is clicked
+  document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("prompt-message")) {
+      const response = document.createElement("div");
+      response.className = "ai-response";
+      response.textContent = "Fly Buddy AI: Here's how I can help you with that...";
+      document.getElementById("chat-content").appendChild(response);
+      showPrompt();
+    }
+  });
+});
