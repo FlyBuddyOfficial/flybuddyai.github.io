@@ -1,46 +1,52 @@
-// script.js
-
-// Fade in the chatbox when Try FlyBuddy is clicked
 document.addEventListener("DOMContentLoaded", function () {
-  const tryButton = document.getElementById("try-flybuddy-btn");
-  const chatBox = document.getElementById("chat-box");
-  const prompts = [
-    "How do I handle an engine failure at 10,000ft?",
-    "What's the best route from JFK to LAX today?",
-    "What are the NOTAMs for Heathrow?"
-  ];
+  const tryBtn = document.getElementById("tryBuddyBtn");
+  const chatContainer = document.getElementById("chat-container");
+  const chatBox = document.getElementById("chatBox");
+  const userInput = document.getElementById("userInput");
+  const promptButtons = document.getElementById("promptButtons");
 
-  let usedPrompts = 0;
-
-  if (tryButton && chatBox) {
-    tryButton.addEventListener("click", () => {
-      chatBox.style.display = "block";
-      chatBox.style.opacity = 0;
-      setTimeout(() => {
-        chatBox.style.opacity = 1;
-      }, 100);
-      showPrompt();
-    });
-  }
-
-  function showPrompt() {
-    if (usedPrompts < prompts.length) {
-      const prompt = document.createElement("div");
-      prompt.className = "prompt-message";
-      prompt.textContent = prompts[usedPrompts];
-      document.getElementById("chat-content").appendChild(prompt);
-      usedPrompts++;
-    }
-  }
-
-  // Simulate chat when prompt is clicked
-  document.addEventListener("click", function (e) {
-    if (e.target.classList.contains("prompt-message")) {
-      const response = document.createElement("div");
-      response.className = "ai-response";
-      response.textContent = "Fly Buddy AI: Here's how I can help you with that...";
-      document.getElementById("chat-content").appendChild(response);
-      showPrompt();
-    }
+  tryBtn.addEventListener("click", function () {
+    chatContainer.style.display = "block";
+    setTimeout(() => {
+      chatContainer.style.opacity = "1";
+    }, 100);
   });
+
+  window.sendMessage = function () {
+    const input = userInput.value;
+    if (!input.trim()) return;
+    chatBox.innerHTML += `<p><strong>You:</strong> ${input}</p>`;
+    userInput.value = "";
+
+    setTimeout(() => {
+      const reply = getAIResponse(input);
+      chatBox.innerHTML += `<p><strong>Fly Buddy AI:</strong> ${reply}</p>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
+      showNextPrompt();
+    }, 800);
+  };
+
+  userInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") sendMessage();
+  });
+
+  window.quickPrompt = function (text) {
+    userInput.value = text;
+    sendMessage();
+  };
+
+  function getAIResponse(input) {
+    // This is a placeholder — in production, use your OpenAI API or backend.
+    return input.toLowerCase().includes("route")
+      ? "To plan a flight route, start by checking weather and NOTAMs."
+      : "Stay calm. Try to reestablish contact and follow lost comms protocol.";
+  }
+
+  function showNextPrompt() {
+    const nextPrompt = document.createElement("button");
+    nextPrompt.className = "prompt-btn";
+    nextPrompt.innerText = "How do I file a flight plan?";
+    nextPrompt.onclick = () => quickPrompt("How do I file a flight plan?");
+    promptButtons.appendChild(nextPrompt);
+  }
 });
