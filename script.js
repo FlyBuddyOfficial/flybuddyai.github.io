@@ -1,52 +1,66 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const tryBtn = document.getElementById("tryBuddyBtn");
-  const chatContainer = document.getElementById("chat-container");
-  const chatBox = document.getElementById("chatBox");
-  const userInput = document.getElementById("userInput");
-  const promptButtons = document.getElementById("promptButtons");
+// Fly Buddy Chat Interaction Script
 
-  tryBtn.addEventListener("click", function () {
-    chatContainer.style.display = "block";
+document.getElementById("testFlyBuddyBtn").addEventListener("click", function () {
+  let chatContainer = document.getElementById("chat-container");
+  chatContainer.style.display = "block";
+  chatContainer.style.opacity = "0";
+  setTimeout(() => {
+    chatContainer.style.opacity = "1";
+    chatContainer.scrollIntoView({ behavior: "smooth" });
+  }, 200);
+});
+
+function sendMessage() {
+  let userInput = document.getElementById("userInput").value;
+  let chatBox = document.getElementById("chatBox");
+
+  if (userInput.trim() !== "") {
+    chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
+    document.getElementById("userInput").value = "";
     setTimeout(() => {
-      chatContainer.style.opacity = "1";
-    }, 100);
-  });
-
-  window.sendMessage = function () {
-    const input = userInput.value;
-    if (!input.trim()) return;
-    chatBox.innerHTML += `<p><strong>You:</strong> ${input}</p>`;
-    userInput.value = "";
-
-    setTimeout(() => {
-      const reply = getAIResponse(input);
-      chatBox.innerHTML += `<p><strong>Fly Buddy AI:</strong> ${reply}</p>`;
+      let response = getAIResponse(userInput);
+      chatBox.innerHTML += `<p><strong>Fly Buddy AI:</strong> ${response}</p>`;
       chatBox.scrollTop = chatBox.scrollHeight;
       showNextPrompt();
-    }, 800);
-  };
+    }, 1000);
+  }
+}
 
-  userInput.addEventListener("keypress", function (e) {
-    if (e.key === "Enter") sendMessage();
-  });
-
-  window.quickPrompt = function (text) {
-    userInput.value = text;
+function handleKeyPress(event) {
+  if (event.key === "Enter") {
     sendMessage();
+  }
+}
+
+function quickQuestion(question) {
+  document.getElementById("userInput").value = question;
+  sendMessage();
+}
+
+function getAIResponse(input) {
+  const responses = {
+    "plan my flight from jfk to lax": "Your best route from JFK to LAX is via J80 SPI then J110 to LAX. Expect turbulence over the Midwest.",
+    "what’s the latest metar for katl?": "Fetching latest METAR for KATL... [Insert real-time METAR API here]",
+    "mayday! engine failure at 10,000 ft": "Stay calm. Maintain best glide speed and look for a safe landing site. Declare an emergency on 121.5 MHz.",
+    "how do i avoid turbulence?": "Avoid flying near storm clouds. Use PIREPs and SIGMETs to detect turbulence-prone areas.",
+    "explain how a jet engine works": "A jet engine sucks in air, compresses it, mixes it with fuel, and ignites it to produce thrust."
   };
 
-  function getAIResponse(input) {
-    // This is a placeholder — in production, use your OpenAI API or backend.
-    return input.toLowerCase().includes("route")
-      ? "To plan a flight route, start by checking weather and NOTAMs."
-      : "Stay calm. Try to reestablish contact and follow lost comms protocol.";
-  }
+  input = input.toLowerCase();
+  return responses[input] || "I'm still learning! Try asking something else.";
+}
 
-  function showNextPrompt() {
-    const nextPrompt = document.createElement("button");
-    nextPrompt.className = "prompt-btn";
-    nextPrompt.innerText = "How do I file a flight plan?";
-    nextPrompt.onclick = () => quickPrompt("How do I file a flight plan?");
-    promptButtons.appendChild(nextPrompt);
+function showNextPrompt() {
+  const allPrompts = document.querySelectorAll("#quick-questions button");
+  for (let i = 0; i < allPrompts.length; i++) {
+    if (allPrompts[i].style.display !== "none") {
+      allPrompts[i].style.display = "none";
+      if (i + 1 < allPrompts.length) {
+        setTimeout(() => {
+          allPrompts[i + 1].style.display = "inline-block";
+        }, 500);
+      }
+      break;
+    }
   }
-});
+}
