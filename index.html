@@ -1,44 +1,43 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fly Buddy AI</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fly Buddy</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#waitlist">Join Waitlist</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#donate">Donate</a></li>
-      </ul>
-    </nav>
-  </header>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#waitlist">Join Waitlist</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#donate">Donate</a></li>
+    </ul>
+  </nav>
 
-  <main class="center-content" id="home">
-    <section class="hero">
+  <main>
+    <section class="intro">
       <h1>Your AI Copilot — Always Ready.</h1>
-      <p>
-        Welcome to the future of AI-powered aviation assistance. Fly Buddy helps pilots with intelligent decision support, emergency handling, and flight planning.
-      </p>
-      <button id="tryBtn">Try Fly Buddy</button>
+      <p>Welcome to the future of AI-powered aviation assistance. Fly Buddy helps pilots with intelligent decision support, emergency handling, and flight planning.</p>
+      <button onclick="toggleChat()">Try Fly Buddy</button>
 
-      <div id="chat-container" class="chatbox hidden">
-        <strong>Fly Buddy AI:</strong> How can I help you today?
-        <div class="prompt-buttons">
+      <div id="chat-container" class="chat-container">
+        <p><strong>Fly Buddy AI:</strong> How can I help you today?</p>
+        <div class="prompts">
           <button onclick="quickQuestion('How do I plan a flight route?')">How do I plan a flight route?</button>
           <button onclick="quickQuestion('What if I lose radio contact?')">What if I lose radio contact?</button>
+          <button onclick="quickQuestion('How do I declare an emergency?')">How do I declare an emergency?</button>
+          <button onclick="quickQuestion('How do I calculate fuel requirements?')">How do I calculate fuel requirements?</button>
         </div>
         <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
         <div id="chatBox"></div>
       </div>
     </section>
 
-    <section class="features-section" id="features">
+    <section id="features">
       <h2>Fly Buddy Features</h2>
 
       <div class="feature-box">
@@ -72,11 +71,9 @@
 
     <section id="waitlist">
       <h2>Be Part of Aviation History</h2>
-      <p>
-        Secure your spot among the first to experience AI-powered flight assistance. Only a limited number of early access slots available.
-      </p>
-      <form action="https://script.google.com/macros/s/AKfycbzw-tp0zDAf0WV2kCkIVADvMfX0Uz7mzPd_Zls9bO2ZXohX_yBeiuG7yr-LYcIbz1vF/exec" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
-        <input type="email" name="email" placeholder="you@example.com" required />
+      <p>Secure your spot among the first to experience AI-powered flight assistance. Only a limited number of early access slots available.</p>
+      <form action="https://script.google.com/macros/s/AKfycbzw-tp0zDAf0WV2kCkIVADvMfX0Uz7mzPd_Zls9bO2ZXohX_yBeiuG7yr-LYcIbz1vF/exec" method="POST">
+        <input type="email" name="email" placeholder="you@example.com" required>
         <button type="submit">Join Now</button>
       </form>
     </section>
@@ -84,9 +81,7 @@
     <section id="donate">
       <h2>Support the Mission</h2>
       <p>Your donations help us bring Fly Buddy to every cockpit worldwide.</p>
-      <a href="https://buy.stripe.com/test_dR6cQ0g8F8e48n6cMM" target="_blank">
-        <button class="donate-button">Donate Now</button>
-      </a>
+      <a href="https://buy.stripe.com/test_8wMcNZbAW1tn7vC5kk"><button class="donate-btn">Donate Now</button></a>
     </section>
 
     <section id="contact">
@@ -94,9 +89,12 @@
       <p>Email: flybuddyai@gmail.com</p>
       <p>Instagram: @flybuddyai</p>
     </section>
+
+    <footer>
+      <p>© 2025 Fly Buddy. All rights reserved.</p>
+    </footer>
   </main>
 
-  <iframe name="hidden_iframe" style="display:none;"></iframe>
   <script src="script.js"></script>
 </body>
 </html>
