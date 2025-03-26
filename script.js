@@ -1,75 +1,57 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const tryBtn = document.getElementById("testFlyBuddyBtn");
+document.getElementById("testFlyBuddyBtn").addEventListener("click", function () {
   const chatContainer = document.getElementById("chat-container");
-  const chatBox = document.getElementById("chat-box");
-  const userInput = document.getElementById("userInput");
-  const promptButtons = document.querySelectorAll(".chat-prompts button");
-
-  tryBtn.addEventListener("click", () => {
+  if (chatContainer.style.display === "none" || chatContainer.style.display === "") {
     chatContainer.style.display = "block";
+    chatContainer.style.opacity = 0;
     setTimeout(() => {
-      chatContainer.style.opacity = "1";
-    }, 50);
-  });
-
-  function sendMessage(message) {
-    const userMsg = `<p><strong>You:</strong> ${message}</p>`;
-    chatBox.innerHTML += userMsg;
-
-    userInput.value = "";
-
+      chatContainer.style.opacity = 1;
+    }, 200);
+  } else {
+    chatContainer.style.opacity = 0;
     setTimeout(() => {
-      const response = getAIResponse(message);
-      const aiMsg = `<p><strong>Fly Buddy AI:</strong> ${response}</p>`;
-      chatBox.innerHTML += aiMsg;
-
-      // Auto scroll
-      chatBox.scrollTop = chatBox.scrollHeight;
-
-      // Add new prompt dynamically (simulated)
-      addDynamicPrompt("How do I handle an engine failure?");
-    }, 1000);
-  }
-
-  function getAIResponse(input) {
-    if (input.toLowerCase().includes("flight route")) {
-      return "Start with the departure and arrival airport, then check waypoints and airspace restrictions.";
-    } else if (input.toLowerCase().includes("radio contact")) {
-      return "If you lose contact, squawk 7600 and follow lost communication procedures.";
-    } else if (input.toLowerCase().includes("engine")) {
-      return "Maintain control, pitch for glide, and locate a suitable emergency landing site.";
-    } else {
-      return "Let me guide you through it step-by-step.";
-    }
-  }
-
-  promptButtons.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      sendMessage(btn.textContent);
-      btn.disabled = true; // Optional: disable after click
-    });
-  });
-
-  userInput.addEventListener("keydown", (event) => {
-    if (event.key === "Enter" && userInput.value.trim() !== "") {
-      sendMessage(userInput.value.trim());
-    }
-  });
-
-  function addDynamicPrompt(text) {
-    const newBtn = document.createElement("button");
-    newBtn.textContent = text;
-    newBtn.style.opacity = "0";
-    newBtn.style.transition = "opacity 0.5s ease-in-out";
-    newBtn.addEventListener("click", () => {
-      sendMessage(text);
-      newBtn.disabled = true;
-    });
-
-    document.querySelector(".chat-prompts").appendChild(newBtn);
-
-    setTimeout(() => {
-      newBtn.style.opacity = "1";
-    }, 300);
+      chatContainer.style.display = "none";
+    }, 200);
   }
 });
+
+function sendMessage() {
+  const userInput = document.getElementById("userInput").value.trim();
+  const chatBox = document.getElementById("chatBox");
+  if (!userInput) return;
+
+  chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
+  document.getElementById("userInput").value = "";
+  chatBox.scrollTop = chatBox.scrollHeight;
+
+  // Simulate response
+  setTimeout(() => {
+    const response = generateResponse(userInput);
+    chatBox.innerHTML += `<p><strong>Fly Buddy AI:</strong> ${response}</p>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
+  }, 1000);
+}
+
+function handleKeyPress(event) {
+  if (event.key === "Enter") {
+    sendMessage();
+  }
+}
+
+document.getElementById("userInput").addEventListener("keypress", handleKeyPress);
+
+document.querySelectorAll(".prompt-button").forEach(button => {
+  button.addEventListener("click", () => {
+    document.getElementById("userInput").value = button.textContent;
+    sendMessage();
+  });
+});
+
+function generateResponse(input) {
+  if (input.toLowerCase().includes("plan a flight")) {
+    return "To plan a flight route, input your departure and destination airports, check weather and NOTAMs, and file your flight plan.";
+  } else if (input.toLowerCase().includes("radio contact")) {
+    return "If you lose radio contact, follow lost communication procedures, squawk 7600, and continue under your last clearance.";
+  } else {
+    return "Sorry, I didn’t understand that. Try asking about flight planning or emergencies.";
+  }
+}
