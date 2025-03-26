@@ -2,39 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fly Buddy AI</title>
-  <link rel="stylesheet" href="style.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fly Buddy</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
-  <nav class="navbar">
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#features">Features</a></li>
-      <li><a href="#waitlist">Join Waitlist</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#donate">Donate</a></li>
-    </ul>
-  </nav>
-
-  <header class="hero">
-    <h1>Your AI Copilot — Always Ready.</h1>
-    <p>Welcome to the future of AI-powered aviation assistance. Fly Buddy helps pilots with intelligent decision support, emergency handling, and flight planning.</p>
-    <button id="tryBtn">Try Fly Buddy</button>
+  <!-- Navigation Bar -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#waitlist">Join Waitlist</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#donate">Donate</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <div id="chat-container" class="chat-box hidden">
-    <strong>Fly Buddy AI:</strong> How can I help you today?
-    <div class="prompts">
-      <button onclick="quickQuestion('How do I plan a flight route?')">How do I plan a flight route?</button>
-      <button onclick="quickQuestion('What if I lose radio contact?')">What if I lose radio contact?</button>
-      <button onclick="quickQuestion('How do I calculate fuel?')">How do I calculate fuel?</button>
-      <button onclick="quickQuestion('How do I handle a bird strike?')">How do I handle a bird strike?</button>
-    </div>
-    <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)"/>
-    <div id="chatBox"></div>
-  </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Your AI Copilot — Always Ready.</h1>
+    <p>Welcome to the future of AI-powered aviation assistance. Fly Buddy helps pilots with intelligent decision support, emergency handling, and flight planning.</p>
+    <button id="testFlyBuddyBtn">Try Fly Buddy</button>
+  </section>
 
+  <!-- AI Copilot Chat Section -->
+  <section id="chat-section" class="chat-container" style="display: none;">
+    <div class="chat-box">
+      <p><strong>Fly Buddy AI:</strong> How can I help you today?</p>
+      <div class="prompt-buttons">
+        <button onclick="quickQuestion('How do I plan a flight route?')">How do I plan a flight route?</button>
+        <button onclick="quickQuestion('What if I lose radio contact?')">What if I lose radio contact?</button>
+        <button onclick="quickQuestion('How do I calculate fuel?')">How do I calculate fuel?</button>
+        <button onclick="quickQuestion('How do I handle a bird strike?')">How do I handle a bird strike?</button>
+      </div>
+      <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)" />
+    </div>
+  </section>
+
+  <!-- Features Section -->
   <section id="features">
     <h2>Fly Buddy Features</h2>
     <div class="feature-card">
@@ -64,26 +73,30 @@
     </div>
   </section>
 
-  <section id="map-section">
+  <!-- Live Map Section -->
+  <section>
     <h2>Live Flight Map</h2>
-    <iframe src="https://opensky-network.org/network/explorer" class="flight-map" frameborder="0" allowfullscreen></iframe>
+    <div id="map" class="map"></div>
   </section>
 
+  <!-- Waitlist Section -->
   <section id="waitlist">
     <h2>Be Part of Aviation History</h2>
     <p>Secure your spot among the first to experience AI-powered flight assistance. Only a limited number of early access slots available.</p>
-    <form id="waitlist-form">
-      <input type="email" id="email" placeholder="you@example.com" required/>
-      <button type="submit">Join Now</button>
-    </form>
+    <input type="email" id="emailInput" placeholder="you@example.com" />
+    <button onclick="joinWaitlist()">Join Now</button>
   </section>
 
+  <!-- Donate Section -->
   <section id="donate">
     <h2>Support the Mission</h2>
     <p>Your donations help us bring Fly Buddy to every cockpit worldwide.</p>
-    <a href="https://buy.stripe.com/9AQdRz88wb8m05a8ww" target="_blank" class="donate-btn">Donate Now</a>
+    <a href="https://buy.stripe.com/9AQdRz88wb8m05a8ww" target="_blank">
+      <button class="donate-btn">Donate Now</button>
+    </a>
   </section>
 
+  <!-- Contact Section -->
   <section id="contact">
     <h2>Contact Us</h2>
     <p>Email: flybuddyai@gmail.com</p>
@@ -95,5 +108,27 @@
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    const map = L.map('map').setView([20, 0], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+    }).addTo(map);
+
+    async function loadFlights() {
+      const response = await fetch('https://opensky-network.org/api/states/all');
+      const data = await response.json();
+      if (data.states) {
+        data.states.forEach(flight => {
+          const lat = flight[6];
+          const lon = flight[5];
+          if (lat && lon) {
+            L.circleMarker([lat, lon], { radius: 3, color: 'red' }).addTo(map);
+          }
+        });
+      }
+    }
+
+    loadFlights();
+  </script>
 </body>
 </html>
