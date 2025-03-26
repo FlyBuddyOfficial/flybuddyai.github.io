@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fly Buddy</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
+
 <body>
-  <!-- Navigation Bar -->
   <header>
     <nav>
-      <ul>
-        <li><a href="#">Home</a></li>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#waitlist">Join Waitlist</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -22,16 +21,17 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <h1>Your AI Copilot — Always Ready.</h1>
-    <p>Welcome to the future of AI-powered aviation assistance. Fly Buddy helps pilots with intelligent decision support, emergency handling, and flight planning.</p>
-    <button id="testFlyBuddyBtn">Try Fly Buddy</button>
-  </section>
+  <main>
+    <section class="hero" id="home">
+      <h1>Your AI Copilot — Always Ready.</h1>
+      <p>
+        Welcome to the future of AI-powered aviation assistance. Fly Buddy helps pilots with intelligent decision support,
+        emergency handling, and flight planning.
+      </p>
+      <button class="primary-button" onclick="toggleChat()">Try Fly Buddy</button>
+    </section>
 
-  <!-- AI Copilot Chat Section -->
-  <section id="chat-section" class="chat-container" style="display: none;">
-    <div class="chat-box">
+    <section id="chat-container" class="chat hidden">
       <p><strong>Fly Buddy AI:</strong> How can I help you today?</p>
       <div class="prompt-buttons">
         <button onclick="quickQuestion('How do I plan a flight route?')">How do I plan a flight route?</button>
@@ -40,95 +40,67 @@
         <button onclick="quickQuestion('How do I handle a bird strike?')">How do I handle a bird strike?</button>
       </div>
       <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)" />
-    </div>
-  </section>
+      <div id="chatBox"></div>
+    </section>
 
-  <!-- Features Section -->
-  <section id="features">
-    <h2>Fly Buddy Features</h2>
-    <div class="feature-card">
-      <h3>Voice-Activated Emergency Assistance</h3>
-      <ul>
-        <li>Recognize the emergency immediately</li>
-        <li>Give step-by-step voice instructions</li>
-        <li>Suggest the nearest landing site</li>
-        <li>Guide through recovery procedures</li>
-      </ul>
-    </div>
-    <div class="feature-card">
-      <h3>AI-Powered Situational Awareness</h3>
-      <ul>
-        <li>Monitor real-time flight risks</li>
-        <li>Detect turbulence and restricted airspace</li>
-        <li>Recommend diversions if needed</li>
-      </ul>
-    </div>
-    <div class="feature-card">
-      <h3>Flight Planning & Decision Support</h3>
-      <ul>
-        <li>Live weather & NOTAM integration</li>
-        <li>Suggest alternate airports and fuel plans</li>
-        <li>Smart route optimization</li>
-      </ul>
-    </div>
-  </section>
+    <section class="features" id="features">
+      <h2>Fly Buddy Features</h2>
+      <div class="feature-box">
+        <h3>Voice-Activated Emergency Assistance</h3>
+        <ul>
+          <li>Recognize the emergency immediately</li>
+          <li>Give step-by-step voice instructions</li>
+          <li>Suggest the nearest landing site</li>
+          <li>Guide through recovery procedures</li>
+        </ul>
+      </div>
+      <div class="feature-box">
+        <h3>AI-Powered Situational Awareness</h3>
+        <ul>
+          <li>Monitor real-time flight risks</li>
+          <li>Detect turbulence and restricted airspace</li>
+          <li>Recommend diversions if needed</li>
+        </ul>
+      </div>
+      <div class="feature-box">
+        <h3>Flight Planning & Decision Support</h3>
+        <ul>
+          <li>Live weather & NOTAM integration</li>
+          <li>Suggest alternate airports and fuel plans</li>
+          <li>Smart route optimization</li>
+        </ul>
+      </div>
+    </section>
 
-  <!-- Live Map Section -->
-  <section>
-    <h2>Live Flight Map</h2>
-    <div id="map" class="map"></div>
-  </section>
+    <section class="waitlist" id="waitlist">
+      <h2>Be Part of Aviation History</h2>
+      <p>
+        Secure your spot among the first to experience AI-powered flight assistance. Only a limited number of early access slots available.
+      </p>
+      <form>
+        <input type="email" placeholder="you@example.com" required />
+        <button class="primary-button" type="submit">Join Now</button>
+      </form>
+    </section>
 
-  <!-- Waitlist Section -->
-  <section id="waitlist">
-    <h2>Be Part of Aviation History</h2>
-    <p>Secure your spot among the first to experience AI-powered flight assistance. Only a limited number of early access slots available.</p>
-    <input type="email" id="emailInput" placeholder="you@example.com" />
-    <button onclick="joinWaitlist()">Join Now</button>
-  </section>
+    <section class="donate" id="donate">
+      <h2>Support the Mission</h2>
+      <p>Your donations help us bring Fly Buddy to every cockpit worldwide.</p>
+      <a href="https://buy.stripe.com/9AQdRz88wb8m05a8ww" class="primary-button">Donate Now</a>
+    </section>
 
-  <!-- Donate Section -->
-  <section id="donate">
-    <h2>Support the Mission</h2>
-    <p>Your donations help us bring Fly Buddy to every cockpit worldwide.</p>
-    <a href="https://buy.stripe.com/9AQdRz88wb8m05a8ww" target="_blank">
-      <button class="donate-btn">Donate Now</button>
-    </a>
-  </section>
+    <section class="contact" id="contact">
+      <h2>Contact Us</h2>
+      <p>Email: flybuddyai@gmail.com</p>
+      <p>Instagram: @flybuddyai</p>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: flybuddyai@gmail.com</p>
-    <p>Instagram: @flybuddyai</p>
-  </section>
-
-  <footer>
-    <p>© 2025 Fly Buddy. All rights reserved.</p>
-  </footer>
+    <footer>
+      <p>&copy; 2025 Fly Buddy. All rights reserved.</p>
+    </footer>
+  </main>
 
   <script src="script.js"></script>
-  <script>
-    const map = L.map('map').setView([20, 0], 2);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-    }).addTo(map);
-
-    async function loadFlights() {
-      const response = await fetch('https://opensky-network.org/api/states/all');
-      const data = await response.json();
-      if (data.states) {
-        data.states.forEach(flight => {
-          const lat = flight[6];
-          const lon = flight[5];
-          if (lat && lon) {
-            L.circleMarker([lat, lon], { radius: 3, color: 'red' }).addTo(map);
-          }
-        });
-      }
-    }
-
-    loadFlights();
-  </script>
 </body>
+
 </html>
