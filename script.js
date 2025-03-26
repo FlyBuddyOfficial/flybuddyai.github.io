@@ -1,47 +1,45 @@
-// script.js
-let chatVisible = false;
+document.getElementById("tryFlyBuddyBtn").addEventListener("click", function () {
+  const chatContainer = document.getElementById("chat-container");
+  if (chatContainer.classList.contains("visible")) {
+    chatContainer.classList.remove("visible");
+  } else {
+    chatContainer.classList.add("visible");
+  }
+});
 
-function toggleChat() {
-  const chat = document.getElementById('chat-container');
-  chatVisible = !chatVisible;
-  chat.style.display = chatVisible ? 'flex' : 'none';
-  chat.style.opacity = chatVisible ? '1' : '0';
-}
+function sendMessage() {
+  let userInput = document.getElementById("userInput").value;
+  let chatBox = document.getElementById("chatBox");
 
-function quickQuestion(question) {
-  const userInput = document.getElementById('userInput');
-  userInput.value = question;
-  sendMessage();
+  if (userInput.trim() !== "") {
+    chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
+    document.getElementById("userInput").value = "";
+
+    setTimeout(() => {
+      let response = getResponse(userInput);
+      chatBox.innerHTML += `<p><strong>Fly Buddy AI:</strong> ${response}</p>`;
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }, 1000);
+  }
 }
 
 function handleKeyPress(event) {
-  if (event.key === 'Enter') sendMessage();
+  if (event.key === "Enter") {
+    sendMessage();
+  }
 }
 
-function sendMessage() {
-  const userInput = document.getElementById('userInput');
-  const chatBox = document.getElementById('chatBox');
-  const message = userInput.value.trim();
-
-  if (!message) return;
-
-  chatBox.innerHTML += `<p><strong>You:</strong> ${message}</p>`;
-  userInput.value = '';
-
-  let response = getResponse(message);
-  setTimeout(() => {
-    chatBox.innerHTML += `<p><strong>Fly Buddy AI:</strong> ${response}</p>`;
-    chatBox.scrollTop = chatBox.scrollHeight;
-  }, 600);
+function quickQuestion(question) {
+  document.getElementById("userInput").value = question;
+  sendMessage();
 }
 
-function getResponse(input) {
-  input = input.toLowerCase();
-
-  if (input.includes('flight route')) return 'To plan a flight route, file your flight plan with waypoints, altitudes, and submit it via your country\'s ATC.';
-  if (input.includes('radio contact')) return 'In case of lost radio contact, follow your last clearance and try to re-establish communication.';
-  if (input.includes('declare an emergency')) return 'You can declare an emergency by saying \"Mayday\" three times followed by your situation.';
-  if (input.includes('fuel requirements')) return 'Fuel requirements include taxi fuel, trip fuel, contingency fuel, alternate fuel, and final reserve.';
-
-  return 'I\'m here to help! Please ask another aviation-related question.';
+function getResponse(userInput) {
+  const responses = {
+    "How do I plan a flight route?": "Start with your departure and arrival airports, check weather, NOTAMs, fuel, and alternate airports.",
+    "What if I lose radio contact?": "Follow lost comms procedures: Squawk 7600, maintain current route and altitude, and attempt to re-establish contact.",
+    "How do I calculate fuel?": "Use aircraft performance charts, include trip fuel, alternate fuel, contingency, holding, and taxi fuel.",
+    "How do I handle a bird strike?": "Maintain control, assess damage, return or divert if necessary, and report the strike after landing."
+  };
+  return responses[userInput] || "Let me check that for you...";
 }
