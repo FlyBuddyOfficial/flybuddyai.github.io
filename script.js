@@ -1,66 +1,75 @@
-// Fly Buddy Chat Interaction Script
+document.addEventListener("DOMContentLoaded", () => {
+  const tryBtn = document.getElementById("testFlyBuddyBtn");
+  const chatContainer = document.getElementById("chat-container");
+  const chatBox = document.getElementById("chat-box");
+  const userInput = document.getElementById("userInput");
+  const promptButtons = document.querySelectorAll(".chat-prompts button");
 
-document.getElementById("testFlyBuddyBtn").addEventListener("click", function () {
-  let chatContainer = document.getElementById("chat-container");
-  chatContainer.style.display = "block";
-  chatContainer.style.opacity = "0";
-  setTimeout(() => {
-    chatContainer.style.opacity = "1";
-    chatContainer.scrollIntoView({ behavior: "smooth" });
-  }, 200);
-});
-
-function sendMessage() {
-  let userInput = document.getElementById("userInput").value;
-  let chatBox = document.getElementById("chatBox");
-
-  if (userInput.trim() !== "") {
-    chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
-    document.getElementById("userInput").value = "";
+  tryBtn.addEventListener("click", () => {
+    chatContainer.style.display = "block";
     setTimeout(() => {
-      let response = getAIResponse(userInput);
-      chatBox.innerHTML += `<p><strong>Fly Buddy AI:</strong> ${response}</p>`;
+      chatContainer.style.opacity = "1";
+    }, 50);
+  });
+
+  function sendMessage(message) {
+    const userMsg = `<p><strong>You:</strong> ${message}</p>`;
+    chatBox.innerHTML += userMsg;
+
+    userInput.value = "";
+
+    setTimeout(() => {
+      const response = getAIResponse(message);
+      const aiMsg = `<p><strong>Fly Buddy AI:</strong> ${response}</p>`;
+      chatBox.innerHTML += aiMsg;
+
+      // Auto scroll
       chatBox.scrollTop = chatBox.scrollHeight;
-      showNextPrompt();
+
+      // Add new prompt dynamically (simulated)
+      addDynamicPrompt("How do I handle an engine failure?");
     }, 1000);
   }
-}
 
-function handleKeyPress(event) {
-  if (event.key === "Enter") {
-    sendMessage();
-  }
-}
-
-function quickQuestion(question) {
-  document.getElementById("userInput").value = question;
-  sendMessage();
-}
-
-function getAIResponse(input) {
-  const responses = {
-    "plan my flight from jfk to lax": "Your best route from JFK to LAX is via J80 SPI then J110 to LAX. Expect turbulence over the Midwest.",
-    "what’s the latest metar for katl?": "Fetching latest METAR for KATL... [Insert real-time METAR API here]",
-    "mayday! engine failure at 10,000 ft": "Stay calm. Maintain best glide speed and look for a safe landing site. Declare an emergency on 121.5 MHz.",
-    "how do i avoid turbulence?": "Avoid flying near storm clouds. Use PIREPs and SIGMETs to detect turbulence-prone areas.",
-    "explain how a jet engine works": "A jet engine sucks in air, compresses it, mixes it with fuel, and ignites it to produce thrust."
-  };
-
-  input = input.toLowerCase();
-  return responses[input] || "I'm still learning! Try asking something else.";
-}
-
-function showNextPrompt() {
-  const allPrompts = document.querySelectorAll("#quick-questions button");
-  for (let i = 0; i < allPrompts.length; i++) {
-    if (allPrompts[i].style.display !== "none") {
-      allPrompts[i].style.display = "none";
-      if (i + 1 < allPrompts.length) {
-        setTimeout(() => {
-          allPrompts[i + 1].style.display = "inline-block";
-        }, 500);
-      }
-      break;
+  function getAIResponse(input) {
+    if (input.toLowerCase().includes("flight route")) {
+      return "Start with the departure and arrival airport, then check waypoints and airspace restrictions.";
+    } else if (input.toLowerCase().includes("radio contact")) {
+      return "If you lose contact, squawk 7600 and follow lost communication procedures.";
+    } else if (input.toLowerCase().includes("engine")) {
+      return "Maintain control, pitch for glide, and locate a suitable emergency landing site.";
+    } else {
+      return "Let me guide you through it step-by-step.";
     }
   }
-}
+
+  promptButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      sendMessage(btn.textContent);
+      btn.disabled = true; // Optional: disable after click
+    });
+  });
+
+  userInput.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && userInput.value.trim() !== "") {
+      sendMessage(userInput.value.trim());
+    }
+  });
+
+  function addDynamicPrompt(text) {
+    const newBtn = document.createElement("button");
+    newBtn.textContent = text;
+    newBtn.style.opacity = "0";
+    newBtn.style.transition = "opacity 0.5s ease-in-out";
+    newBtn.addEventListener("click", () => {
+      sendMessage(text);
+      newBtn.disabled = true;
+    });
+
+    document.querySelector(".chat-prompts").appendChild(newBtn);
+
+    setTimeout(() => {
+      newBtn.style.opacity = "1";
+    }, 300);
+  }
+});
