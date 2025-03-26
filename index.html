@@ -1,16 +1,42 @@
-<!-- index.html -->
+<!-- Fly Buddy Website: Updated with Fade Animations + Live Map -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fly Buddy</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fly Buddy AI</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+  <style>
+    .fade-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .map-container {
+      width: 100%;
+      max-width: 1000px;
+      height: 500px;
+      margin: 40px auto;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
+  <nav class="navbar">
+    <ul class="nav-list">
+      <li><a href="#home">Home</a></li>
       <li><a href="#features">Features</a></li>
       <li><a href="#waitlist">Join Waitlist</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -18,83 +44,102 @@
     </ul>
   </nav>
 
-  <main>
-    <section class="intro">
-      <h1>Your AI Copilot — Always Ready.</h1>
-      <p>Welcome to the future of AI-powered aviation assistance. Fly Buddy helps pilots with intelligent decision support, emergency handling, and flight planning.</p>
-      <button onclick="toggleChat()">Try Fly Buddy</button>
+  <section id="home" class="fade-section">
+    <h1>Your AI Copilot — Always Ready.</h1>
+    <p>Welcome to the future of AI-powered aviation assistance. Fly Buddy helps pilots with intelligent decision support, emergency handling, and flight planning.</p>
+    <button class="blue-button" id="toggleChatBtn">Try Fly Buddy</button>
+  </section>
 
-      <div id="chat-container" class="chat-container">
-        <p><strong>Fly Buddy AI:</strong> How can I help you today?</p>
-        <div class="prompts">
-          <button onclick="quickQuestion('How do I plan a flight route?')">How do I plan a flight route?</button>
-          <button onclick="quickQuestion('What if I lose radio contact?')">What if I lose radio contact?</button>
-          <button onclick="quickQuestion('How do I declare an emergency?')">How do I declare an emergency?</button>
-          <button onclick="quickQuestion('How do I calculate fuel requirements?')">How do I calculate fuel requirements?</button>
-        </div>
-        <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
-        <div id="chatBox"></div>
+  <div id="chat-container" class="fade-section hidden">
+    <div class="chat-box">
+      <strong>Fly Buddy AI:</strong> How can I help you today?
+      <div class="prompt-buttons">
+        <button onclick="quickQuestion('How do I plan a flight route?')">How do I plan a flight route?</button>
+        <button onclick="quickQuestion('What if I lose radio contact?')">What if I lose radio contact?</button>
+        <button onclick="quickQuestion('How do I divert to an alternate airport?')">How do I divert to an alternate airport?</button>
+        <button onclick="quickQuestion('Explain VOR navigation.')">Explain VOR navigation.</button>
       </div>
-    </section>
+      <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)" />
+    </div>
+  </div>
 
-    <section id="features">
-      <h2>Fly Buddy Features</h2>
+  <section id="features" class="fade-section">
+    <h2>Fly Buddy Features</h2>
+    <div class="feature-box">
+      <h3>Voice-Activated Emergency Assistance</h3>
+      <ul>
+        <li>Recognize the emergency immediately</li>
+        <li>Give step-by-step voice instructions</li>
+        <li>Suggest the nearest landing site</li>
+        <li>Guide through recovery procedures</li>
+      </ul>
+    </div>
+    <div class="feature-box">
+      <h3>AI-Powered Situational Awareness</h3>
+      <ul>
+        <li>Monitor real-time flight risks</li>
+        <li>Detect turbulence and restricted airspace</li>
+        <li>Recommend diversions if needed</li>
+      </ul>
+    </div>
+    <div class="feature-box">
+      <h3>Flight Planning & Decision Support</h3>
+      <ul>
+        <li>Live weather & NOTAM integration</li>
+        <li>Suggest alternate airports and fuel plans</li>
+        <li>Smart route optimization</li>
+      </ul>
+    </div>
+  </section>
 
-      <div class="feature-box">
-        <h3>Voice-Activated Emergency Assistance</h3>
-        <ul>
-          <li>Recognize the emergency immediately</li>
-          <li>Give step-by-step voice instructions</li>
-          <li>Suggest the nearest landing site</li>
-          <li>Guide through recovery procedures</li>
-        </ul>
-      </div>
+  <section class="fade-section">
+    <div class="map-container">
+      <iframe src="https://opensky-network.org/network/explorer" title="Live Flight Map"></iframe>
+    </div>
+  </section>
 
-      <div class="feature-box">
-        <h3>AI-Powered Situational Awareness</h3>
-        <ul>
-          <li>Monitor real-time flight risks</li>
-          <li>Detect turbulence and restricted airspace</li>
-          <li>Recommend diversions if needed</li>
-        </ul>
-      </div>
+  <section id="waitlist" class="fade-section">
+    <h2>Be Part of Aviation History</h2>
+    <p>Secure your spot among the first to experience AI-powered flight assistance. Only a limited number of early access slots available.</p>
+    <form action="https://script.google.com/macros/s/AKfycbzw-tp0zDAf0WV2kCkIVADvMfX0Uz7mzPd_Zls9bO2ZXohX_yBeiuG7yr-LYcIbz1vF/exec" method="POST">
+      <input type="email" name="email" placeholder="you@example.com" required>
+      <button type="submit" class="blue-button">Join Now</button>
+    </form>
+  </section>
 
-      <div class="feature-box">
-        <h3>Flight Planning & Decision Support</h3>
-        <ul>
-          <li>Live weather & NOTAM integration</li>
-          <li>Suggest alternate airports and fuel plans</li>
-          <li>Smart route optimization</li>
-        </ul>
-      </div>
-    </section>
+  <section id="donate" class="fade-section">
+    <h2>Support the Mission</h2>
+    <p>Your donations help us bring Fly Buddy to every cockpit worldwide.</p>
+    <a href="https://buy.stripe.com/test_dR65nv6Tr6f8f4QcMM" target="_blank" class="blue-button">Donate Now</a>
+  </section>
 
-    <section id="waitlist">
-      <h2>Be Part of Aviation History</h2>
-      <p>Secure your spot among the first to experience AI-powered flight assistance. Only a limited number of early access slots available.</p>
-      <form action="https://script.google.com/macros/s/AKfycbzw-tp0zDAf0WV2kCkIVADvMfX0Uz7mzPd_Zls9bO2ZXohX_yBeiuG7yr-LYcIbz1vF/exec" method="POST">
-        <input type="email" name="email" placeholder="you@example.com" required>
-        <button type="submit">Join Now</button>
-      </form>
-    </section>
+  <section id="contact" class="fade-section">
+    <h2>Contact Us</h2>
+    <p>Email: flybuddyai@gmail.com</p>
+    <p>Instagram: @flybuddyai</p>
+  </section>
 
-    <section id="donate">
-      <h2>Support the Mission</h2>
-      <p>Your donations help us bring Fly Buddy to every cockpit worldwide.</p>
-      <a href="https://buy.stripe.com/test_8wMcNZbAW1tn7vC5kk"><button class="donate-btn">Donate Now</button></a>
-    </section>
+  <footer class="fade-section">
+    <p>© 2025 Fly Buddy. All rights reserved.</p>
+  </footer>
 
-    <section id="contact">
-      <h2>Contact Us</h2>
-      <p>Email: flybuddyai@gmail.com</p>
-      <p>Instagram: @flybuddyai</p>
-    </section>
+  <script>
+    // Fade sections on scroll
+    const fadeSections = document.querySelectorAll('.fade-section');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('fade-in');
+      });
+    }, { threshold: 0.1 });
+    fadeSections.forEach(section => observer.observe(section));
 
-    <footer>
-      <p>© 2025 Fly Buddy. All rights reserved.</p>
-    </footer>
-  </main>
-
-  <script src="script.js"></script>
+    // Toggle chat visibility
+    const toggleBtn = document.getElementById('toggleChatBtn');
+    const chatContainer = document.getElementById('chat-container');
+    toggleBtn.addEventListener('click', () => {
+      chatContainer.classList.toggle('fade-in');
+      chatContainer.classList.toggle('hidden');
+    });
+  </script>
 </body>
 </html>
