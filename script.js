@@ -1,35 +1,19 @@
-document.getElementById("testFlyBuddyBtn").addEventListener("click", function () {
-  const chatContainer = document.getElementById("chat-container");
-  if (chatContainer.style.display === "none" || chatContainer.style.display === "") {
-    chatContainer.style.display = "block";
-    chatContainer.style.opacity = 0;
-    setTimeout(() => {
-      chatContainer.style.opacity = 1;
-    }, 200);
+let chatVisible = false;
+
+document.getElementById("tryBtn").addEventListener("click", () => {
+  const chat = document.getElementById("chat-container");
+  chatVisible = !chatVisible;
+
+  if (chatVisible) {
+    chat.classList.remove("hidden");
+    chat.style.opacity = "1";
   } else {
-    chatContainer.style.opacity = 0;
+    chat.style.opacity = "0";
     setTimeout(() => {
-      chatContainer.style.display = "none";
-    }, 200);
+      chat.classList.add("hidden");
+    }, 300);
   }
 });
-
-function sendMessage() {
-  const userInput = document.getElementById("userInput").value.trim();
-  const chatBox = document.getElementById("chatBox");
-  if (!userInput) return;
-
-  chatBox.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
-  document.getElementById("userInput").value = "";
-  chatBox.scrollTop = chatBox.scrollHeight;
-
-  // Simulate response
-  setTimeout(() => {
-    const response = generateResponse(userInput);
-    chatBox.innerHTML += `<p><strong>Fly Buddy AI:</strong> ${response}</p>`;
-    chatBox.scrollTop = chatBox.scrollHeight;
-  }, 1000);
-}
 
 function handleKeyPress(event) {
   if (event.key === "Enter") {
@@ -37,21 +21,24 @@ function handleKeyPress(event) {
   }
 }
 
-document.getElementById("userInput").addEventListener("keypress", handleKeyPress);
+function sendMessage() {
+  const userInput = document.getElementById("userInput").value.trim();
+  const chatBox = document.getElementById("chatBox");
+  if (!userInput) return;
 
-document.querySelectorAll(".prompt-button").forEach(button => {
-  button.addEventListener("click", () => {
-    document.getElementById("userInput").value = button.textContent;
-    sendMessage();
-  });
-});
+  const userMsg = document.createElement("p");
+  userMsg.innerHTML = `<strong>You:</strong> ${userInput}`;
+  chatBox.appendChild(userMsg);
 
-function generateResponse(input) {
-  if (input.toLowerCase().includes("plan a flight")) {
-    return "To plan a flight route, input your departure and destination airports, check weather and NOTAMs, and file your flight plan.";
-  } else if (input.toLowerCase().includes("radio contact")) {
-    return "If you lose radio contact, follow lost communication procedures, squawk 7600, and continue under your last clearance.";
-  } else {
-    return "Sorry, I didn’t understand that. Try asking about flight planning or emergencies.";
-  }
+  const aiMsg = document.createElement("p");
+  aiMsg.innerHTML = `<strong>Fly Buddy AI:</strong> (simulated response)`;
+  chatBox.appendChild(aiMsg);
+
+  document.getElementById("userInput").value = "";
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function quickQuestion(question) {
+  document.getElementById("userInput").value = question;
+  sendMessage();
 }
