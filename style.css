@@ -1,115 +1,100 @@
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
+  font-family: Arial, sans-serif;
   text-align: center;
-  background: #fff;
+  background: #ffffff;
+  color: #000000;
+}
+
+.navbar {
+  background-color: #007bff;
+  padding: 10px 0;
 }
 
 .navbar ul {
   list-style: none;
-  background: #007BFF;
-  padding: 10px 0;
+  padding: 0;
   margin: 0;
   display: flex;
   justify-content: center;
-  gap: 30px;
+  flex-wrap: wrap;
 }
 
-.navbar ul li a {
-  color: white;
+.navbar li {
+  margin: 0 15px;
+}
+
+.navbar a {
   text-decoration: none;
+  color: white;
   font-weight: bold;
 }
 
 .hero {
-  padding: 40px 20px;
   background-color: #f4f4f4;
+  padding: 40px 20px;
 }
 
-.hero h1 {
-  margin-bottom: 10px;
-}
-
-button {
-  background-color: #007BFF;
-  color: white;
+.blue-button {
+  background-color: #007bff;
   border: none;
-  padding: 10px 18px;
+  color: white;
+  padding: 10px 20px;
+  font-weight: bold;
   border-radius: 6px;
   cursor: pointer;
-  margin-top: 10px;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
 }
 
-button:hover {
+.blue-button:hover {
   background-color: #0056b3;
 }
 
-#chat-container {
-  margin: 20px auto;
-  padding: 20px;
-  max-width: 600px;
-  background: #f0f0f0;
-  border-radius: 8px;
-  display: none;
-  opacity: 0;
-  transition: opacity 0.5s ease;
+#features {
+  padding: 40px 20px;
 }
 
-#chat-container.show {
-  display: block;
-  opacity: 1;
-}
-
-.prompts button {
-  margin: 5px;
-}
-
-.feature-card {
-  margin: 20px auto;
-  max-width: 700px;
-  padding: 20px;
-  background: #f9f9f9;
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  text-align: left;
-}
-
-.feature-card h3 {
-  color: #007BFF;
-}
-
-.flight-map {
-  width: 90%;
-  height: 500px;
-  border: 1px solid #ddd;
+.feature-box {
+  background-color: #f8f9fa;
   border-radius: 10px;
-  margin: 30px auto;
+  margin: 20px auto;
+  padding: 20px;
+  width: 80%;
+  box-shadow: 0px 0px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-form {
-  margin-top: 15px;
+.feature-box:hover {
+  transform: scale(1.03);
+  box-shadow: 0px 0px 15px rgba(0,0,0,0.15);
 }
 
-input[type="email"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  width: 250px;
+.chatbox {
+  background: #f0f0f0;
+  border-radius: 10px;
+  margin: 20px auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
 }
 
-.donate-btn {
-  background-color: #007BFF;
+.prompt-buttons button {
+  margin: 5px;
+  padding: 8px 12px;
+  background-color: #007bff;
   color: white;
-  padding: 10px 18px;
+  border: none;
   border-radius: 6px;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 10px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
 
 footer {
-  margin: 40px 0 20px 0;
+  margin: 40px 0 20px;
   font-size: 14px;
-  color: #888;
+  color: #555;
 }
