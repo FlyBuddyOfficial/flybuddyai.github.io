@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fly Buddy AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fly Buddy</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -17,59 +17,57 @@
     </ul>
   </nav>
 
-  <header>
+  <header class="hero">
     <h1>Your AI Copilot — Always Ready.</h1>
     <p>Welcome to the future of AI-powered aviation assistance. Fly Buddy helps pilots with intelligent decision support, emergency handling, and flight planning.</p>
-    <button id="toggleChat">Try Fly Buddy</button>
+    <button id="toggleChatBtn">Try Fly Buddy</button>
   </header>
 
   <div id="chatbox" class="chatbox hidden">
-    <div class="chat-header">Fly Buddy AI: How can I help you today?</div>
-    <div class="chat-prompts">
-      <button class="prompt">How do I plan a flight route?</button>
-      <button class="prompt">What if I lose radio contact?</button>
-      <button class="prompt">How do I calculate fuel?</button>
-      <button class="prompt">How do I handle a bird strike?</button>
+    <strong>Fly Buddy AI:</strong> How can I help you today?<br/>
+    <div class="prompts">
+      <button onclick="sendPrompt('How do I plan a flight route?')">How do I plan a flight route?</button>
+      <button onclick="sendPrompt('What if I lose radio contact?')">What if I lose radio contact?</button>
+      <button onclick="sendPrompt('How do I calculate fuel?')">How do I calculate fuel?</button>
+      <button onclick="sendPrompt('How do I handle a bird strike?')">How do I handle a bird strike?</button>
     </div>
-    <div id="chat-response"></div>
-    <input type="text" placeholder="Type your message..." />
+    <input type="text" id="userInput" placeholder="Type your message..."/>
+    <div id="aiResponse"></div>
   </div>
 
   <section id="features">
     <h2>Fly Buddy Features</h2>
-    <div class="features-container">
-      <div class="feature-box">
-        <h3>AI Emergency Copilot</h3>
-        <ul>
-          <li>Instant voice-activated emergency recognition</li>
-          <li>Checklists, instructions, and recovery steps</li>
-          <li>Nearest airport and return-to-base recommendations</li>
-        </ul>
-      </div>
-      <div class="feature-box">
-        <h3>Smart Flight Planning</h3>
-        <ul>
-          <li>Fuel burn optimization & routing</li>
-          <li>Live NOTAM & weather integration</li>
-          <li>AI-generated route recommendations</li>
-        </ul>
-      </div>
-      <div class="feature-box">
-        <h3>AI Voice Copilot</h3>
-        <ul>
-          <li>Conversational voice interaction</li>
-          <li>Checklist guidance, charts, and reports</li>
-          <li>Can talk back like a human copilot</li>
-        </ul>
-      </div>
-      <div class="feature-box">
-        <h3>Real-Time Alerts & Support</h3>
-        <ul>
-          <li>Live turbulence, airspace, and traffic updates</li>
-          <li>Proactive suggestions and alerts</li>
-          <li>Always monitoring your flight status</li>
-        </ul>
-      </div>
+    <div class="feature-box">
+      <h3>AI Emergency Copilot</h3>
+      <ul>
+        <li>Instant voice-activated emergency recognition</li>
+        <li>Checklists, instructions, and recovery steps</li>
+        <li>Nearest airport and return-to-base recommendations</li>
+      </ul>
+    </div>
+    <div class="feature-box">
+      <h3>Smart Flight Planning</h3>
+      <ul>
+        <li>Fuel burn optimization & routing</li>
+        <li>Live NOTAM & weather integration</li>
+        <li>AI-generated route recommendations</li>
+      </ul>
+    </div>
+    <div class="feature-box">
+      <h3>AI Voice Copilot</h3>
+      <ul>
+        <li>Conversational voice interaction</li>
+        <li>Checklist guidance, charts, and reports</li>
+        <li>Can talk back like a human copilot</li>
+      </ul>
+    </div>
+    <div class="feature-box">
+      <h3>Real-Time Alerts & Support</h3>
+      <ul>
+        <li>Live turbulence, airspace, and traffic updates</li>
+        <li>Proactive suggestions and alerts</li>
+        <li>Always monitoring your flight status</li>
+      </ul>
     </div>
   </section>
 
@@ -93,7 +91,7 @@
   </section>
 
   <footer>
-    <p>© 2025 Fly Buddy. All rights reserved.</p>
+    <p>&copy; 2025 Fly Buddy. All rights reserved.</p>
   </footer>
 
   <script src="script.js"></script>
