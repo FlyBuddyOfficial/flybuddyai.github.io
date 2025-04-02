@@ -1,18 +1,22 @@
-const chatbox = document.getElementById("chatbox");
-const toggleChatBtn = document.getElementById("toggleChatBtn");
-const aiResponse = document.getElementById("aiResponse");
-
-toggleChatBtn.addEventListener("click", () => {
-  chatbox.classList.toggle("visible");
+document.getElementById("toggleChat").addEventListener("click", function () {
+  const chat = document.getElementById("chatContainer");
+  if (chat.style.display === "flex") {
+    chat.style.display = "none";
+  } else {
+    chat.style.display = "flex";
+  }
 });
 
-function sendPrompt(prompt) {
-  const responses = {
-    "How do I plan a flight route?": "Start by checking weather and NOTAMs, then select your route with optimal fuel and alternates.",
-    "What if I lose radio contact?": "Follow lost communication procedures: AVEF for route, MEA for altitude. Squawk 7600 and proceed to destination.",
-    "How do I calculate fuel?": "Calculate taxi, trip, alternate, reserve, and contingency fuel. Use aircraft-specific fuel burn rates.",
-    "How do I handle a bird strike?": "Maintain control, assess damage, consider return or divert. Follow QRH and report to ATC immediately."
-  };
+const prompts = document.querySelectorAll(".prompt");
+const chatBox = document.getElementById("chatBox");
 
-  aiResponse.innerHTML = `<strong>Fly Buddy AI:</strong> ${responses[prompt] || "I'm here to help! Please try asking a different question."}`;
-}
+prompts.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const response = btn.getAttribute("data-response");
+    const bubble = document.createElement("div");
+    bubble.textContent = "Fly Buddy AI: " + response;
+    bubble.style.marginTop = "10px";
+    bubble.style.textAlign = "left";
+    chatBox.appendChild(bubble);
+  });
+});
