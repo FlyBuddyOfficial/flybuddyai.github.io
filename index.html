@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fly Buddy AI</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <nav>
@@ -13,7 +13,7 @@
       <li><a href="#features">Features</a></li>
       <li><a href="#waitlist">Join Waitlist</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="https://buy.stripe.com/9AQdRz88wb8m05a8ww" target="_blank">Donate</a></li>
+      <li><a href="#donate">Donate</a></li>
     </ul>
   </nav>
 
@@ -23,54 +23,53 @@
     <button id="toggleChat">Try Fly Buddy</button>
   </header>
 
-  <section id="chatContainer" class="hidden">
-    <div class="chat-box">
-      <div class="chat-output" id="chatOutput">
-        <strong>Fly Buddy AI:</strong> How can I help you today?
-        <div class="prompt-buttons">
-          <button onclick="showResponse('Start by checking weather and NOTAMs, then select your route with optimal fuel and alternates.')">How do I plan a flight route?</button>
-          <button onclick="showResponse('If you lose radio contact, follow the AVIATE-NAVIGATE-COMMUNICATE principle and follow lost comm procedures.')">What if I lose radio contact?</button>
-          <button onclick="showResponse('To calculate fuel, consider trip fuel, alternate fuel, contingency, taxi, and final reserve.')">How do I calculate fuel?</button>
-          <button onclick="showResponse('In case of bird strike, follow checklist: maintain control, assess damage, return or divert as needed.')">How do I handle a bird strike?</button>
-        </div>
-      </div>
-      <input type="text" placeholder="Type your message..." disabled />
+  <div id="chatbox" class="chatbox hidden">
+    <div class="chat-header">Fly Buddy AI: How can I help you today?</div>
+    <div class="chat-prompts">
+      <button class="prompt">How do I plan a flight route?</button>
+      <button class="prompt">What if I lose radio contact?</button>
+      <button class="prompt">How do I calculate fuel?</button>
+      <button class="prompt">How do I handle a bird strike?</button>
     </div>
-  </section>
+    <div id="chat-response"></div>
+    <input type="text" placeholder="Type your message..." />
+  </div>
 
   <section id="features">
     <h2>Fly Buddy Features</h2>
-    <div class="feature-box">
-      <h3>AI Emergency Copilot</h3>
-      <ul>
-        <li>Instant voice-activated emergency recognition</li>
-        <li>Checklists, instructions, and recovery steps</li>
-        <li>Nearest airport and return-to-base recommendations</li>
-      </ul>
-    </div>
-    <div class="feature-box">
-      <h3>Smart Flight Planning</h3>
-      <ul>
-        <li>Fuel burn optimization & routing</li>
-        <li>Live NOTAM & weather integration</li>
-        <li>AI-generated route recommendations</li>
-      </ul>
-    </div>
-    <div class="feature-box">
-      <h3>AI Voice Copilot</h3>
-      <ul>
-        <li>Conversational voice interaction</li>
-        <li>Checklist guidance, charts, and reports</li>
-        <li>Can talk back like a human copilot</li>
-      </ul>
-    </div>
-    <div class="feature-box">
-      <h3>Real-Time Alerts & Support</h3>
-      <ul>
-        <li>Live turbulence, airspace, and traffic updates</li>
-        <li>Proactive suggestions and alerts</li>
-        <li>Always monitoring your flight status</li>
-      </ul>
+    <div class="features-container">
+      <div class="feature-box">
+        <h3>AI Emergency Copilot</h3>
+        <ul>
+          <li>Instant voice-activated emergency recognition</li>
+          <li>Checklists, instructions, and recovery steps</li>
+          <li>Nearest airport and return-to-base recommendations</li>
+        </ul>
+      </div>
+      <div class="feature-box">
+        <h3>Smart Flight Planning</h3>
+        <ul>
+          <li>Fuel burn optimization & routing</li>
+          <li>Live NOTAM & weather integration</li>
+          <li>AI-generated route recommendations</li>
+        </ul>
+      </div>
+      <div class="feature-box">
+        <h3>AI Voice Copilot</h3>
+        <ul>
+          <li>Conversational voice interaction</li>
+          <li>Checklist guidance, charts, and reports</li>
+          <li>Can talk back like a human copilot</li>
+        </ul>
+      </div>
+      <div class="feature-box">
+        <h3>Real-Time Alerts & Support</h3>
+        <ul>
+          <li>Live turbulence, airspace, and traffic updates</li>
+          <li>Proactive suggestions and alerts</li>
+          <li>Always monitoring your flight status</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -81,10 +80,10 @@
     <button>Join Now</button>
   </section>
 
-  <section>
+  <section id="donate">
     <h2>Support the Mission</h2>
     <p>Your donations help us bring Fly Buddy to every cockpit worldwide.</p>
-    <a class="button" href="https://buy.stripe.com/9AQdRz88wb8m05a8ww" target="_blank">Donate Now</a>
+    <a href="https://buy.stripe.com/9AQdRz88wb8m05a8ww" target="_blank" class="donate-button">Donate Now</a>
   </section>
 
   <section id="contact">
