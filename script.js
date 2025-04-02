@@ -1,27 +1,18 @@
-let chatVisible = false;
+const chatbox = document.getElementById("chatbox");
+const toggleChatBtn = document.getElementById("toggleChatBtn");
+const aiResponse = document.getElementById("aiResponse");
 
-function toggleChat() {
-  const chat = document.getElementById("chatSection");
-  chatVisible = !chatVisible;
-  if (chatVisible) {
-    chat.classList.remove("hidden");
-    chat.style.animation = "fadeIn 0.5s";
-  } else {
-    chat.style.animation = "fadeOut 0.5s";
-    setTimeout(() => chat.classList.add("hidden"), 500);
-  }
-}
+toggleChatBtn.addEventListener("click", () => {
+  chatbox.classList.toggle("visible");
+});
 
-function showPrompt(text) {
-  alert("Fly Buddy AI Response:\n" + getAnswer(text));
-}
-
-function getAnswer(prompt) {
+function sendPrompt(prompt) {
   const responses = {
     "How do I plan a flight route?": "Start by checking weather and NOTAMs, then select your route with optimal fuel and alternates.",
-    "What if I lose radio contact?": "Follow lost comm procedures: fly the route last assigned, squawk 7600, and follow standard altitudes.",
-    "How do I calculate fuel?": "Factor in distance, climb, cruise, descent, reserves, and alternates. Fly Buddy helps automate this.",
-    "How do I handle a bird strike?": "Maintain control. If impact is severe, declare emergency and land at nearest airport."
+    "What if I lose radio contact?": "Follow lost communication procedures: AVEF for route, MEA for altitude. Squawk 7600 and proceed to destination.",
+    "How do I calculate fuel?": "Calculate taxi, trip, alternate, reserve, and contingency fuel. Use aircraft-specific fuel burn rates.",
+    "How do I handle a bird strike?": "Maintain control, assess damage, consider return or divert. Follow QRH and report to ATC immediately."
   };
-  return responses[prompt] || "I'm still learning how to answer that!";
+
+  aiResponse.innerHTML = `<strong>Fly Buddy AI:</strong> ${responses[prompt] || "I'm here to help! Please try asking a different question."}`;
 }
