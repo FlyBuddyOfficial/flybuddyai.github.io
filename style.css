@@ -1,97 +1,153 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #fff;
-  color: #000;
-  text-align: center;
-}
-
-.navbar {
-  background-color: #007aff;
-  padding: 1em 0;
-}
-
-.nav-list {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  gap: 2em;
+/* Reset */
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  color: #000;
+  scroll-behavior: smooth;
+  line-height: 1.6;
 }
 
-.nav-list li a {
+/* Navigation */
+nav {
+  background: #007bff;
+  padding: 10px;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+nav a {
   color: white;
+  margin: 0 15px;
   text-decoration: none;
+  font-weight: 500;
+}
+nav .btn-donate {
+  background: white;
+  color: #007bff;
+  padding: 6px 15px;
+  border-radius: 6px;
   font-weight: bold;
 }
-
-.hero {
-  padding: 3em 1em;
+nav .btn-donate:hover {
+  background: #e0e0e0;
 }
 
-button,
-.donate-button {
-  padding: 10px 20px;
-  background-color: #007aff;
+/* Sections */
+.section {
+  padding: 80px 20px;
+  text-align: center;
+}
+.glow {
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px blue;
+}
+.tagline {
+  margin: 10px 0 30px;
+  font-size: 1.2rem;
+}
+.buttons {
+  margin-bottom: 30px;
+}
+
+/* Buttons */
+.btn {
+  background-color: #007bff;
   color: white;
+  padding: 12px 25px;
   border: none;
-  border-radius: 8px;
+  border-radius: 6px;
   cursor: pointer;
-  margin-top: 1em;
-  font-weight: bold;
+  margin: 10px;
+  transition: 0.3s;
+}
+.btn:hover {
+  background-color: #0056b3;
 }
 
-.chat-container {
-  display: none;
-  flex-direction: column;
-  gap: 0.5em;
-  padding: 1em;
-  margin: 1em auto;
-  background-color: #f0f0f0;
+/* Feature Boxes */
+.feature-box {
+  margin: 20px auto;
+  padding: 20px;
   max-width: 600px;
+  background: #f8f8f8;
   border-radius: 10px;
-}
-
-.chat-box {
-  background-color: #fff;
-  min-height: 60px;
-  border: 1px solid #ccc;
-  padding: 0.5em;
-  border-radius: 5px;
-}
-
-.prompt-buttons button {
-  margin: 5px;
-}
-
-.features-section {
-  padding: 2em;
-  background-color: #fff;
-}
-
-.feature-card {
-  background-color: #f8fefe;
-  padding: 1em;
-  margin: 1em auto;
-  max-width: 700px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
 }
-
-.feature-card:hover {
+.feature-box:hover {
   transform: scale(1.02);
 }
 
-footer {
-  margin-top: 3em;
-  padding: 1em;
-  font-size: 0.9em;
-  color: #555;
+/* Waitlist */
+form {
+  margin-top: 20px;
+}
+#emailInput {
+  padding: 12px;
+  width: 250px;
+  max-width: 80%;
+  margin: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+#successMessage {
+  margin-top: 15px;
+  color: green;
 }
 
-.donate-button {
-  display: inline-block;
-  text-decoration: none;
+/* Chat */
+#chat-container {
+  display: none;
+  opacity: 0;
+  max-width: 700px;
+  margin: 40px auto;
+  background: #f1f1f1;
+  padding: 20px;
+  border-radius: 10px;
+  transition: opacity 0.5s ease;
+}
+#chatBox {
+  background: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  height: 150px;
+  overflow-y: auto;
+  border-radius: 6px;
+}
+.chat-input {
+  display: flex;
+  margin-top: 10px;
+  gap: 10px;
+}
+#userInput {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+}
+#quick-questions {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+#quick-questions button {
+  padding: 10px;
+  border-radius: 5px;
+  background: #007bff;
+  color: white;
+  border: none;
+}
+
+/* Footer */
+footer {
+  background: #007bff;
+  color: white;
+  padding: 15px;
+  text-align: center;
 }
