@@ -1,42 +1,36 @@
-// Fade in sections on scroll
+// Reveal on scroll
 const sections = document.querySelectorAll('.section');
+
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
     }
   });
-}, { threshold: 0.1 });
+}, {
+  threshold: 0.2
+});
 
 sections.forEach(section => {
   observer.observe(section);
 });
 
-// Chat functionality
+// Chat toggle
 function toggleChat() {
-  const chat = document.getElementById('chatBox');
+  const chat = document.getElementById('chat-container');
   chat.classList.toggle('hidden');
-  document.getElementById('responseText').textContent = '';
 }
 
-function showResponse(message) {
-  document.getElementById('responseText').textContent = 'Fly Buddy AI Response: ' + message;
+// Chat response
+function respond(message) {
+  const response = document.getElementById('ai-response');
+  response.textContent = `Fly Buddy AI Response: ${message}`;
+  response.classList.remove('hidden');
 }
 
-// Waitlist form submission
-document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+// Waitlist form handler
+const form = document.getElementById('waitlist-form');
+form.addEventListener('submit', e => {
   e.preventDefault();
-  const email = document.getElementById('email').value;
-
-  fetch('https://script.google.com/macros/s/YOUR_GOOGLE_SCRIPT_ID/exec', {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    body: `email=${encodeURIComponent(email)}`,
-  });
-
-  document.getElementById('thankYouMessage').classList.remove('hidden');
-  document.getElementById('email').value = '';
+  document.getElementById('thank-you').classList.remove('hidden');
 });
