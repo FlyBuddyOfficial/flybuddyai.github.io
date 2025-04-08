@@ -3,74 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fly Buddy AI</title>
+  <title>Fly Buddy</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
 </head>
 <body>
   <nav>
     <ul>
       <li><a href="#home">Home</a></li>
+      <li><a href="#what">What is Fly Buddy?</a></li>
       <li><a href="#features">Features</a></li>
       <li><a href="#waitlist">Waitlist</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
-  <section id="home" class="section fade-in">
+  <section id="home" class="section fade">
     <h1>Your AI Copilot — Always Ready.</h1>
     <p>Revolutionizing aviation with AI-powered flight assistance.</p>
-    <button id="toggleChat">Test Fly Buddy</button>
-    <div id="chatContainer" class="chat-container">
-      <h3>Fly Buddy AI: How can I help you today?</h3>
-      <div class="prompt-buttons">
-        <button onclick="askFlyBuddy('How do I plan a flight route?')">How do I plan a flight route?</button>
-        <button onclick="askFlyBuddy('What if I lose radio contact?')">What if I lose radio contact?</button>
-        <button onclick="askFlyBuddy('How do I calculate fuel?')">How do I calculate fuel?</button>
-        <button onclick="askFlyBuddy('How do I handle a bird strike?')">How do I handle a bird strike?</button>
-      </div>
-      <input type="text" id="chatInput" placeholder="Type your message...">
-      <div id="chatResponse"></div>
-    </div>
+    <button onclick="toggleChat()">Test Fly Buddy</button>
   </section>
 
-  <section id="features" class="section fade-in">
+  <section class="chatbox" id="chatbox">
+    <h2>Fly Buddy AI: How can I help you today?</h2>
+    <div id="chat-prompts">
+      <button onclick="sendPrompt('How do I plan a flight route?')">How do I plan a flight route?</button>
+      <button onclick="sendPrompt('What if I lose radio contact?')">What if I lose radio contact?</button>
+      <button onclick="sendPrompt('How do I calculate fuel?')">How do I calculate fuel?</button>
+      <button onclick="sendPrompt('How do I handle a bird strike?')">How do I handle a bird strike?</button>
+    </div>
+    <input type="text" id="userInput" placeholder="Type your message...">
+    <div id="chatResponse"></div>
+  </section>
+
+  <section id="what" class="section fade">
+    <h2>What is Fly Buddy?</h2>
+    <p>Fly Buddy is your AI-powered aviation copilot. From emergency support to smart planning, it is built to assist pilots in real-time with critical decisions, proactive alerts, and voice interaction. Think of Fly Buddy as a second brain in the cockpit, helping reduce stress, improve safety, and optimize every flight.</p>
+    <p>Fly Buddy integrates real-world data like weather, NOTAMs, aircraft profiles, and AI-generated logic to guide pilots with step-by-step instructions and conversational support. Whether you're handling a bird strike, managing fuel burn, or navigating turbulence, Fly Buddy has your back.</p>
+  </section>
+
+  <section id="features" class="section fade">
     <h2>Key Features</h2>
-    <div class="feature-box">
+    <div class="card">
       <h3>Voice-Activated Emergency Help</h3>
-      <p>Say “Mayday” and Fly Buddy immediately offers calm step-by-step voice guidance to manage airborne crises.</p>
+      <p>Say “Mayday” and Fly Buddy immediately activates step-by-step voice guidance, helping manage airborne crises calmly and efficiently.</p>
     </div>
-    <div class="feature-box">
+    <div class="card">
       <h3>Live Weather & NOTAM Integration</h3>
-      <p>Get real-time updates on weather and NOTAMs directly in your cockpit to improve situational awareness and safety.</p>
+      <p>Real-time updates on METARs, TAFs, and NOTAMs, directly in the cockpit to enhance awareness, route safety, and efficiency.</p>
     </div>
-    <div class="feature-box">
+    <div class="card">
       <h3>AI-Enhanced Decision Support</h3>
-      <p>Fly Buddy suggests diversion airports, tweaks for fuel efficiency, and routes to avoid turbulence using AI insights.</p>
+      <p>Fly Buddy recommends safer alternates, better flight paths, and fuel-saving tweaks using advanced aviation-trained AI to reduce pilot workload and improve operational safety.</p>
     </div>
-    <div class="feature-box">
+    <div class="card">
       <h3>Pilot Stress Reduction System</h3>
-      <p>A calm, conversational AI copilot that keeps you focused — like a second brain in the cockpit.</p>
+      <p>A calm, conversational AI copilot designed to keep you composed, alert, and efficient in any situation — like a second brain beside you in the cockpit.</p>
     </div>
   </section>
 
-  <section id="donate" class="section fade-in">
-    <h2>Support the Mission</h2>
-    <p>Your donations help us bring Fly Buddy to every cockpit worldwide.</p>
-    <a href="https://buy.stripe.com/9AQdRz88wb8m05a8ww" class="donate-button">Donate Now</a>
-  </section>
-
-  <section id="waitlist" class="section fade-in">
+  <section id="waitlist" class="section fade">
     <h2>Join the Waitlist</h2>
     <p>Be part of the aviation revolution. Limited beta spots available.</p>
-    <form name="submit-to-google-sheet">
-      <input type="email" name="Email" placeholder="Enter your email" required>
+    <form id="waitlist-form">
+      <input type="email" placeholder="Enter your email" required>
       <button type="submit">Join Now</button>
     </form>
-    <span id="form-response"></span>
   </section>
 
-  <section id="contact" class="section fade-in">
+  <section id="contact" class="section fade">
     <h2>Contact</h2>
     <p>Email: flybuddyai@gmail.com</p>
     <p>Instagram: @flybuddyai</p>
@@ -80,22 +80,6 @@
     <p>© 2025 Fly Buddy. All rights reserved.</p>
   </footer>
 
-  <script>
-    const form = document.forms['submit-to-google-sheet'];
-    const responseMsg = document.getElementById('form-response');
-
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      fetch('https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec', {
-        method: 'POST',
-        body: new FormData(form)
-      })
-        .then(res => {
-          responseMsg.textContent = "Welcome to the future of aviation.";
-          form.reset();
-        })
-        .catch(err => console.error('Error!', err.message));
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
