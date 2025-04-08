@@ -1,124 +1,106 @@
 body {
+  font-family: Arial, sans-serif;
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  padding: 0;
+  scroll-behavior: smooth;
   background: #fff;
   color: #000;
 }
 
-.navbar {
-  background: #007bff;
-  padding: 10px 0;
+nav {
+  background-color: #007bff;
+  padding: 12px 0;
   position: sticky;
   top: 0;
-  z-index: 999;
+  z-index: 100;
+  text-align: center;
 }
 
-.nav-container {
+nav ul {
+  list-style: none;
   display: flex;
   justify-content: center;
+  padding: 0;
+  margin: 0;
 }
 
-nav a {
-  color: white;
-  margin: 0 15px;
+nav ul li {
+  margin: 0 16px;
+}
+
+nav ul li a {
+  color: #fff;
   text-decoration: none;
   font-weight: bold;
 }
 
-.donate-button {
-  background-color: #fff;
-  color: #007bff;
-  padding: 8px 12px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-h1 {
+.section {
+  padding: 80px 20px;
   text-align: center;
-  font-size: 2em;
-  margin-top: 80px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-h2 {
-  text-align: center;
-  font-size: 1.8em;
-  margin: 50px 0 20px;
-}
-
-section {
-  padding: 40px 20px;
-  max-width: 800px;
-  margin: auto;
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .feature-box {
-  background: #f8f9fa;
-  padding: 20px;
-  margin: 10px 0;
-  border-radius: 10px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s ease;
-}
-
-.feature-box:hover {
-  transform: translateY(-5px);
-}
-
-.chatbox {
-  text-align: center;
-  background: #f1f1f1;
+  background-color: #f7f7f7;
   margin: 20px auto;
   padding: 20px;
+  width: 90%;
   max-width: 600px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+button,
+.donate-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+button:hover,
+.donate-button:hover {
+  background-color: #0056b3;
+}
+
+#chatContainer {
+  margin-top: 20px;
+  background: #f3f3f3;
+  padding: 20px;
   border-radius: 10px;
-  transition: opacity 0.3s ease;
+  width: 90%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hidden {
   display: none;
 }
 
-button {
-  background: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  margin: 10px;
-  border-radius: 6px;
-  cursor: pointer;
+.prompt-buttons {
+  margin-bottom: 10px;
 }
 
-button:hover {
-  opacity: 0.9;
-}
-
-form input[type="email"] {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-  margin-right: 10px;
-}
-
-form button {
-  padding: 10px 20px;
+.prompt-buttons button {
+  margin: 4px;
 }
 
 footer {
-  text-align: center;
-  background: #007bff;
+  background-color: #007bff;
   color: white;
-  padding: 10px;
+  text-align: center;
+  padding: 14px 0;
   margin-top: 40px;
-}
-
-.fade-section {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 1s ease, transform 1s ease;
-}
-
-.fade-section.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
