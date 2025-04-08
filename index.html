@@ -4,32 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fly Buddy AI</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-
-  <!-- Navigation -->
-  <nav>
-    <a href="#home">Home</a>
-    <a href="#features">Features</a>
-    <a href="#waitlist">Waitlist</a>
-    <a href="#contact">Contact</a>
-    <a href="#donate" class="btn btn-donate">Donate Now</a>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="home" class="section">
-    <h1 class="glow">Your AI Copilot — Always Ready.</h1>
-    <p class="tagline">Revolutionizing aviation with AI-powered flight assistance.</p>
-    <div class="buttons">
-      <button class="btn" onclick="toggleChat()">Test Fly Buddy</button>
+  <header class="navbar">
+    <div class="nav-container">
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#waitlist">Waitlist</a>
+        <a href="#contact">Contact</a>
+        <a href="https://buy.stripe.com/9AQdRz88wb8m05a8ww" class="donate-button">Donate Now</a>
+      </nav>
     </div>
+  </header>
+
+  <section id="home" class="fade-section">
+    <h1>Your AI Copilot — Always Ready.</h1>
+    <p>Revolutionizing aviation with AI-powered flight assistance.</p>
+    <button id="toggleChat">Test Fly Buddy</button>
   </section>
 
-  <!-- Features Section -->
-  <section id="features" class="section">
+  <div class="chatbox hidden" id="chatbox">
+    <strong>Fly Buddy AI:</strong> How can I help you today?
+    <div class="prompts">
+      <button onclick="handlePrompt('How do I plan a flight route?')">How do I plan a flight route?</button>
+      <button onclick="handlePrompt('What if I lose radio contact?')">What if I lose radio contact?</button>
+      <button onclick="handlePrompt('How do I calculate fuel?')">How do I calculate fuel?</button>
+      <button onclick="handlePrompt('How do I handle a bird strike?')">How do I handle a bird strike?</button>
+    </div>
+    <div id="chatResponse"></div>
+    <input type="text" placeholder="Type your message..." />
+  </div>
+
+  <section id="features" class="fade-section">
     <h2>Key Features</h2>
-    <div class="feature-box">
+    <div class="feature-box"> 
       <h3>Voice-Activated Emergency Help</h3>
       <p>Say “Mayday” and Fly Buddy immediately offers calm step-by-step voice guidance.</p>
     </div>
@@ -47,43 +57,22 @@
     </div>
   </section>
 
-  <!-- Waitlist Section -->
-  <section id="waitlist" class="section">
+  <section id="waitlist" class="fade-section">
     <h2>Join the Waitlist</h2>
     <p>Be part of the aviation revolution. Limited beta spots available.</p>
-    <form id="waitlist-form">
-      <input type="email" id="emailInput" placeholder="Enter your email" required />
-      <button class="btn" type="submit">Join Now</button>
+    <form action="https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+      <input type="email" name="entry.YOUR_ENTRY_ID" placeholder="Enter your email" required>
+      <button type="submit">Join Now</button>
     </form>
-    <div id="successMessage"></div>
+    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){alert('Welcome aboard, Captain!')}"></iframe>
   </section>
 
-  <!-- Chat Box -->
-  <section id="chat-container" class="chat-box">
-    <h2>Fly Buddy AI</h2>
-    <div id="chatBox">
-      <p><strong>Fly Buddy AI:</strong> Hello, Captain! How can I help you?</p>
-    </div>
-    <div class="chat-input">
-      <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
-      <button onclick="sendMessage()">Send</button>
-    </div>
-    <div id="quick-questions">
-      <button onclick="quickQuestion('Plan my flight from JFK to LAX')">Plan my flight from JFK to LAX</button>
-      <button onclick="quickQuestion('Mayday! Engine failure at 10,000 ft')">Mayday! Engine failure</button>
-      <button onclick="quickQuestion('What’s the METAR for KATL?')">METAR for KATL</button>
-      <button onclick="quickQuestion('Explain how a jet engine works')">How does a jet engine work?</button>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="section">
+  <section id="contact" class="fade-section">
     <h2>Contact</h2>
     <p>Email: flybuddyai@gmail.com</p>
     <p>Instagram: @flybuddyai</p>
   </section>
 
-  <!-- Footer -->
   <footer>
     <p>© 2025 Fly Buddy. All rights reserved.</p>
   </footer>
