@@ -4,75 +4,73 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Fly Buddy AI</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#waitlist">Waitlist</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#waitlist">Waitlist</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-  <section class="section fade" id="home">
+  <section id="home" class="section fade-in">
     <h1>Your AI Copilot — Always Ready.</h1>
     <p>Revolutionizing aviation with AI-powered flight assistance.</p>
-    <button onclick="toggleChatBox()">Test Fly Buddy</button>
-    <div id="chatBox" class="chat-box hidden">
-      <p><strong>Fly Buddy AI:</strong> How can I help you today?</p>
+    <button id="toggleChat">Test Fly Buddy</button>
+    <div id="chatContainer" class="chat-container">
+      <h3>Fly Buddy AI: How can I help you today?</h3>
       <div class="prompt-buttons">
-        <button onclick="handlePrompt('How do I plan a flight route?')">How do I plan a flight route?</button>
-        <button onclick="handlePrompt('What if I lose radio contact?')">What if I lose radio contact?</button>
-        <button onclick="handlePrompt('How do I calculate fuel?')">How do I calculate fuel?</button>
-        <button onclick="handlePrompt('How do I handle a bird strike?')">How do I handle a bird strike?</button>
+        <button onclick="askFlyBuddy('How do I plan a flight route?')">How do I plan a flight route?</button>
+        <button onclick="askFlyBuddy('What if I lose radio contact?')">What if I lose radio contact?</button>
+        <button onclick="askFlyBuddy('How do I calculate fuel?')">How do I calculate fuel?</button>
+        <button onclick="askFlyBuddy('How do I handle a bird strike?')">How do I handle a bird strike?</button>
       </div>
-      <div id="chatResponse" class="chat-response"></div>
-      <input type="text" placeholder="Type your message..." />
+      <input type="text" id="chatInput" placeholder="Type your message...">
+      <div id="chatResponse"></div>
     </div>
   </section>
 
-  <section class="section fade" id="features">
+  <section id="features" class="section fade-in">
     <h2>Key Features</h2>
     <div class="feature-box">
       <h3>Voice-Activated Emergency Help</h3>
-      <p>Say “Mayday” and Fly Buddy immediately offers calm, step-by-step voice guidance, helping you manage any airborne crisis safely and efficiently.</p>
+      <p>Say “Mayday” and Fly Buddy immediately offers calm step-by-step voice guidance to manage airborne crises.</p>
     </div>
     <div class="feature-box">
       <h3>Live Weather & NOTAM Integration</h3>
-      <p>Stay ahead with real-time weather and NOTAM updates directly in your cockpit to enhance situational awareness and safety.</p>
+      <p>Get real-time updates on weather and NOTAMs directly in your cockpit to improve situational awareness and safety.</p>
     </div>
     <div class="feature-box">
       <h3>AI-Enhanced Decision Support</h3>
-      <p>Fly Buddy recommends safe diversions, optimal flight paths, fuel-saving tweaks, and turbulence avoidance to improve your overall efficiency.</p>
+      <p>Fly Buddy suggests diversion airports, tweaks for fuel efficiency, and routes to avoid turbulence using AI insights.</p>
     </div>
     <div class="feature-box">
       <h3>Pilot Stress Reduction System</h3>
-      <p>Our calm, conversational AI copilot helps keep you focused and composed during stressful flights — like a second brain in the cockpit.</p>
+      <p>A calm, conversational AI copilot that keeps you focused — like a second brain in the cockpit.</p>
     </div>
   </section>
 
-  <section class="section fade" id="donate">
+  <section id="donate" class="section fade-in">
     <h2>Support the Mission</h2>
-    <p>Your donations help us bring Fly Buddy to every cockpit worldwide. Every contribution helps us train, test, and deliver our AI to more pilots.</p>
+    <p>Your donations help us bring Fly Buddy to every cockpit worldwide.</p>
     <a href="https://buy.stripe.com/9AQdRz88wb8m05a8ww" class="donate-button">Donate Now</a>
   </section>
 
-  <section class="section fade" id="waitlist">
+  <section id="waitlist" class="section fade-in">
     <h2>Join the Waitlist</h2>
     <p>Be part of the aviation revolution. Limited beta spots available.</p>
-    <form id="waitlist-form">
-      <input type="email" id="email" placeholder="Enter your email" required />
+    <form name="submit-to-google-sheet">
+      <input type="email" name="Email" placeholder="Enter your email" required>
       <button type="submit">Join Now</button>
-      <p id="confirmation" style="display: none;">Thank you for joining the future of aviation.</p>
     </form>
+    <span id="form-response"></span>
   </section>
 
-  <section class="section fade" id="contact">
+  <section id="contact" class="section fade-in">
     <h2>Contact</h2>
     <p>Email: flybuddyai@gmail.com</p>
     <p>Instagram: @flybuddyai</p>
@@ -81,5 +79,23 @@
   <footer>
     <p>© 2025 Fly Buddy. All rights reserved.</p>
   </footer>
+
+  <script>
+    const form = document.forms['submit-to-google-sheet'];
+    const responseMsg = document.getElementById('form-response');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      fetch('https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec', {
+        method: 'POST',
+        body: new FormData(form)
+      })
+        .then(res => {
+          responseMsg.textContent = "Welcome to the future of aviation.";
+          form.reset();
+        })
+        .catch(err => console.error('Error!', err.message));
+    });
+  </script>
 </body>
 </html>
