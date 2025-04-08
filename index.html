@@ -4,70 +4,77 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Fly Buddy AI</title>
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="navbar">
-    <div class="nav-container">
-      <nav>
-        <a href="#home">Home</a>
-        <a href="#features">Features</a>
-        <a href="#waitlist">Waitlist</a>
-        <a href="#contact">Contact</a>
-        <a href="https://buy.stripe.com/9AQdRz88wb8m05a8ww" class="donate-button">Donate Now</a>
-      </nav>
-    </div>
-  </header>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#waitlist">Waitlist</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-  <section id="home" class="fade-section">
+  <section id="home" class="section">
     <h1>Your AI Copilot — Always Ready.</h1>
     <p>Revolutionizing aviation with AI-powered flight assistance.</p>
     <button id="toggleChat">Test Fly Buddy</button>
+
+    <div id="chatContainer" class="hidden">
+      <h3>Fly Buddy AI: How can I help you today?</h3>
+      <div class="prompt-buttons">
+        <button onclick="sendPrompt('How do I plan a flight route?')">How do I plan a flight route?</button>
+        <button onclick="sendPrompt('What if I lose radio contact?')">What if I lose radio contact?</button>
+        <button onclick="sendPrompt('How do I calculate fuel?')">How do I calculate fuel?</button>
+        <button onclick="sendPrompt('How do I handle a bird strike?')">How do I handle a bird strike?</button>
+      </div>
+      <input type="text" id="userMessage" placeholder="Type your message..." />
+      <div id="chatResponse"></div>
+    </div>
   </section>
 
-  <div class="chatbox hidden" id="chatbox">
-    <strong>Fly Buddy AI:</strong> How can I help you today?
-    <div class="prompts">
-      <button onclick="handlePrompt('How do I plan a flight route?')">How do I plan a flight route?</button>
-      <button onclick="handlePrompt('What if I lose radio contact?')">What if I lose radio contact?</button>
-      <button onclick="handlePrompt('How do I calculate fuel?')">How do I calculate fuel?</button>
-      <button onclick="handlePrompt('How do I handle a bird strike?')">How do I handle a bird strike?</button>
-    </div>
-    <div id="chatResponse"></div>
-    <input type="text" placeholder="Type your message..." />
-  </div>
-
-  <section id="features" class="fade-section">
+  <section id="features" class="section">
     <h2>Key Features</h2>
+
     <div class="feature-box"> 
       <h3>Voice-Activated Emergency Help</h3>
       <p>Say “Mayday” and Fly Buddy immediately offers calm step-by-step voice guidance.</p>
     </div>
+
     <div class="feature-box">
       <h3>Live Weather & NOTAM Integration</h3>
       <p>Smart flight planning with real-time updates to improve situational awareness.</p>
     </div>
+
     <div class="feature-box">
       <h3>AI-Enhanced Decision Support</h3>
       <p>Fly Buddy suggests safe diversion airports, fuel efficiency tweaks, and turbulence avoidance.</p>
     </div>
+
     <div class="feature-box">
       <h3>Pilot Stress Reduction System</h3>
       <p>A calm, conversational AI copilot that keeps you focused — like a second brain in the cockpit.</p>
     </div>
   </section>
 
-  <section id="waitlist" class="fade-section">
-    <h2>Join the Waitlist</h2>
-    <p>Be part of the aviation revolution. Limited beta spots available.</p>
-    <form action="https://docs.google.com/forms/d/e/YOUR_FORM_ID/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
-      <input type="email" name="entry.YOUR_ENTRY_ID" placeholder="Enter your email" required>
-      <button type="submit">Join Now</button>
-    </form>
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted){alert('Welcome aboard, Captain!')}"></iframe>
+  <section id="donate" class="section">
+    <h2>Support the Mission</h2>
+    <p>Your donations help us bring Fly Buddy to every cockpit worldwide.</p>
+    <a href="https://buy.stripe.com/9AQdRz88wb8m05a8ww" class="donate-button">Donate Now</a>
   </section>
 
-  <section id="contact" class="fade-section">
+  <section id="waitlist" class="section">
+    <h2>Join the Waitlist</h2>
+    <p>Be part of the aviation revolution. Limited beta spots available.</p>
+    <form id="waitlistForm" onsubmit="return handleFormSubmit()">
+      <input type="email" id="emailInput" placeholder="Enter your email" required />
+      <button type="submit">Join Now</button>
+    </form>
+    <p id="confirmationMessage"></p>
+  </section>
+
+  <section id="contact" class="section">
     <h2>Contact</h2>
     <p>Email: flybuddyai@gmail.com</p>
     <p>Instagram: @flybuddyai</p>
