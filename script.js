@@ -1,46 +1,42 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const sections = document.querySelectorAll(".section");
+// Fade in sections on scroll
+const sections = document.querySelectorAll('.section');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
 
-  const reveal = () => {
-    const triggerBottom = window.innerHeight * 0.85;
+sections.forEach(section => {
+  observer.observe(section);
+});
 
-    sections.forEach(section => {
-      const sectionTop = section.getBoundingClientRect().top;
+// Chat functionality
+function toggleChat() {
+  const chat = document.getElementById('chatBox');
+  chat.classList.toggle('hidden');
+  document.getElementById('responseText').textContent = '';
+}
 
-      if (sectionTop < triggerBottom) {
-        section.classList.add("visible");
-      }
-    });
-  };
+function showResponse(message) {
+  document.getElementById('responseText').textContent = 'Fly Buddy AI Response: ' + message;
+}
 
-  window.addEventListener("scroll", reveal);
-  reveal();
+// Waitlist form submission
+document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const email = document.getElementById('email').value;
 
-  // Toggle AI Chat
-  const toggleChatBtn = document.getElementById("toggleChat");
-  const chatBox = document.getElementById("chatBox");
-
-  toggleChatBtn.addEventListener("click", () => {
-    chatBox.classList.toggle("hidden");
+  fetch('https://script.google.com/macros/s/YOUR_GOOGLE_SCRIPT_ID/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: `email=${encodeURIComponent(email)}`,
   });
 
-  // Waitlist form
-  window.submitWaitlist = function (event) {
-    event.preventDefault();
-    const email = document.getElementById("emailInput").value;
-    const response = document.getElementById("form-response");
-
-    if (email) {
-      fetch("https://script.google.com/macros/s/YOUR_GOOGLE_APPS_SCRIPT_ID/exec", {
-        method: "POST",
-        body: JSON.stringify({ email }),
-        headers: { "Content-Type": "application/json" }
-      }).then(() => {
-        response.classList.remove("hidden");
-      }).catch(() => {
-        response.textContent = "Something went wrong. Please try again.";
-        response.classList.remove("hidden");
-      });
-    }
-  };
+  document.getElementById('thankYouMessage').classList.remove('hidden');
+  document.getElementById('email').value = '';
 });
