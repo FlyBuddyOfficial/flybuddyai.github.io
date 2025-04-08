@@ -1,24 +1,46 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
+document.addEventListener("DOMContentLoaded", function () {
+  const sections = document.querySelectorAll(".section");
+
+  const reveal = () => {
+    const triggerBottom = window.innerHeight * 0.85;
+
+    sections.forEach(section => {
+      const sectionTop = section.getBoundingClientRect().top;
+
+      if (sectionTop < triggerBottom) {
+        section.classList.add("visible");
       }
     });
-  }, { threshold: 0.1 });
+  };
 
-  document.querySelectorAll(".fade-in").forEach(section => {
-    observer.observe(section);
+  window.addEventListener("scroll", reveal);
+  reveal();
+
+  // Toggle AI Chat
+  const toggleChatBtn = document.getElementById("toggleChat");
+  const chatBox = document.getElementById("chatBox");
+
+  toggleChatBtn.addEventListener("click", () => {
+    chatBox.classList.toggle("hidden");
   });
 
-  const tryBtn = document.getElementById("tryBtn");
-  const chatBox = document.getElementById("chat-box");
+  // Waitlist form
+  window.submitWaitlist = function (event) {
+    event.preventDefault();
+    const email = document.getElementById("emailInput").value;
+    const response = document.getElementById("form-response");
 
-  tryBtn.addEventListener("click", () => {
-    if (chatBox.style.display === "block") {
-      chatBox.style.display = "none";
-    } else {
-      chatBox.style.display = "block";
+    if (email) {
+      fetch("https://script.google.com/macros/s/YOUR_GOOGLE_APPS_SCRIPT_ID/exec", {
+        method: "POST",
+        body: JSON.stringify({ email }),
+        headers: { "Content-Type": "application/json" }
+      }).then(() => {
+        response.classList.remove("hidden");
+      }).catch(() => {
+        response.textContent = "Something went wrong. Please try again.";
+        response.classList.remove("hidden");
+      });
     }
-  });
+  };
 });
