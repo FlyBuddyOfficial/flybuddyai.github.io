@@ -1,40 +1,60 @@
-let submitted = false;
-
-const toggleBtn = document.getElementById('toggleChat');
-const chatbox = document.getElementById('chatbox');
-const chatResponse = document.getElementById('chatResponse');
-
-toggleBtn.addEventListener('click', () => {
-  chatbox.classList.toggle('hidden');
-});
-
-function handlePrompt(prompt) {
-  let response = '';
-  if (prompt === 'How do I plan a flight route?') {
-    response = "Start by checking weather and NOTAMs, then select your route with optimal fuel and alternates.";
-  } else if (prompt === 'What if I lose radio contact?') {
-    response = "Use transponder code 7600 and follow lost communication procedures.";
-  } else if (prompt === 'How do I calculate fuel?') {
-    response = "Use burn rate × estimated flight time, plus reserves and alternate fuel.";
-  } else if (prompt === 'How do I handle a bird strike?') {
-    response = "Maintain control, assess damage, communicate with ATC, and prepare for landing.";
-  }
-  chatResponse.innerText = "Fly Buddy AI: " + response;
-}
-
-// Fade in sections on scroll
-const fadeSections = document.querySelectorAll('.fade-section');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
+// Reveal sections on scroll
+const sections = document.querySelectorAll('.section');
+window.addEventListener('scroll', () => {
+  sections.forEach((sec) => {
+    const top = window.scrollY;
+    const offset = sec.offsetTop - 300;
+    const height = sec.offsetHeight;
+    if (top > offset && top < offset + height) {
+      sec.classList.add('visible');
     }
   });
-}, {
-  threshold: 0.1
 });
 
-fadeSections.forEach(section => {
-  observer.observe(section);
+// Toggle Chat
+const toggleChatBtn = document.getElementById('toggleChat');
+const chatBox = document.getElementById('chatContainer');
+toggleChatBtn.addEventListener('click', () => {
+  chatBox.classList.toggle('hidden');
 });
+
+// Simulate AI responses
+function sendPrompt(text) {
+  const responseBox = document.getElementById('chatResponse');
+  let response = '';
+
+  if (text.includes('flight route')) {
+    response = 'Start by checking weather and NOTAMs, then select your route with optimal fuel and alternates.';
+  } else if (text.includes('radio contact')) {
+    response = 'Follow lost comms procedure: switch to 7600 and follow last clearance.';
+  } else if (text.includes('calculate fuel')) {
+    response = 'Calculate based on distance, weather, alternate requirements, and taxi fuel.';
+  } else if (text.includes('bird strike')) {
+    response = 'Maintain control, assess damage, and return to the nearest safe airport if needed.';
+  } else {
+    response = 'Let me look into that...';
+  }
+
+  responseBox.innerText = `Fly Buddy AI: ${response}`;
+}
+
+// Google Sheet form handler
+function handleFormSubmit() {
+  const emailInput = document.getElementById("emailInput");
+  const email = emailInput.value;
+
+  fetch("https://script.google.com/macros/s/YOUR_DEPLOYED_SCRIPT_URL/exec", {
+    method: "POST",
+    body: new URLSearchParams({ email: email }),
+  })
+    .then((res) => res.text())
+    .then(() => {
+      document.getElementById("confirmationMessage").innerText = "You're on the list, Captain!";
+      emailInput.value = "";
+    })
+    .catch(() => {
+      document.getElementById("confirmationMessage").innerText = "There was an error. Please try again.";
+    });
+
+  return false;
+}
