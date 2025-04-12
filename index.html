@@ -2,80 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fly Buddy AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fly Buddy</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <nav class="navbar">
-    <a href="#home">Home</a>
-    <a href="#about">What is Fly Buddy?</a>
-    <a href="#features">Features</a>
-    <a href="#waitlist">Waitlist</a>
-    <a href="#contact">Contact</a>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">What is Fly Buddy?</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#waitlist">Waitlist</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
 
-  <section id="home" class="section fade-in">
-    <h1>Your AI Copilot – Always Ready.</h1>
+  <section id="home" class="fade-section">
+    <h1>Your AI Copilot — Always Ready.</h1>
     <p>Revolutionizing aviation with AI-powered flight assistance.</p>
-    <button onclick="toggleChat()" class="centered-btn">Test Fly Buddy</button>
-    <div id="chat-container" class="chat hidden">
+    <button id="chatToggle">Test Fly Buddy</button>
+
+    <div class="chat-box" id="chatBox">
       <p><strong>Fly Buddy AI:</strong> How can I help you today?</p>
-      <div class="prompt-btns">
-        <button onclick="respond('How do I plan a flight route?')">How do I plan a flight route?</button>
-        <button onclick="respond('What if I lose radio contact?')">What if I lose radio contact?</button>
-        <button onclick="respond('How do I calculate fuel?')">How do I calculate fuel?</button>
-        <button onclick="respond('How do I handle a bird strike?')">How do I handle a bird strike?</button>
+      <div class="prompt-buttons">
+        <button>How do I plan a flight route?</button>
+        <button>What if I lose radio contact?</button>
+        <button>How do I calculate fuel?</button>
+        <button>How do I handle a bird strike?</button>
       </div>
       <input type="text" placeholder="Type your message..." />
-      <div id="chat-response" class="response-box"></div>
     </div>
   </section>
 
-  <section id="about" class="section fade-in">
+  <section id="about" class="fade-section">
     <h2>What is Fly Buddy?</h2>
     <p>Fly Buddy is the world’s first AI Copilot designed to bring peace of mind into every cockpit. It assists pilots by monitoring real-time weather, emergencies, fuel calculations, and complex decisions — all through a calm, conversational interface. It’s always learning, always alert, and always ready to guide pilots through every situation with confidence. No internet? No problem. Fly Buddy supports offline voice checklists and emergency guidance too.</p>
   </section>
 
-  <section id="features" class="section fade-in">
+  <section id="features" class="fade-section">
     <h2>Key Features</h2>
-    <div class="features-grid">
-      <div class="feature-box">
-        <h3>Voice-Activated Emergency Help</h3>
-        <p>Say “Mayday” and Fly Buddy immediately offers calm step-by-step voice guidance to manage airborne crises — no need to fumble with controls in critical moments.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Live Weather & NOTAM Integration</h3>
-        <p>Get real-time updates on weather and NOTAMs delivered directly in your cockpit — keeping you ahead of turbulence, airspace restrictions, and airport changes.</p>
-      </div>
-      <div class="feature-box">
-        <h3>AI-Enhanced Decision Support</h3>
-        <p>Fly Buddy suggests safe alternate airports, fuel-saving adjustments, and smart reroutes using aviation-grade AI — boosting efficiency and flight safety.</p>
-      </div>
-      <div class="feature-box">
-        <h3>Pilot Stress Reduction System</h3>
-        <p>Designed like a second brain in the cockpit, Fly Buddy helps you stay calm, alert, and focused — whether you’re managing a storm or a routine route.</p>
-      </div>
+    <div class="feature-box">
+      <h3>Voice-Activated Emergency Help</h3>
+      <p>Say “Mayday” and Fly Buddy immediately offers calm step-by-step voice guidance to manage airborne crises — no need to fumble with controls in critical moments.</p>
+    </div>
+    <div class="feature-box">
+      <h3>Live Weather & NOTAM Integration</h3>
+      <p>Get real-time updates on weather and NOTAMs delivered directly in your cockpit — keeping you ahead of turbulence, airspace restrictions, and airport changes.</p>
+    </div>
+    <div class="feature-box">
+      <h3>AI-Enhanced Decision Support</h3>
+      <p>Fly Buddy suggests safe alternate airports, fuel-saving adjustments, and smart reroutes using aviation-grade AI — boosting efficiency and flight safety.</p>
+    </div>
+    <div class="feature-box">
+      <h3>Pilot Stress Reduction System</h3>
+      <p>Designed like a second brain in the cockpit, Fly Buddy helps you stay calm, alert, and focused — whether you’re managing a storm or a routine route.</p>
     </div>
   </section>
 
-  <section id="waitlist" class="section fade-in">
+  <section id="waitlist" class="fade-section">
     <h2>Join the Waitlist</h2>
     <p>Be part of the aviation revolution. Limited beta spots available.</p>
-    <form id="waitlist-form" class="waitlist-form">
-      <input type="email" placeholder="Enter your email" required />
-      <button type="submit">Join Now</button>
-    </form>
-    <p id="thank-you-message"></p>
+    <input type="email" placeholder="Enter your email" />
+    <button onclick="showThankYou()">Join Now</button>
+    <p id="thankYouMsg" class="hidden">Thank you for joining the future of aviation!</p>
   </section>
 
-  <section id="contact" class="section fade-in">
+  <section id="contact" class="fade-section">
     <h2>Contact</h2>
     <p>Email: flybuddyai@gmail.com</p>
     <p>Instagram: @flybuddyai</p>
+
     <h3>Support the Mission</h3>
     <p>Your donations help us bring Fly Buddy to every cockpit in the world. Every dollar contributes to safety, training, and access for pilots everywhere.</p>
-    <a class="donate-button" href="#">Donate Now</a>
+    <a href="#" class="donate-button">Donate Now</a>
   </section>
 
   <footer>
