@@ -1,36 +1,20 @@
-// Reveal on scroll
-const sections = document.querySelectorAll('.section');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, {
-  threshold: 0.2
-});
-
-sections.forEach(section => {
-  observer.observe(section);
-});
-
-// Chat toggle
 function toggleChat() {
-  const chat = document.getElementById('chat-container');
-  chat.classList.toggle('hidden');
+  const chatBox = document.getElementById("chatBox");
+  chatBox.style.display = chatBox.style.display === "none" ? "flex" : "none";
 }
 
-// Chat response
-function respond(message) {
-  const response = document.getElementById('ai-response');
-  response.textContent = `Fly Buddy AI Response: ${message}`;
-  response.classList.remove('hidden');
+function showResponse(message) {
+  const responseBox = document.getElementById("response");
+  responseBox.textContent = "Fly Buddy AI Response: " + message;
 }
 
-// Waitlist form handler
-const form = document.getElementById('waitlist-form');
-form.addEventListener('submit', e => {
-  e.preventDefault();
-  document.getElementById('thank-you').classList.remove('hidden');
-});
+function handleWaitlistSubmit(event) {
+  event.preventDefault();
+  document.getElementById("thankYouMsg").textContent = "Thank you for joining the future of aviation!";
+  event.target.reset();
+}
+
+// Hide chat box by default on load
+window.onload = function () {
+  document.getElementById("chatBox").style.display = "none";
+};
