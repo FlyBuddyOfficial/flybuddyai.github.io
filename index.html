@@ -25,12 +25,13 @@
     <div class="chat-box" id="chatBox">
       <p><strong>Fly Buddy AI:</strong> How can I help you today?</p>
       <div class="prompt-buttons">
-        <button>How do I plan a flight route?</button>
-        <button>What if I lose radio contact?</button>
-        <button>How do I calculate fuel?</button>
-        <button>How do I handle a bird strike?</button>
+        <button onclick="chatResponse('How do I plan a flight route?')">How do I plan a flight route?</button>
+        <button onclick="chatResponse('What if I lose radio contact?')">What if I lose radio contact?</button>
+        <button onclick="chatResponse('How do I calculate fuel?')">How do I calculate fuel?</button>
+        <button onclick="chatResponse('How do I handle a bird strike?')">How do I handle a bird strike?</button>
       </div>
       <input type="text" placeholder="Type your message..." />
+      <div id="chatReply"></div>
     </div>
   </section>
 
@@ -67,7 +68,7 @@
     <p id="thankYouMsg" class="hidden">Thank you for joining the future of aviation!</p>
   </section>
 
-  <section id="contact" class="fade-section" style="margin-top: 40px;">
+  <section id="contact" class="fade-section" style="margin-top: 80px;">
     <h2>Contact</h2>
     <p>Email: flybuddyai@gmail.com</p>
     <p>Instagram: @flybuddyai</p>
