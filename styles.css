@@ -95,6 +95,6 @@ footer {
 }
 
 #contact {
-  margin-top: 100px;         /* Space above contact section */
-  margin-bottom: 150px;      /* FINAL FIX — adds perfect space above Donate button */
+  margin-top: 100px;   /* Moves it up closer to Waitlist */
+  margin-bottom: 100px; /* Keeps it away from Donate */
 }
