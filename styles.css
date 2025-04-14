@@ -95,6 +95,5 @@ footer {
 }
 
 #contact {
-  margin-top: 100px;   /* Moves it up closer to Waitlist */
-  margin-bottom: 100px; /* Keeps it away from Donate */
+  margin-top: 60px;  /* Move contact section closer to waitlist */
 }
