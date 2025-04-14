@@ -94,7 +94,7 @@ footer {
   transform: translateY(0);
 }
 
-/* ADDED FIX: Match spacing between contact and donation to waitlist and features */
 #contact {
   margin-top: 100px;
+  margin-bottom: 80px; /* INCREASED SPACE BELOW CONTACT SECTION */
 }
