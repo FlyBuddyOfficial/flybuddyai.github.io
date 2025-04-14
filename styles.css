@@ -95,5 +95,5 @@ footer {
 }
 
 #contact {
-  margin-top: 60px;  /* Move contact section closer to waitlist */
+  margin-top: 120px; /* Balanced spacing to match distance above Waitlist */
 }
